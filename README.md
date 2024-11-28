@@ -11,7 +11,7 @@ The following guidelines are to be followed to ensure uniform coding standards a
 - tailwind integration has been pre setup
 - use either tailwind or module.css 
 - don't edit globals.css
-- CI/CD is configured for vercel host at updation of main branch
+- CI/CD is configured for github pages host at updation of main branch
 - associate every major branch with a github-issue
 - every branch should be named &lt;details&gt;-&lt;issueNo&gt;
     - eg: a branch for creating navbar would be navbar-1
