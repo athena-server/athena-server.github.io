@@ -113,3 +113,15 @@ const EgComponent = ({ // name this same as the folder
 export default EgComponent;
 ```
 
+## Authors
+- B21s
+    - [Diljith P D]()
+    - [Mayank Gupta]()
+- B22s
+    - [Jaefar Shameem]()
+    - [Nandana Anand]()
+    - [Naila Fathima]()
+    - [Vaishnavi Pai]()
+    - [Harshini Babu]()
+- B23s
+    - []()
