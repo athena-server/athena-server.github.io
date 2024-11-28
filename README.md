@@ -5,6 +5,7 @@ This repository contains the code to athena landing site
 - [main host](https://athena.nitc.ac.in)
 - [staging host](https://athena-server.github.io)
 - [figma file]()
+- [notion file](https://www.notion.so/Athena-Website-14ccd9f6060d80c5aceaff52e328a257)
 
 ## Developer guidelines
 The following guidelines are to be followed to ensure uniform coding standards amongst all team members
