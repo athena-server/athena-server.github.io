@@ -3,7 +3,7 @@ This repository contains the code to athena landing site
 
 ## Links
 - [main host](https://athena.nitc.ac.in)
-- [staging host]()
+- [staging host](https://athena-server.github.io)
 - [figma file]()
 
 ## Developer guidelines
