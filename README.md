@@ -14,10 +14,10 @@ The following guidelines are to be followed to ensure uniform coding standards a
 - don't edit globals.css
 - CI/CD is configured for github pages host at updation of main branch
 - associate every major branch with a github-issue
-- every branch should be named &lt;details&gt;-&lt;issueNo&gt;
+- every branch should be named &lt;issueNo&gt;-&lt;details&gt;
     - eg: a branch for creating navbar would be navbar-1
 - don't merge into main without review
-- follow naming schemes and folder structure as per [Directory Structure](#directory│structure)
+- follow naming schemes and folder structure as per [Directory Structure](#directory-structure)
 - use google fonts wherever possible else refer fonts folder for available fonts
 
 
@@ -52,6 +52,37 @@ athena/
     └── types.ts                    # (optional) any type that might be reused in multiple pages, add here
 ```
  
+## Important GIT commands
+
+### Start working on a separate branch
+- It is recommended to work on a separate branch to avoid conflicts with other contributors
+- Every task that will be assigned will be added to the [github issues page](https://github.com/athena-server/athena-server.github.io/issues)
+- An example issue is given here: [Issue #1: Home page](https://github.com/athena-server/athena-server.github.io/issues/1)
+- The issue is linked to the branch [1-home-page](https://github.com/athena-server/athena-server.github.io/tree/1-home-page)
+- The issue is also `assigned` to the person who will be responsible for that page / part of the page.
+- follow the steps to start working on the branch
+```bash
+git fetch
+git pull
+git checkout 1-home-page
+```
+
+### While working
+- do `git pull` before you start any coding session, in case someone else has made any important changes in your branch
+- after every coding session, do:
+```bash
+git add .
+git commit -m "<short sentence on what changes you have done>"
+git push
+```
+
+### Once code is ready to be merged
+- ensure that `git push` has been ran 
+- create a pull request from github via [this page](https://github.com/athena-server/athena-server.github.io/pulls)
+- make the pull request from `<your-branch>` --> `main`
+- assign someone as a reviewer
+- DO NOT: merge at this stage
+
 
 ## Examples
 
@@ -116,13 +147,15 @@ export default EgComponent;
 
 ## Authors
 - B21s
-    - [Diljith P D]()
-    - [Mayank Gupta]()
+    - [Diljith P D](https://github.com/th3bossc/)
+    - [Mayank Gupta](https://github.com/71203mayank)
 - B22s
-    - [Jaefar Shameem]()
-    - [Nandana Anand]()
-    - [Naila Fathima]()
-    - [Vaishnavi Pai]()
-    - [Harshini Babu]()
+    - [Jaefar Shameem](https://github.com/jaefarnc)
+    - [Nandana Anand](https://github.com/Nandana-Neo)
+    - [Naila Fathima](https://github.com/NailaFathima)
+    - [Vaishnavi Pai](https://github.com/orgs/athena-server/people/Vaishnavi-Pai19)
+    - [Harshini Babu](https://github.com/orgs/athena-server/people/harshfromnow)
 - B23s
-    - []()
+    - [Mihir P A](https://github.com/orgs/athena-server/people/mihirpa18)
+    - [Lishin V S](https://github.com/Ellvius)
+    - [Anirudh N Kamath](https://github.com/anirudhnkamath)
