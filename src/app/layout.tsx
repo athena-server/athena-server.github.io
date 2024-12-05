@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { geistSans, geistMono } from "@/fonts";
 import "./globals.css"
+import PageWrapper from "@/components/Container";
 
 
 export const metadata: Metadata = {

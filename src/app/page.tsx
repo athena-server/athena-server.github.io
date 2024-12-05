@@ -1,8 +1,12 @@
+import Container from "@/components/Container";
+
 const Page = () => {
     return (
-        <div className="h-screen w-screen flex items-center justify-center">
-            Athena
-        </div>
+        <Container>
+            <div className="h-screen w-full flex items-center justify-center">
+                Athena
+            </div>
+        </Container>
     );
 }
 

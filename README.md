@@ -21,6 +21,19 @@ The following guidelines are to be followed to ensure uniform coding standards a
 - use google fonts wherever possible else refer fonts folder for available fonts
 
 
+
+## Handling Mobile View
+The configured media query constants for tailwind are given below. Even when use modular css, don't make use of any other media query values except the ones below.
+```js
+xs: '480px',  // Custom breakpoint for extra small screens
+sm: '600px',  // Change the default sm size
+md: '800px',  // Change the default md size
+lg: '1080px', // Change the default lg size
+xl: '1440px', // Change the default xl size
+2xl: '1920px', // Change the default 2xl size
+```
+
+
 ## Directory Structure
 ```plaintext
 athena/
@@ -88,11 +101,12 @@ git push
 
 ### Routes
 - use lowercase letters with dashes
-```ts
+```tsx
 filePath: 'src/app/example-route/page.tsx'
 
 'use client' // add directive for client-side rendering
 import EgComponent from '@/components/EgComponent';
+import Container from '@/components/Container';
 const Page = () => {
 
     const buttonHandler = useCallback(() => {
@@ -104,9 +118,11 @@ const Page = () => {
     }, [/* dependencies */]);
 
     return (
-        <EgComponent 
-            {...props}
-        />
+        <Container>
+            <EgComponent 
+                {...props}
+            />
+        </Container>
     )
 }
 
@@ -114,7 +130,7 @@ export default Page;
 ```
 
 ### Components
-```ts
+```tsx
 filePath: 'src/components/EgComponent/index.tsx'
 
 import styles from './styles.module.css';
