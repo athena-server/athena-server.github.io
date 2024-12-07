@@ -1,14 +1,6 @@
 'use client';
 import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion'
-import { ReactNode } from 'react';
-
-
-export interface ContainerProps {
-    children: ReactNode
-    className?: string
-    disableAnimation?: boolean
-};
-
+import { ReactNode, useMemo } from 'react';
 
 /**
  * Wraps around the page to provide a consistent layout to all the pages.
@@ -25,20 +17,24 @@ const Container = ({
     children,
     className,
     disableAnimation = true,
-}: ContainerProps) => {
-    const containerClass = `w-screen overflow-x-hidden min-h-screen h-full flex items-center justify-center sm:p-4 md:py-8 md:px-16 ${className}`
-    const containerProps: HTMLMotionProps<'div'> =
+}: ContainerProps): JSX.Element => {
+    const containerClass = useMemo(() => `w-screen overflow-x-hidden min-h-screen h-full flex items-center justify-center sm:p-4 md:py-8 md:px-16 ${className}`, [className]);
+    const containerProps: HTMLMotionProps<'div'> = useMemo(() =>
         disableAnimation
             ? {
                 className: containerClass,
             }
             : {
                 className: containerClass,
-                initial: { position: 'absolute', opacity: 0, y: -10 },
-                animate: { position: 'relative', opacity: 1, y: 0 },
-                exit: { position: 'absolute', opacity: 0, y: 10 },
+                initial: { position: 'absolute', opacity: 0 },
+                animate: { position: 'relative', opacity: 1 },
+                exit: { position: 'absolute', opacity: 0 },
                 transition: { duration: 0.3, type: "tween" },
             }
+        , [disableAnimation, containerClass]);
+
+
+
 
     return (
         <AnimatePresence>
@@ -51,4 +47,11 @@ const Container = ({
     )
 }
 
+
+
 export default Container;
+export interface ContainerProps {
+    children: ReactNode
+    className?: string
+    disableAnimation?: boolean
+};
