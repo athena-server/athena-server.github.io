@@ -10,8 +10,7 @@
 
 body {
   color: white;
-  background: #111;
-  font-family: Arial, Helvetica, sans-serif;
+  background: rgba(14, 14, 16, 1);
 }
 
 ::-webkit-scrollbar {

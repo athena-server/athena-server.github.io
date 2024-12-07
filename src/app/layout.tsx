@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { geistSans, geistMono } from "@/fonts";
+import { inter } from "@/fonts";
 import "./globals.css"
 import PageWrapper from "@/components/Container";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 
 export const metadata: Metadata = {
@@ -17,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.className} antialiased`}
       >
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

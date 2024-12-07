@@ -3,10 +3,17 @@ import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion'
 import { ReactNode } from 'react';
 
 
+export interface ContainerProps {
+    children: ReactNode
+    className?: string
+    disableAnimation?: boolean
+};
+
+
 /**
  * Wraps around the page to provide a consistent layout to all the pages.
  *
- * @param {Object} props - The props for the Container component.
+ * @param {ContainerProps} props - The props for the Container component.
  * @param {React.ReactNode} props.children - Contents of the page.
  * @param {string} [props.className] - Additional classes to be added to the container (optional).
  * @param {boolean} [props.disableAnimation] - Disables the page transition animation (optional).
@@ -17,13 +24,9 @@ import { ReactNode } from 'react';
 const Container = ({
     children,
     className,
-    disableAnimation,
-}: {
-    children: ReactNode
-    className?: string
-    disableAnimation?: boolean
-}) => {
-    const containerClass = `w-screen overflow-x-hidden min-h-screen h-full flex items-center justify-center sm:p-2 md:p-5 ${className}`
+    disableAnimation = true,
+}: ContainerProps) => {
+    const containerClass = `w-screen overflow-x-hidden min-h-screen h-full flex items-center justify-center sm:p-4 md:py-8 md:px-16 ${className}`
     const containerProps: HTMLMotionProps<'div'> =
         disableAnimation
             ? {
