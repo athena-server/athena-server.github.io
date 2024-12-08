@@ -1,0 +1,90 @@
+/* ******** basic styling ******* */
+.button {
+    border: 1px solid white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 6px 8px;
+
+    transition: all 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: white;
+    z-index: -1;
+
+    transition: all 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.image {
+    transition: all 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.glowEffect {
+    filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
+    transition: all 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.button .arrow {
+    stroke: white;
+    transition: all 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+/* ****************************** */
+
+
+
+
+
+/* ****** on hover styling ****** */
+
+.button:hover {
+    transform: scale(1.01);
+}
+
+.button:active {
+    transform: scale(0.99);
+}
+
+.button:hover .bg {
+    width: calc(100% - 1rem - 15px);
+}
+
+.button:active .bg {
+    width: 100%;
+}
+
+.button:hover {
+    color: black;
+}
+
+.button:hover .image {
+    transform: rotate(90deg);
+}
+
+.button:hover .glowEffect {
+    filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white) drop-shadow(0 0 15px white) drop-shadow(0 0 20px white);
+}
+
+/* ****************************** */
+
+
+
+/* ****** on click styling ****** */
+
+.button:active .glowEffect {
+    filter: none;
+}
+
+.button:active .glowEffect .arrow {
+    stroke: black;
+}
+
+/* ****************************** */

@@ -1,4 +1,6 @@
 import { ReactNode } from "react";
+import styles from './styles.module.css';
+import { motion } from "framer-motion";
 
 /**
  * Global button component to be used in all the pages.
@@ -19,12 +21,21 @@ const Button = ({
     onClick,
 }: ButtonProps): JSX.Element => {
     return (
-        <button
-            className={`${className}`}
+        <motion.button
             onClick={onClick}
+            className={`${styles.button} ${className}`}
         >
-            {children}
-        </button>
+            <span className={styles.bg} />
+            <div className={styles.content}>
+                {children}
+            </div>
+            <div className={styles.image}>
+                <svg width="15" height="15" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.glowEffect}>
+                    <path d="M1.71484 22.7853L22.2863 2.21387M22.2863 2.21387H6.8577M22.2863 2.21387V17.6424" className={styles.arrow} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+
+            </div>
+        </motion.button>
     );
 }
 

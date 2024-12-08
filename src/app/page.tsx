@@ -1,3 +1,6 @@
+"use client";
+
+import Button from "@/components/Button";
 import Container from "@/components/Container";
 
 const Page = () => {
@@ -12,8 +15,10 @@ const Page = () => {
 
                 </section>
 
-                <section id="facilities">
-
+                <section id="facilities" className="flex items-center justify-center mt-16">
+                    <Button onClick={() => console.log("hello")}>
+                        hello
+                    </Button>
                 </section>
 
                 <section id="resources">
