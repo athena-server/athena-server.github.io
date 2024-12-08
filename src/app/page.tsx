@@ -3,8 +3,26 @@ import Container from "@/components/Container";
 const Page = () => {
     return (
         <Container>
-            <div className="h-screen w-full flex items-center justify-center">
-                Athena
+            <div className="min-h-screen h-full w-full">
+                <section>
+                    {/* hero section */}
+                </section>
+
+                <section id="about-us">
+
+                </section>
+
+                <section id="facilities">
+
+                </section>
+
+                <section id="resources">
+
+                </section>
+
+                <section id="more-links">
+
+                </section>
             </div>
         </Container>
     );
