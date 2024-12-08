@@ -28,7 +28,7 @@
 }
 
 .glowEffect {
-    filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
+    filter: drop-shadow(0 0 5px white) drop-shadow(0 0 7px white);
     transition: all 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
@@ -70,7 +70,7 @@
 }
 
 .button:hover .glowEffect {
-    filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white) drop-shadow(0 0 15px white) drop-shadow(0 0 20px white);
+    filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white) drop-shadow(0 0 16px white);
 }
 
 /* ****************************** */
