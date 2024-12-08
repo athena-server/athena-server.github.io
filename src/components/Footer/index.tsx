@@ -1,6 +1,20 @@
 'use client';
 import { useState, useEffect } from "react";
 
+/**
+ * Footer component displaying contact details and a copyright section.
+ * This component includes an email, phone number, and location with corresponding icons.
+ * 
+ * @param {Object} props - The props for the Footer component.
+ * @param {string} [props.email] - email address to display.(optional) Default: "ssladmin@nitc.ac.in".
+ * @param {string} [props.phone] - phone number to display.(optional)  Default: "0495 228 6864".
+ * @param {string} [props.location] - location to display.(optional)  Default: "ITL302 - 2nd Floor".
+ *
+ * @returns {JSX.Element} - The rendered footer component.
+ *
+ * @author Lishin V S
+ */
+
 const Footer = ({
     email= "ssladmin@nitc.ac.in",
     phone= "0495 228 6864",
@@ -9,7 +23,7 @@ const Footer = ({
     email?: string,
     phone?: string,
     location?: string
-}) =>{
+}):JSX.Element =>{
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(()=>{
