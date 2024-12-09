@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useMemo } from "react";
 import styles from './styles.module.css';
 import { motion } from "framer-motion";
 
@@ -8,9 +8,9 @@ import { motion } from "framer-motion";
  * @param {ButtonProps} props - The props for the Button component.
  * @param {React.ReactNode} props.children - The contents of the button.
  * @param {string} [props.className] - Additional classes to be added to the button (optional).
- * @param {() => void} [props.onClick] - The function to be called when the button is clicked (optional).
- * @param {boolean} [props.showIcon] - Whether to show the icon in the button (optional).
- * @param {boolean} [props.disabled] - Disables the button (optional)
+ * @param {() => void} [props.onClick] - The function to be called when the button is clicked (default: no action).
+ * @param {boolean} [props.hideIcon] - Whether to hide the icon in the button (default: not hidden).
+ * @param {boolean} [props.disabled] - Disables the button (default: not disabled)
  * @returns {JSX.Element} The rendered button component.
  * 
  * @author Diljith P D
@@ -20,11 +20,15 @@ const Button = ({
     className = "",
     onClick,
     disabled = false,
+    hideIcon = false,
 }: ButtonProps): JSX.Element => {
+    const buttonClassName = useMemo(() => (
+        `${styles.button} ${className} ${hideIcon ? styles.hideIcon : ""}`.trim()
+    ), [className, hideIcon]);
     return (
         <motion.button
             onClick={onClick}
-            className={`${styles.button} ${className}`}
+            className={buttonClassName}
             disabled={disabled}
         >
             <span className={styles.bg} />
@@ -47,6 +51,6 @@ export interface ButtonProps {
     children: ReactNode
     className?: string,
     onClick?: () => void,
-    showIcon?: boolean,
+    hideIcon?: boolean,
     disabled?: boolean,
 };

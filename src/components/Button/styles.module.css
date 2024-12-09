@@ -23,8 +23,12 @@
     transition: all 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
-.image {
+.button .image {
     transition: all 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.button.hideIcon .image {
+    display: none;
 }
 
 .glowEffect {
@@ -55,6 +59,10 @@
 
 .button:not(:disabled):hover .bg {
     width: calc(100% - 1rem - 15px);
+}
+
+.button.hideIcon:not(:disabled):hover .bg {
+    width: calc(100%);
 }
 
 .button:not(:disabled):active .bg {
@@ -93,8 +101,9 @@
 
 /* ****** disabled styling ****** */
 
-
 .button:disabled {
     cursor: not-allowed;
     opacity: 0.7;
 }
+
+/* ****************************** */
