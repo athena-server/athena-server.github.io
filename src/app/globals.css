@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --dark-blue: #3F56E9;
+  --light-blue: #39caf0;
+  --neon-green: #2cff05;
+}
+
 * {
   margin: 0;
   padding: 0;

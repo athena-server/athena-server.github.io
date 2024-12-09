@@ -11,8 +11,9 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        lightBlue: "#39caf0",
-        neonGreen: "#2cff05",
+        lightBlue: "var(--light-blue)",
+        neonGreen: "var(--neon-green)",
+        darkBlue: "var(--dark-blue)",
       },
     },
     screens: {
