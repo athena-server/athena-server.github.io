@@ -21,7 +21,7 @@ const Footer = (): JSX.Element => {
     return (
         <footer className="px-8 w-full bg-[#202127] border-t border-white lg:px-10">
             <div className="w-inherit flex items-center justify-center">
-                <div className="font-bold text-sm flex flex-col justify-center items-center py-5 lg:flex-row lg:justify-between xl:text-base w-full max-w-[1920px]">
+                <div className="font-bold text-sm flex flex-col justify-center items-center py-5 lg:flex-row lg:justify-between 2xl:text-base w-full max-w-[1920px]">
                     {/* Contact Detail */}
                     <div className="flex flex-col mt-2 mb-8 lg:flex-row lg:space-x-5 lg:mt-0 lg:mb-0 ">
                         {contactDetails.map((item, index) => (
