@@ -40,8 +40,9 @@ const Navbar = () => {
 
 
     const routeToTarget = useCallback((route: string) => {
+        setOpen(false);
         router.push(route);
-    }, [router]);
+    }, [router, setOpen]);
 
     return (
         <div className='fixed top-0 left-0 w-full flex items-center justify-center bg-black/80'>
