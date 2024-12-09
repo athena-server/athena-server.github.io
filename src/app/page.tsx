@@ -5,8 +5,8 @@ const Page = () => {
         <Container>
             <div className="min-h-screen h-full w-full">
                 <section> {/* Hero section */}
-                    <div className = "flex flex-row justify-between items-center w-full">
-                        <ul className = "flex justify-center space-x-20">
+                    <div className="flex flex-row justify-between items-center w-full">
+                        <ul className="flex justify-center space-x-20">
                             <li className="hover:text-lightBlue cursor-pointer">Home</li>
                             <li className="hover:text-lightBlue cursor-pointer">About Us</li>
                             <li className="hover:text-lightBlue cursor-pointer">Facilities</li>
@@ -14,8 +14,8 @@ const Page = () => {
                             <li className="hover:text-lightBlue cursor-pointer">Timings</li>
                             <li className="hover:text-lightBlue cursor-pointer">Contact Us</li>
                         </ul>
-                        <div className = "p-3 rounded-lg border-2 border-neonGreen shadow-[0_0_10px_3px_#2cff05] text-neonGreen">
-                            <p className = "text-shadow-md text-shadow-neonGreen">SSL IS OPEN</p>
+                        <div className="p-3 rounded-lg border-2 border-neonGreen shadow-[0_0_10px_3px_#2cff05] text-neonGreen">
+                            <p className="text-shadow-md text-shadow-neonGreen">SSL IS OPEN</p>
                         </div>
                     </div>
                     <div className="flex items-center justify-center min-h-screen">
@@ -23,20 +23,26 @@ const Page = () => {
                     </div>
                 </section>
 
-                <section id="about-us">
+                <section id="about-us" className="relative">
+                    <div className="absolute top-0 left-[-4rem] w-screen h-[1px] bg-white" />
+                    <div className="min-h-[75dvh] h-full">
 
+                    </div>
                 </section>
-
                 <section id="facilities">
+                    <div className="min-h-[75dvh] h-full">
 
+                    </div>
                 </section>
-
                 <section id="resources">
+                    <div className="min-h-[75dvh] h-full">
 
+                    </div>
                 </section>
-
                 <section id="more-links">
+                    <div className="min-h-[75dvh] h-full">
 
+                    </div>
                 </section>
             </div>
         </Container>
