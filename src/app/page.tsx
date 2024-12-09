@@ -165,7 +165,7 @@ const Page = () => {
                             </span>
                         </div>
                     </div>
-                    <span className={`${geo.className} hidden w-1/5 xl:w-2/5 h-inherit text-xl xl:text-2xl font-medium py-14 lg:flex items-end justify-end text-darkBlue`}>
+                    <span className={`${geo.className} hidden w-1/5 xl:w-2/5 h-inherit text-xl lg:text-2xl font-medium py-14 lg:flex items-end justify-end text-darkBlue`}>
                         STATUS: ACTIVE
                     </span>
                 </section>
