@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/Button";
+import Carousel from "@/components/Carousel";
 import Chip from "@/components/Chip";
 import CloseIcon from "@/components/CloseIcon";
 import Container from "@/components/Container";
@@ -42,6 +43,17 @@ const Page = () => {
         {
             name: "Programming lab",
         },
+    ], []);
+
+
+    const carouselImages = useMemo(() => [
+        "/Carousel/temp-image.jpeg",
+        "/Carousel/temp-image.jpeg",
+        "/Carousel/temp-image.jpeg",
+        "/Carousel/temp-image.jpeg",
+        "/Carousel/temp-image.jpeg",
+        "/Carousel/temp-image.jpeg",
+        "/Carousel/temp-image.jpeg",
     ], []);
 
     const routeTo = useCallback((route: string) => {
@@ -127,8 +139,9 @@ const Page = () => {
                     <SectionDivider />
                     <CloseIcon />
                     <div className="w-7/12 hidden lg:block h-inherit flex flex-col gap-8 items-center justify-center p-14">
-                        <div className="aspect-video outline w-full flex items-center justify-center">
-                            stuff here isn't finalized
+                        <div className="aspect-video w-full flex items-center justify-center">
+                            {/* stuff here isn't finalized */}
+                            <Carousel images={carouselImages} />
                         </div>
                     </div>
                     <div className="w-full lg:w-5/12 h-inherit flex flex-col gap-8 items-start justify-center p-0 lg:p-14">
