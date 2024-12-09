@@ -1,3 +1,4 @@
+import CloseIcon from "@/components/CloseIcon";
 import Container from "@/components/Container";
 
 const Page = () => {
@@ -23,24 +24,32 @@ const Page = () => {
                     </div>
                 </section>
 
-                <section id="about-us" className="relative">
-                    <div className="absolute top-0 left-[-4rem] w-screen h-[1px] bg-white" />
-                    <div className="min-h-[75dvh] h-full">
+                <section id="about-us" className="relative min-h-[75dvh] h-full outline">
+                    <CloseIcon />
+                    <div className="flex h-full justify-between items-center">
+                        <div className="w-full h-full outline">
+                            something
+                        </div>
+                        <div className="w-full h-full outline">
+                            something
+                        </div>
+                    </div>
+                </section>
+                <section id="facilities" className="relative min-h-[75dvh] h-full">
+                    <CloseIcon />
+                    <div className="">
 
                     </div>
                 </section>
-                <section id="facilities">
-                    <div className="min-h-[75dvh] h-full">
+                <section id="resources" className="relative min-h-[75dvh] h-full">
+                    <CloseIcon />
+                    <div className="">
 
                     </div>
                 </section>
-                <section id="resources">
-                    <div className="min-h-[75dvh] h-full">
-
-                    </div>
-                </section>
-                <section id="more-links">
-                    <div className="min-h-[75dvh] h-full">
+                <section id="more-links" className="relative min-h-[75dvh] h-full">
+                    <CloseIcon />
+                    <div className="">
 
                     </div>
                 </section>
