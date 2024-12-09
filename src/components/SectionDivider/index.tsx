@@ -1,5 +1,8 @@
 /**
  * Section divider to be used between sections of a page 
+ * @example <div className="relative">
+ *            <SectionDivider />
+ *          </div>
  * 
  * @returns {JSX.Element} The rendered section divider component.
  * 
