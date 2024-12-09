@@ -4,19 +4,22 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 /**
+ * creates an image carousel component with the given list of image URLs
  * 
- * @param images {string[]} - Array of image URLs
- * @param showPreview {boolean} - Show preview of prev and next image
- * @param controls {boolean} - Show controls for the carousel
- * @param autoPlay {boolean} - Autoplay the carousel
- * @returns 
+ * @param {string[]} [CarouselProps.images] - Array of image URLs
+ * @param {boolean} [CarouselProps.showPreview] - Show preview of prev and next image (doesn't show by default)
+ * @param {boolean} [CarouselProps.controls] - Show controls for the carousel (doesn't show by default)
+ * @param {boolean} [CarouselProps.autoPlay] - Autoplay the carousel (defaults to true)
+ * @returns {JSX.Element} - Carousel component
+ * 
+ * @author Diljith P D
  */
 const Carousel = ({
     images,
     showPreview = false,
     controls = false,
     autoPlay = true,
-}: CarouselProps) => {
+}: CarouselProps): JSX.Element => {
     const [currentImage, setCurrentImage] = useState(0);
     const [prevImage, setPrevImage] = useState(images.length - 1);
     const [nextImage, setNextImage] = useState(1 % images.length);
@@ -49,14 +52,15 @@ const Carousel = ({
             clearInterval(timeoutRef.current);
 
         setCurrentImage(index);
-
-        timeoutRef.current = setInterval(() => {
-            if (images.length === 0)
-                setCurrentImage(0);
-            else
-                setCurrentImage(prev => (prev + 1) % images.length);
-        }, 4000)
-    }, []);
+        if (autoPlay) {
+            timeoutRef.current = setInterval(() => {
+                if (images.length === 0)
+                    setCurrentImage(0);
+                else
+                    setCurrentImage(prev => (prev + 1) % images.length);
+            }, 4000)
+        }
+    }, [autoPlay, images.length]);
 
     return (
         <div className='h-full w-full relative'>
