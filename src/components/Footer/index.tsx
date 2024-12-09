@@ -19,12 +19,12 @@ const Footer = ():JSX.Element =>{
     ], []);
     
     return (
-        <footer className="px-8 bg-[#202127] border-t border-white md:px-10">
-            <div className="font-bold text-sm flex flex-wrap justify-center  items-center py-5 sm:justify-between md:text-base">
+        <footer className="px-8 bg-[#202127] border-t border-white lg:px-10">
+            <div className="font-bold text-sm flex flex-col justify-center  items-center py-5 lg:flex-row lg:justify-between xl:text-base">
                 {/* Contact Detail */}
-                <div className="flex flex-col mt-2 mb-8  lg:space-x-5  lg:mt-0  lg:mb-0 lg:flex-row">
+                <div className="flex flex-col mt-2 mb-8 lg:flex-row lg:space-x-5 lg:mt-0 lg:mb-0 ">
                     {contactDetails.map((item, index)=>(
-                        <div key={index} className="flex lg:justify-center items-center space-x-2 p-2">
+                        <div key={index} className="flex justify-start items-center space-x-2 p-2">
                             <img src={item.icon} alt={item.label} className="md:w-5 md:h-5"/>
                             <p>{item.value}</p>
                         </div>
@@ -32,8 +32,8 @@ const Footer = ():JSX.Element =>{
                 </div>
 
                 {/* Copyright Section */}
-                <div className="flex justify-center items-center mt-8 mb-6 md:mt-0 md:mb-0">
-                    <p className="text-center flex">
+                <div className="flex justify-center items-center mt-8 mb-6 lg:mt-0 lg:mb-0">
+                    <p className="text-center flex flex-wrap justify-center items-center">
                         Copyright Ⓒ {new Date().getFullYear()} CSED,&nbsp; 
                         <span className="block lg:hidden">NIT Calicut</span>
                         <span className="hidden lg:block">National Institute of Technology Calicut</span>
