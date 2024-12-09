@@ -24,15 +24,14 @@ const Page = () => {
                     </div>
                 </section>
 
-                <section id="about-us" className="relative min-h-[75dvh] h-full outline">
+                <section id="about-us" className="relative min-h-[75dvh] h-full flex justify-between">
+
                     <CloseIcon />
-                    <div className="flex h-full justify-between items-center">
-                        <div className="w-full h-full outline">
-                            something
-                        </div>
-                        <div className="w-full h-full outline">
-                            something
-                        </div>
+                    <div className="w-full h-inherit outline">
+                        something
+                    </div>
+                    <div className="w-full h-inherit outline">
+                        something
                     </div>
                 </section>
                 <section id="facilities" className="relative min-h-[75dvh] h-full">
