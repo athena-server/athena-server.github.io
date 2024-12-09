@@ -1,14 +1,19 @@
+"use client";
+
+import Button from "@/components/Button";
 import Chip from "@/components/Chip";
 import CloseIcon from "@/components/CloseIcon";
 import Container from "@/components/Container";
 import SectionDivider from "@/components/SectionDivider";
 import { alumniSans } from "@/fonts";
-import { useMemo } from "react";
+import { useRouter } from "next/navigation";
+import { useCallback, useMemo } from "react";
 
 
 
 
 const Page = () => {
+    const router = useRouter();
 
     const labsConducted = useMemo(() => [
         {
@@ -38,6 +43,10 @@ const Page = () => {
             name: "Programming lab",
         },
     ], []);
+
+    const routeTo = useCallback((route: string) => {
+        router.push(route);
+    }, [router]);
 
     return (
         <Container>
@@ -128,7 +137,9 @@ const Page = () => {
                             The objective of this laboratory is to provide the infrastructure for conducting the regular labs and project works for the BTech and MCA Programs. The lab is equipped with state of the art servers, desktops and software. The objective of this laboratory is to provide the infrastructure for conducting the regular labs and project works for the BTech and MCA Programs. The lab is equipped with state of the art servers, desktops and software.
                         </p>
                         <div className="w-full text-center md:text-left">
-                            <span className="px-[8px] py-[6px] outline"> button goes here</span>
+                            <Button onClick={() => routeTo('/facilities-and-resources')}>
+                                View Facilities
+                            </Button>
                         </div>
                     </div>
                 </section>
@@ -140,7 +151,9 @@ const Page = () => {
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin. Vestibulum pretium mi non dui venenatis maximus.                        </p>
                         <div className="w-full text-center md:text-left">
-                            <span className="px-[8px] py-[6px] outline"> button goes here</span>
+                            <Button onClick={() => routeTo('/study-resources')}>
+                                Start Grinding!
+                            </Button>
                         </div>
                     </div>
                     <div className="w-7/12 hidden lg:block h-inherit flex flex-col gap-8 items-center justify-center p-14">
@@ -158,7 +171,7 @@ const Page = () => {
                                 Download and fill the form given below and there are some more instructions. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             </p>
                             <div className="w-full text-center md:text-left">
-                                <span className="px-[8px] py-[6px] outline"> button goes here</span>
+                                <Button onClick={() => routeTo('/book-ssl')} hideIcon> Download Form </Button>
                             </div>
 
                         </div>
@@ -175,7 +188,7 @@ const Page = () => {
                             </p>
 
                             <div className="w-full text-center md:text-left">
-                                <span className="px-[8px] py-[6px] outline"> button goes here</span>
+                                <Button onClick={() => routeTo('/course-reviews')}> Review Courses </Button>
                             </div>
                         </div>
                     </div>
