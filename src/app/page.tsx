@@ -46,7 +46,7 @@ const Page = () => {
                         </div>
 
                         {/* 3. Athena:Running Div */}
-                        <div className = "w-[205px] h-[36px] top-[800px] absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center justify-center">
+                        <div className = "w-[205px] h-[36px] absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center justify-center">
                             <p className= {`${geo.className} text-[32px] text-[#3F56E9] font-medium leading-[35.56px] text-left text-shadow-[0px_0px_17.28px_0px_#3F56E9]`}>
                                 ATHENA: RUNNING
                             </p>
