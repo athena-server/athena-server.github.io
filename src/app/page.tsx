@@ -114,23 +114,70 @@ const Page = () => {
                         STATUS: ACTIVE
                     </div>
                 </section>
-                <section id="facilities" className="relative min-h-[75dvh] h-full">
+                <section id="facilities" className="relative min-h-[75dvh] h-full flex items-center justify-between">
                     <SectionDivider />
                     <CloseIcon />
-                    <div className="">
-
+                    <div className="w-7/12 hidden lg:block h-inherit flex flex-col gap-8 items-center justify-center p-14">
+                        <div className="aspect-video outline w-full flex items-center justify-center">
+                            stuff here isn't finalized
+                        </div>
+                    </div>
+                    <div className="w-full lg:w-5/12 h-inherit flex flex-col gap-8 items-start justify-center p-0 lg:p-14">
+                        <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Facilities </h3>
+                        <p>
+                            The objective of this laboratory is to provide the infrastructure for conducting the regular labs and project works for the BTech and MCA Programs. The lab is equipped with state of the art servers, desktops and software. The objective of this laboratory is to provide the infrastructure for conducting the regular labs and project works for the BTech and MCA Programs. The lab is equipped with state of the art servers, desktops and software.
+                        </p>
+                        <div className="w-full text-center md:text-left">
+                            <span className="px-[8px] py-[6px] outline"> button goes here</span>
+                        </div>
                     </div>
                 </section>
-                <section id="resources" className="relative min-h-[75dvh] h-full">
+                <section id="resources" className="relative min-h-[75dvh] h-full flex items-center justify-between">
+                    <SectionDivider />
                     <CloseIcon />
-                    <div className="">
-
+                    <div className="w-full lg:w-5/12 h-inherit flex flex-col gap-8 items-start justify-center p-0 lg:p-14">
+                        <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> CSED Resources </h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin. Vestibulum pretium mi non dui venenatis maximus.                        </p>
+                        <div className="w-full text-center md:text-left">
+                            <span className="px-[8px] py-[6px] outline"> button goes here</span>
+                        </div>
+                    </div>
+                    <div className="w-7/12 hidden lg:block h-inherit flex flex-col gap-8 items-center justify-center p-14">
+                        <img className="aspect-video w-full flex items-center justify-center" src="/Home/server-rack-section-3.svg" />
                     </div>
                 </section>
-                <section id="more-links" className="relative min-h-[75dvh] h-full">
+                <section id="more-links" className="relative min-h-[150dvh] lg:min-h-[75dvh] h-full flex justify-between">
+                    <SectionDivider />
                     <CloseIcon />
-                    <div className="">
+                    <div className="relative p-0 lg:p-14 flex gap-8 flex-col-reverse lg:flex-row w-full">
+                        <div className="h-full w-full lg:w-1/3 flex flex-col items-start justify-center gap-8 relative">
+                            <SectionDivider className="block lg:hidden" />
+                            <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Want to book SSL for events? </h3>
+                            <p>
+                                Download and fill the form given below and there are some more instructions. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </p>
+                            <div className="w-full text-center md:text-left">
+                                <span className="px-[8px] py-[6px] outline"> button goes here</span>
+                            </div>
 
+                        </div>
+                        <div className="h-full hidden lg:flex w-1/3 xl:w-3/12 items-center justify-end relative">
+                            <span className="absolute top-0 left-0 w-[1px] h-full bg-white" style={{
+                                filter: 'drop-shadow(0 0 6px white) drop-shadow(0 0 8px white)',
+                            }} />
+                            <img src="/Home/course-review-section-4.svg" alt="course-review" />
+                        </div>
+                        <div className="h-full w-full lg:w-1/3 xl:w-5/12 flex flex-col items-start justify-center gap-8">
+                            <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Course Review </h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin. Vestibulum pretium mi non dui venenatis maximus.
+                            </p>
+
+                            <div className="w-full text-center md:text-left">
+                                <span className="px-[8px] py-[6px] outline"> button goes here</span>
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
