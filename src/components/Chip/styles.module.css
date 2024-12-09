@@ -1,0 +1,16 @@
+.chip {
+    border: 1px solid white;
+    text-wrap: nowrap;
+    font-size: 18px;
+    padding: 6px 24px;
+}
+
+/* .chip .glowEffect {}
+
+.chip:hover .glowEffect {} */
+
+@media (width < 1080) {
+    .chip {
+        font-size: 14px;
+    }
+}
