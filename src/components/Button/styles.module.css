@@ -45,31 +45,31 @@
 
 /* ****** on hover styling ****** */
 
-.button:hover {
+.button:not(:disabled):hover {
     transform: scale(1.01);
 }
 
-.button:active {
+.button:not(:disabled):active {
     transform: scale(0.99);
 }
 
-.button:hover .bg {
+.button:not(:disabled):hover .bg {
     width: calc(100% - 1rem - 15px);
 }
 
-.button:active .bg {
+.button:not(:disabled):active .bg {
     width: 100%;
 }
 
-.button:hover {
+.button:not(:disabled):hover {
     color: black;
 }
 
-.button:hover .image {
+.button:not(:disabled):hover .image {
     transform: rotate(90deg);
 }
 
-.button:hover .glowEffect {
+.button:not(:disabled):hover .glowEffect {
     filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white) drop-shadow(0 0 16px white);
 }
 
@@ -79,12 +79,22 @@
 
 /* ****** on click styling ****** */
 
-.button:active .glowEffect {
+.button:not(:disabled):active .glowEffect {
     filter: none;
 }
 
-.button:active .glowEffect .arrow {
+.button:not(:disabled):active .glowEffect .arrow {
     stroke: black;
 }
 
 /* ****************************** */
+
+
+
+/* ****** disabled styling ****** */
+
+
+.button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}

@@ -16,14 +16,16 @@ import { motion } from "framer-motion";
  * @author Diljith P D
  */
 const Button = ({
-    children,
-    className,
+    children = <></>,
+    className = "",
     onClick,
+    disabled = false,
 }: ButtonProps): JSX.Element => {
     return (
         <motion.button
             onClick={onClick}
             className={`${styles.button} ${className}`}
+            disabled={disabled}
         >
             <span className={styles.bg} />
             <div className={styles.content}>
