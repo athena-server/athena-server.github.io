@@ -1,10 +1,13 @@
 "use client";
 import { AnimatePresence, motion } from 'framer-motion';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import SslStatus from './SslStatus';
 import MobileNavItem from './MobileNavItem';
+import { usePathname, useRouter } from 'next/navigation';
 
 const Navbar = () => {
+    const router = useRouter();
+    const pathname = usePathname();
     const navBarItems = useMemo(() => [
         {
             name: 'Home',
@@ -19,14 +22,14 @@ const Navbar = () => {
             route: "/facilities-and-resources",
         },
         {
-            name: 'Rules',
+            name: 'Timings',
             route: '/rules-and-timings'
         },
-        {
-            name: 'Test',
-            route: '/'
-        }
     ], []);
+
+    useEffect(() => {
+        console.log(pathname)
+    }, [pathname]);
 
 
     const [open, setOpen] = useState(false);
@@ -35,9 +38,14 @@ const Navbar = () => {
         setOpen(prev => (!prev));
     }, [setOpen]);
 
+
+    const routeToTarget = useCallback((route: string) => {
+        router.push(route);
+    }, [router]);
+
     return (
-        <div className='fixed top-0 left-0 w-full flex items-center justify-center bg-[rgba(0,0,0,0.2)] backdrop-blur-[20px]'>
-            <nav className="w-full max-w-[1920px] h-24 flex items-center justify-between">
+        <div className='fixed top-0 left-0 w-full flex items-center justify-center bg-black/80'>
+            <nav className="w-full max-w-[1920px] h-20 lg:h-24 flex items-center justify-between">
                 <div className='w-full lg:w-1/5 h-full flex items-center p-4 lg:px-8 lg:py-4 order-first z-[2]'>
                     <img src="/Navbar/logo-temp.svg" width={75} height={75} alt="logo" />
                 </div>
@@ -45,13 +53,16 @@ const Navbar = () => {
                     <div className="hidden h-full lg:flex items-center relative justify-center gap-4">
                         {
                             navBarItems.map((item, index) => (
-                                <motion.div
+                                <motion.button
                                     key={index}
                                     className='mx-4'
-                                    whileHover={{ scale: 1.1 }}
+                                    style={{ color: (item.route == pathname) ? 'var(--light-blue)' : 'rgba(255,255,255,1)' }}
+                                    whileHover={{ color: 'var(--light-blue)' }}
+                                    whileTap={{ color: 'var(--dark-blue)' }}
+                                    onClick={() => routeToTarget(item.route)}
                                 >
                                     {item.name}
-                                </motion.div>
+                                </motion.button>
                             ))
                         }
                         <span className='absolute -bottom-4 left-0 w-full h-[1px] bg-white' />
@@ -87,7 +98,7 @@ const Navbar = () => {
                                             key={index}
                                             item={item}
                                             index={index}
-                                            onClick={toggleMenu}
+                                            onClick={() => routeToTarget(item.route)}
                                         />
                                     ))
                                 }

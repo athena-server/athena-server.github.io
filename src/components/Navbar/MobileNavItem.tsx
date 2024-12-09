@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const MobileNavItem = ({ item, index, onClick }: MobileNavItemProps) => {
     return (
         <motion.div className='p-4 relative overflow-hidden w-full flex items-center justify-between'>
-            <motion.span
+            <motion.button
                 initial={{ y: 100 }}
                 animate={{ y: 0 }}
                 exit={{ y: 100 }}
@@ -12,7 +12,7 @@ const MobileNavItem = ({ item, index, onClick }: MobileNavItemProps) => {
                 onClick={onClick}
             >
                 {item.name}
-            </motion.span>
+            </motion.button>
             <motion.img
                 src="/Navbar/rarr.svg"
                 width={20}
