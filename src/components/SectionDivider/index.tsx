@@ -10,7 +10,7 @@
  */
 const SectionDivider = () => {
     return (
-        <div className="w-screen max-w-[1920px] absolute top-0 bg-white h-[1px] left-0 sm:left-[-1rem] md:left-[-4rem] 2xl:left-0" />
+        <div className="w-screen max-w-[1920px] absolute top-0 bg-white h-[1px] left-[-1rem] md:left-[-4rem] 2xl:left-0" />
     )
 }
 

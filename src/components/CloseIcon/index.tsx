@@ -1,12 +1,9 @@
-const CloseIcon = ({
-    className = "",
-    src = "/CloseIcon/tab-bar-icon.svg",
-}) => {
+const CloseIcon = () => {
     return (
         <img
-            src={src}
+            src="/CloseIcon/tab-bar-icon.svg"
             alt="tab-bar-icon"
-            className={`hidden md:block absolute top-0 -right-16 ${className}`}
+            className="hidden md:block absolute top-0 -right-16"
             height={100}
         />
     )
