@@ -2,6 +2,7 @@ import Container from "@/components/Container";
 import SectionDivider from "@/components/SectionDivider";
 import { alumniSans } from "@/fonts";
 import styles from "./styles.module.css";
+import Link from "@/components/Link"
 // to use font alumni sans on any text, use the following css: <div className={`${alumniSans.classname} ...tailwind styles`}
 // default font is inter so need to change font for any other elements
 // refer page.tsx in branch 1-home-page for further doubt clearing on any usage of font, or carousal or section divider component
@@ -43,8 +44,14 @@ const Page = () => {
               assigned a fixed amount of disk quota. The users can also host
               their personal website.
             </p>
+            <div className="py-[14px]">
+            <Link 
+                href="https://athena.nitc.ac.in/how-to-athena/"
+                label="How to use Athena"
+            />
+            </div>
           </div>
-          <div className="border border-dashed border-white p-[14px] mt-[114px] w-[506px] h-[431px]">
+          <div className="border border-dashed border-white p-[14px] mt-[114px] w-[506px] h-[431px] gap-[11px]">
             <h1
               className={`${alumniSans.className} font-bold text-4xl text-[#3F56E9] ${styles.boxshadow}`}
             >
@@ -57,12 +64,46 @@ const Page = () => {
             </h1>
             <p>
               CSED Web Server is official website hosting server of department.
+              <div className="py-[14px] gap-[20px]">
+            <Link 
+                href="http://192.168.40.130/"
+                label="Department of Computer Science and Engineering"
+            />
+            <Link 
+                href="http://192.168.40.130/"
+                label="CSED People"
+            />
+            <Link 
+                href="http://192.168.40.130/"
+                label="Eduserver"
+            />
+            <Link 
+                href="http://192.168.40.130/"
+                label="Computer Science and Engineering Association"
+            />
+            <Link 
+                href="http://192.168.40.130/"
+                label="Secure Computing Laboratory"
+            />
+            <Link 
+                href="http://192.168.40.130/"
+                label="CSEA Wiki"
+            />
+            </div>
             </p>
           </div>
-          <div className="border border-solid border-white p-[14px] mt-[114px] h-[431px] w-[426px] flex justify-center items-center">
-            <h1 className={`${alumniSans.className} font-bold text-7xl`}>
+          <div className="border border-solid border-white mt-[114px] h-[431px] w-[426px]">
+          <div className="flex justify-end mt-0">
+          <img
+            src="/FacilitiesPage/tab.svg"
+            alt="tab"
+          />
+        </div>
+            <div className="flex justify-center items-center">
+            <h1 className={`${alumniSans.className} font-bold text-7xl `}>
               Servers
             </h1>
+            </div>
           </div>
           <div className="border border-dashed border-white p-[14px] mb-[114px] w-[429px] h-[310px]">
             <h1
@@ -96,6 +137,12 @@ const Page = () => {
               Media Server is a warehouse of open source operating systems and
               open courses from many prominent institutions of world.
             </p>
+            <div className="py-[20px] mt-[14px]">
+            <Link 
+                href="http://192.168.40.130/"
+                label="Media Server"
+            />
+            </div>
           </div>
           <div className="border border-dashed border-white p-[14px] mb-[114px] w-[428px] h-[310px]">
             <h1
