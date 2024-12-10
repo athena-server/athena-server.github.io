@@ -1,8 +1,7 @@
 import NextLink from 'next/link';
 
-
 /**
- * link comopnent to be used globally
+ * link component to be used globally
  * 
  * @param {string} [LinkProps.href] - the url to navigate to
  * @param {string} [LinkProps.label] - the text to display
@@ -18,13 +17,28 @@ const Link = ({
     className = "",
 }: LinkProps): JSX.Element => {
     return (
-        <NextLink href={href}>
-            {label}
-        </NextLink>
+        <div className={`text-neonGreen w-fit flex flex-row gap-[1em] xs:gap-[0px] ${className}`}>
+            <div className='grid place-content-center'>
+                <img 
+                    src="/icons/linkicon.svg" 
+                    alt="link" 
+                    className='block h-[1.2em] w-[2em] sm:w-[2em] md:w-[3em] lg:w-[3em] object-contain' 
+                />
+            </div>
+            <NextLink
+                href={href}
+                target={openInNewTab ? "_blank" : "_self"}
+                rel={openInNewTab ? "noopener noreferrer" : undefined}
+                className='hover:underline'
+            >
+                {label}
+            </NextLink>
+        </div>
     )
 }
 
 export default Link;
+
 export interface LinkProps {
     href: string;
     label: string;
