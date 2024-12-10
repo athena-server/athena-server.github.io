@@ -73,6 +73,7 @@ const Carousel = ({
                         animate={{ x: '0%', position: 'relative' }}
                         exit={{ x: '-100%', position: 'absolute' }}
                         transition={{ duration: 0.8, ease: [0.445, 0.05, 0.55, 0.95] }}
+                        className='object-cover w-full aspect-video'
                     />
                 </AnimatePresence >
             </div>
@@ -89,6 +90,7 @@ const Carousel = ({
                                     animate={{ x: '0%', position: 'relative' }}
                                     exit={{ x: '-100%', position: 'absolute' }}
                                     transition={{ duration: 0.8, ease: [0.445, 0.05, 0.55, 0.95] }}
+                                    className='object-cover w-full aspect-video'
                                 />
                             </AnimatePresence>
                         </div>
@@ -102,6 +104,7 @@ const Carousel = ({
                                     animate={{ x: '0%', position: 'relative' }}
                                     exit={{ x: '-100%', position: 'absolute' }}
                                     transition={{ duration: 0.8, ease: [0.445, 0.05, 0.55, 0.95] }}
+                                    className='object-cover w-full aspect-video'
                                 />
                             </AnimatePresence>
                         </div>
