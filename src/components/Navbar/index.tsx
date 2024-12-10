@@ -45,7 +45,7 @@ const Navbar = () => {
     }, [router, setOpen]);
 
     return (
-        <div className='fixed top-0 left-0 w-full flex items-center justify-center bg-black/80'>
+        <div className='fixed top-0 left-0 w-full flex items-center justify-center bg-black/80 z-[1]'>
             <nav className="w-full max-w-[1920px] h-20 lg:h-24 flex items-center justify-between">
                 <div className='w-full lg:w-1/5 h-full flex items-center p-4 lg:px-8 lg:py-4 order-first z-[2]'>
                     <img src="/Navbar/logo-temp.svg" width={75} height={75} alt="logo" />
