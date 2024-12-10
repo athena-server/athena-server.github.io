@@ -17,23 +17,27 @@ const Link = ({
     className = "",
 }: LinkProps): JSX.Element => {
     return (
-        <div className={`text-neonGreen w-fit flex flex-row gap-[1em] xs:gap-[0px] ${className}`}>
-            <div className='grid place-content-center'>
-                <img 
-                    src="/icons/linkicon.svg" 
-                    alt="link" 
-                    className='block h-[1.2em] w-[2em] sm:w-[2em] md:w-[3em] lg:w-[3em] object-contain' 
+        <NextLink
+            href={href}
+            target={openInNewTab ? "_blank" : "_self"}
+            rel={openInNewTab ? "noopener noreferrer" : undefined}
+            className={`group relative text-neonGreen text-lg ${className}`}
+        >
+            <div className="text-neonGreen w-fit flex flex-row gap-[11px]">
+                <img
+                    src="/icons/linkicon.svg"
+                    alt="link"
+                    height={24}
+                    width={24}
                 />
+                <span>
+                    {label}
+                </span>
             </div>
-            <NextLink
-                href={href}
-                target={openInNewTab ? "_blank" : "_self"}
-                rel={openInNewTab ? "noopener noreferrer" : undefined}
-                className='hover:underline'
-            >
-                {label}
-            </NextLink>
-        </div>
+
+            <span className='absolute bottom-0 left-0 w-[0%] group-hover:w-[100%] opacity-0 group-hover:opacity-100 h-px bg-neonGreen transition-width duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)]' />
+
+        </NextLink>
     )
 }
 
