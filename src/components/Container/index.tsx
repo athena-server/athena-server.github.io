@@ -18,7 +18,7 @@ const Container = ({
     className,
     disableAnimation = true,
 }: ContainerProps): JSX.Element => {
-    const containerClass = useMemo(() => `w-screen overflow-x-hidden min-h-screen h-full flex items-center justify-center sm:p-4 md:py-8 md:px-16 ${className}`, [className]);
+    const containerClass = useMemo(() => `w-screen overflow-x-hidden min-h-screen h-full flex items-center justify-center p-4 md:py-8 md:px-16 ${className}`, [className]);
     const containerProps: HTMLMotionProps<'div'> = useMemo(() =>
         disableAnimation
             ? {
