@@ -14,6 +14,7 @@ export default {
         lightBlue: "var(--light-blue)",
         neonGreen: "var(--neon-green)",
         darkBlue: "var(--dark-blue)",
+        neonRed: "var(--neon-red)",
       },
     },
     screens: {
