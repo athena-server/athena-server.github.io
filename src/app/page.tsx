@@ -145,12 +145,12 @@ const Page = () => {
 
                             <span className="w-full h-full row-start-6 row-span-7 col-start-1 col-span-7 lg:border lg:border-white lg:border-[1px] lg:border-e-0 lg:p-3 flex flex-col gap-2 justify-start">
                                 <h3 className={`${alumniSans.className} text-4xl font-bold`}> Labs Conducted </h3>
-                                <div className="flex flex-wrap gap-[10px]">
+                                <div className="flex flex-wrap gap-[10px] drop-shadow-[0_0_50px_white] hover:drop-shadow-none transition transition-filter duration-300">
                                     {
                                         labsConducted.map((lab, index) => (
                                             lab.link
                                                 ? <Button key={index} onClick={() => routeToExternal(lab.link)}>{lab.name}</Button>
-                                                : <Chip key={index} text={lab.name} />
+                                                : <Chip key={index} text={lab.name} disableShadow />
                                         ))
                                     }
                                 </div>
