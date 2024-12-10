@@ -19,23 +19,22 @@ const Page = () => {
     const labsConducted = useMemo(() => [
         {
             name: "Networks",
-            // link: "exposnitc.github.io",
         },
         {
             name: "DBMS",
-            link: "nitcbase.github.io",
+            link: "https://nitcbase.github.io",
         },
         {
             name: "Operating Systems",
-            link: "exposnitc.github.io",
+            link: "https://exposnitc.github.io",
         },
         {
             name: "Hardware",
-            link: "hwlabnitc.github.io",
+            link: "https://hwlabnitc.github.io",
         },
         {
             name: "Compiler",
-            link: "silnitc.github.io",
+            link: "https://silnitc.github.io",
         },
         {
             name: "Data Structures",
@@ -59,6 +58,13 @@ const Page = () => {
     const routeTo = useCallback((route: string) => {
         router.push(route);
     }, [router]);
+
+    const routeToExternal = useCallback((route: string) => {
+        const a = document.createElement('a');
+        a.href = route;
+        a.target = '_blank';
+        a.click();
+    }, []);
 
     return (
         <Container>
@@ -108,15 +114,15 @@ const Page = () => {
 
                     {/* 3. Athena:Running Div */}
                     <div className="w-[154px] h-[27px] lg:w-[205px] lg:h-[36px] absolute bottom-[30px] left-1/2 -translate-x-1/2 flex items-center justify-center">
-                        <p className={`${geo.className} text-[24px] leading-[26.67px] lg:text-[32px] lg:leading-[35.56px] text-darkBlue font-medium`} 
-                           style={{ filter: 'drop-shadow(0 0 10px var(--dark-blue)) drop-shadow(0 0 20px var(--dark-blue))'}}>
+                        <p className={`${geo.className} text-[24px] leading-[26.67px] lg:text-[32px] lg:leading-[35.56px] text-darkBlue font-medium`}
+                            style={{ filter: 'drop-shadow(0 0 10px var(--dark-blue)) drop-shadow(0 0 20px var(--dark-blue))' }}>
                             ATHENA: RUNNING
                         </p>
                     </div>
 
                     {/* 4. Image Div */}
-                    <div className="absolute bottom-0 right-[-64px] hidden md:flex md:justify-end">
-                        <img src="/hero/server.png" alt="Server" className="md:w-[300px] md:h-[420px] lg:w-[400px] lg:h-[580.47px]"></img>
+                    <div className="absolute bottom-0 right-[-64px] hidden lg:flex md:justify-end">
+                        <img src="/hero/server.png" alt="Server" className="lg:w-[300px] lg:h-[420px] xl:w-[400px] xl:h-[580.47px]"></img>
                     </div>
                 </section>
 
@@ -142,14 +148,17 @@ const Page = () => {
                                 <div className="flex flex-wrap gap-[10px]">
                                     {
                                         labsConducted.map((lab, index) => (
-                                            <Chip key={index} text={lab.name} />
+                                            lab.link
+                                                ? <Button key={index} onClick={() => routeToExternal(lab.link)}>{lab.name}</Button>
+                                                : <Chip key={index} text={lab.name} />
                                         ))
                                     }
                                 </div>
                             </span>
 
-                            <span
+                            <button
                                 className="w-full h-full row-start-6 row-span-7 col-start-8 col-span-5 border border-white border-[1px] p-3 flex flex-col gap-2 justify-start relative group z-1"
+                                onClick={() => routeTo('/team')}
                             >
                                 <img src="/CloseIcon/tab-bar-group.svg" className="absolute top-0 right-0 " />
                                 <span className="absolute top-0 left-0 h-full w-0 group-hover:w-full transition-width duration-200 bg-white z-[-2] " />
@@ -166,11 +175,11 @@ const Page = () => {
                                     alt="arrow-black"
                                     className="h-[30px] lg:h-[50px] w-[30px] lg:w-[50px] absolute bottom-3 right-3 hidden group-hover:block"
                                 />
-                            </span>
+                            </button>
                         </div>
                     </div>
                     <span className={`${geo.className} hidden w-1/5 xl:w-2/5 h-inherit text-xl lg:text-2xl font-medium py-14 lg:flex items-end justify-end text-darkBlue`}
-                          style={{ filter: 'drop-shadow(0 0 10px var(--dark-blue)) drop-shadow(0 0 20px var(--dark-blue))'}}>
+                        style={{ filter: 'drop-shadow(0 0 10px var(--dark-blue)) drop-shadow(0 0 20px var(--dark-blue))' }}>
                         STATUS: ACTIVE
                     </span>
                 </section>
