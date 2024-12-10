@@ -21,10 +21,11 @@ const Page = () => {
       <section className="relative min-h-screen h-full">
         {/* Section 1 */}
       </section>
+      
       <section className="relative min-h-screen h-full">
-        <SectionDivider />
-        <div className="flex flex-wrap flex-row gap-[11px]">
-          <div className="border border-solid border-white p-[14px] mt-[114px] w-[332px] h-[431px]">
+      <SectionDivider />
+        <div className="grid grid-cols-12 grid-rows-12 gap-[11px] py-[114px] px-[18px]">
+            <div className="col-span-3 row-start-1 row-span-7 border border-white p-[14px]">
             <h1
               className={`${alumniSans.className} font-bold bg-transparent text-4xl text-[#3F56E9] ${styles.boxshadow}`}
             >
@@ -50,8 +51,8 @@ const Page = () => {
                 label="How to use Athena"
             />
             </div>
-          </div>
-          <div className="border border-dashed border-white p-[14px] mt-[114px] w-[506px] h-[431px] gap-[11px]">
+            </div>
+            <div className="col-span-5 row-start-1 row-span-7 border border-dashed border-white p-[14px]">
             <h1
               className={`${alumniSans.className} font-bold text-4xl text-[#3F56E9] ${styles.boxshadow}`}
             >
@@ -64,9 +65,10 @@ const Page = () => {
             </h1>
             <p>
               CSED Web Server is official website hosting server of department.
+            </p>
               <div className="py-[14px] gap-[20px]">
             <Link 
-                href="http://192.168.40.130/"
+                href="https://minerva.nitc.ac.in/cse/"
                 label="Department of Computer Science and Engineering"
             />
             <Link 
@@ -90,22 +92,22 @@ const Page = () => {
                 label="CSEA Wiki"
             />
             </div>
-            </p>
-          </div>
-          <div className="border border-solid border-white mt-[114px] h-[431px] w-[426px]">
-          <div className="flex justify-end mt-0">
+
+            </div>
+            <div className="col-span-4 row-start-1 row-span-7 border border-white">
+            <div className="flex justify-end mt-0">
           <img
             src="/FacilitiesPage/tab.svg"
             alt="tab"
           />
         </div>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center p-[14px]">
             <h1 className={`${alumniSans.className} font-bold text-7xl `}>
               Servers
             </h1>
             </div>
-          </div>
-          <div className="border border-dashed border-white p-[14px] mb-[114px] w-[429px] h-[310px]">
+            </div>
+            <div className="col-span-4 row-start-8 row-span-5 border border-dashed p-[14px]">
             <h1
               className={`${alumniSans.className} font-bold text-4xl text-[#3F56E9] ${styles.boxshadow}`}
             >
@@ -121,8 +123,8 @@ const Page = () => {
               student of department has a username and password with which they
               can login to the system. Itus uses LDAP for authentication.
             </p>
-          </div>
-          <div className="border border-solid border-white p-[14px] mb-[114px] w-[410px] h-[310px]">
+            </div>
+            <div className="col-span-4 row-start-8 row-span-5 border border-white p-[14px]">
             <h1
               className={`${alumniSans.className} font-bold text-4xl text-[#3F56E9] ${styles.boxshadow}`}
             >
@@ -143,8 +145,8 @@ const Page = () => {
                 label="Media Server"
             />
             </div>
-          </div>
-          <div className="border border-dashed border-white p-[14px] mb-[114px] w-[428px] h-[310px]">
+            </div>
+            <div className="col-span-4 row-start-8 row-span-5 border border-dashed border-white p-[14px]">
             <h1
               className={`${alumniSans.className} font-bold text-4xl text-[#3F56E9] ${styles.boxshadow}`}
             >
@@ -160,7 +162,9 @@ const Page = () => {
               institution. It contains the up to date repository of supported
               LTS version and recent short support versions
             </p>
-          </div>
+            </div>
+
+
         </div>
       </section>
       <section className="relative min-h-screen h-full">
