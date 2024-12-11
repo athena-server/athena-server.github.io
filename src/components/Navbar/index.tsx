@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import SslStatus from './SslStatus';
 import MobileNavItem from './MobileNavItem';
@@ -8,6 +8,8 @@ import { usePathname, useRouter } from 'next/navigation';
 const Navbar = () => {
     const router = useRouter();
     const pathname = usePathname();
+    const { scrollYProgress } = useScroll();
+    const opacity = useTransform(scrollYProgress, [0, 0.2], ['rgba(14, 14, 16, 0)', 'rgba(14, 14, 16, 1)']);
     const navBarItems = useMemo(() => [
         {
             name: 'Home',
@@ -45,7 +47,9 @@ const Navbar = () => {
     }, [router, setOpen]);
 
     return (
-        <div className='fixed top-0 left-0 w-full flex items-center justify-center bg-black/80 z-[1]'>
+        <motion.div className='fixed top-0 left-0 w-full flex items-center justify-center bg-black z-[1]' style={{
+            background: opacity
+        }}>
             <nav className="w-full max-w-[1920px] h-20 lg:h-24 flex items-center justify-between">
                 <div className='w-full lg:w-1/5 h-full flex items-center p-4 lg:px-8 lg:py-4 order-first z-[2]'>
                     <img src="/Navbar/logo-temp.svg" width={75} height={75} alt="logo" />
@@ -108,7 +112,7 @@ const Navbar = () => {
                     }
                 </AnimatePresence>
             </nav>
-        </div>
+        </motion.div>
     )
 }
 
