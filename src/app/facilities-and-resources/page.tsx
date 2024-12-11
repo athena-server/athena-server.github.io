@@ -37,10 +37,10 @@ const Page = () => {
 
   return (
     <Container>
-      <Section className="flex flex-col justify-center min-h-screen items-center lg:items-start h-full pt-20 lg:pt-24">
+      <Section className="flex flex-col justify-center min-h-screen items-center lg:items-start h-full mb-16 pt-20 lg:pt-24">
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex flex-col w-full lg:w-7/12">
-            <h1 className={`${alumniSans.className} text-8xl font-bold `}>
+            <h1 className={`${alumniSans.className} text-8xl font-bold`}>
               FACILITIES
             </h1>
             <span
@@ -67,7 +67,7 @@ const Page = () => {
           <div className="w-full lg:w-5/12 h-inherit flex justify-center lg:justify-end">
             <div className="border-[1px] border-white p-8 w-full lg:w-fit h-full">
               <h2
-                className={`${alumniSans.className} text-neonGreen font-bold text-5xl ml-4`}
+                className={`${alumniSans.className} text-neonGreen font-bold text-5xl`}
                 style={{
                   textShadow: `
                   0px 0px 20px var(--neon-green),
@@ -81,7 +81,7 @@ const Page = () => {
               >
                 Resources
               </h2>
-              <ul className="text-white mt-4  space-y-6">
+              <ul className="text-white mt-8 space-y-6">
                 {
                   resources.map(({ icon, text }, index) => (
                     <li className="gap-4 flex" key={index}>
@@ -104,7 +104,7 @@ const Page = () => {
 
       <Section className="py-24 2xl:py-48 h-full flex items-center justify-center" borderTop>
         <div className="flex flex-col flex-wrap gap-[11px] lg:grid grid-cols-12 grid-rows-12 py-16 2xl:px-16">
-          <div className="order-2 w-full h-auto border border-white p-[14px] col-start-1 col-span-3 row-start-1 row-span-7 lg:order-1 ">
+          <div className="order-2 w-full h-auto border border-white p-3.5 col-start-1 col-span-3 row-start-1 row-span-7 lg:order-1 flex flex-col gap-2.5">
             <h2 className={`${alumniSans.className} font-bold bg-transparent text-4xl text-darkBlue ${styles.boxshadow}`}>
               01
             </h2>
@@ -126,7 +126,7 @@ const Page = () => {
               />
             </div>
           </div>
-          <div className="order-3 w-full h-full border border-white p-[14px] col-start-4 col-span-5 row-start-1 row-span-7 border border-dashed border-white p-[14px]">
+          <div className="order-3 w-full h-full border border-white p-3.5 col-start-4 col-span-5 row-start-1 row-span-7 border border-dashed border-white flex flex-col gap-2.5">
             <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>
               02
             </h2>
@@ -150,13 +150,13 @@ const Page = () => {
             <div className="select-none hidden lg:block absolute top-0 right-0">
               <img src="/FacilitiesPage/tab.svg" alt="tab" />
             </div>
-            <div className="flex justify-start lg:justify-center mt-0 mb-[20px] lg:items-center lg:p-[14px]">
+            <div className="flex justify-start lg:justify-center mt-0 mb-[20px] lg:items-center lg:p-3.5">
               <h2 className={`${alumniSans.className} font-bold text-7xl`}>
                 Servers
               </h2>
             </div>
           </div>
-          <div className="order-4 w-full h-auto border border-white p-[14px] lg:col-span-4 row-start-8 row-span-5 border border-dashed p-[14px]">
+          <div className="order-4 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5 border border-dashed flex flex-col gap-2.5">
             <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>
               03
             </h2>
@@ -169,7 +169,7 @@ const Page = () => {
               can login to the system. Itus uses LDAP for authentication.
             </p>
           </div>
-          <div className="order-5 w-full h-auto border border-white p-[14px] lg:col-span-4 row-start-8 row-span-5 border border-white p-[14px]">
+          <div className="order-5 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5 border border-white flex flex-col gap-2.5">
             <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>
               04
             </h2>
@@ -184,7 +184,7 @@ const Page = () => {
               <Link href="http://192.168.40.130/" label="Media Server" />
             </div>
           </div>
-          <div className="order-6 w-full h-auto border border-white p-[14px] lg:col-span-4 row-start-8 row-span-5 border border-dashed border-white p-[14px]">
+          <div className="order-6 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5 border border-dashed border-white flex flex-col gap-2.5">
             <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>
               05
             </h2>
