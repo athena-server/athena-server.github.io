@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Alumni_Sans, Inter } from 'next/font/google'
+import { Alumni_Sans, Inter, Geo } from 'next/font/google'
 
 const geistSans = localFont({
     src: "GeistVF.woff",
@@ -26,10 +26,17 @@ const inter = Inter({
     variable: "--font-inter",
 })
 
+const geo = Geo({
+    subsets: ['latin'],
+    weight: ['400'],
+    variable: "--font-geo",
+})
+
 
 export {
     geistSans,
     geistMono,
     alumniSans,
     inter,
+    geo,
 }

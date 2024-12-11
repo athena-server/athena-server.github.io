@@ -1,6 +1,6 @@
 import Container from "@/components/Container";
 import SectionDivider from "@/components/SectionDivider";
-import { alumniSans } from "@/fonts";
+import { alumniSans, geo } from "@/fonts";
 import styles from "./styles.module.css";
 import Link from "@/components/Link";
 import { useMemo } from "react";
@@ -120,15 +120,19 @@ const Page = () => {
           </div>
         </div>
       </section>
-      <section className="relative min-h-screen h-full flex flex-col justify-center">
+      <section className="relative min-h-screen h-full flex flex-col py-24">
         <SectionDivider />
         <h2 className={`${alumniSans.className} font-bold text-7xl`}> Terminal Systems </h2>
         <img
           src="/FacilitiesPage/facilities.svg"
           alt="Technical Specifications"
-          className="py-24 px-0 lg:p-24"
+          className="py-16 px-0 lg:p-16"
         />
-        <span className="outline text-center"> TECHNICAL SPECIFICATIONS </span>
+        <span className={`${geo.className} font-medium text-2xl text-center text-darkBlue`} style={{
+          filter: 'drop-shadow(0 0 10px var(--dark-blue)) drop-shadow(0 0 20px var(--dark-blue))',
+        }}>
+          TECHNICAL SPECIFICATIONS
+        </span>
       </section>
     </Container>
   );
