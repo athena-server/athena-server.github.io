@@ -53,7 +53,7 @@ const Page = () => {
           </div>
 
           <div className="w-full lg:w-5/12 h-full flex justify-center lg:justify-end ">
-            <div className="border-[1px] border-white p-8 w-full lg:w-fith-full">
+            <div className="border-[1px] border-white p-8 w-full lg:w-fit h-full">
               <h2
                 className={`${alumniSans.className} text-neonGreen font-bold text-5xl ml-4`}
                 style={{
