@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 import SectionDivider from "@/components/SectionDivider";
 import { alumniSans } from "@/fonts";
 import styles from "./styles.module.css";
-import Link from "@/components/Link"
+import Link from "@/components/Link";
 // to use font alumni sans on any text, use the following css: <div className={`${alumniSans.classname} ...tailwind styles`}
 // default font is inter so need to change font for any other elements
 // refer page.tsx in branch 1-home-page for further doubt clearing on any usage of font, or carousal or section divider component
@@ -21,17 +21,17 @@ const Page = () => {
       <section className="relative min-h-screen h-full">
         {/* Section 1 */}
       </section>
-      
+
       <section className="relative min-h-screen h-full">
-      <SectionDivider />
-        <div className="grid grid-cols-12 grid-rows-12 gap-[11px] py-[114px] px-[18px]">
-            <div className="col-span-3 row-start-1 row-span-7 border border-white p-[14px]">
+        <SectionDivider />
+        <div className="flex flex-col flex-wrap gap-[11px] pt-[20px] pb-[114px] px-[18px] lg:grid grid-cols-12 grid-rows-12 py-[114px] ">
+          <div className="order-2 w-full h-auto border border-white p-[14px] lg:col-span-3 row-start-1 row-span-7 lg:order-1 ">
             <h1
               className={`${alumniSans.className} font-bold bg-transparent text-4xl text-[#3F56E9] ${styles.boxshadow}`}
             >
               01
             </h1>
-    
+
             <h1
               className={`${alumniSans.className} font-bold text-5xl ${styles.textstroke}`}
             >
@@ -46,13 +46,13 @@ const Page = () => {
               their personal website.
             </p>
             <div className="py-[14px]">
-            <Link 
+              <Link
                 href="https://athena.nitc.ac.in/how-to-athena/"
                 label="How to use Athena"
-            />
+              />
             </div>
-            </div>
-            <div className="col-span-5 row-start-1 row-span-7 border border-dashed border-white p-[14px]">
+          </div>
+          <div className="order-3 w-full h-auto border border-white p-[14px] lg:col-span-5 row-start-1 row-span-7 border border-dashed border-white p-[14px] lg:order-2">
             <h1
               className={`${alumniSans.className} font-bold text-4xl text-[#3F56E9] ${styles.boxshadow}`}
             >
@@ -66,48 +66,35 @@ const Page = () => {
             <p>
               CSED Web Server is official website hosting server of department.
             </p>
-              <div className="py-[14px] gap-[20px]">
-            <Link 
+            <div className="py-[14px] gap-[20px]">
+              <Link
                 href="https://minerva.nitc.ac.in/cse/"
                 label="Department of Computer Science and Engineering"
-            />
-            <Link 
-                href="http://192.168.40.130/"
-                label="CSED People"
-            />
-            <Link 
-                href="http://192.168.40.130/"
-                label="Eduserver"
-            />
-            <Link 
+              />
+              <Link href="http://192.168.40.130/" label="CSED People" />
+              <Link href="http://192.168.40.130/" label="Eduserver" />
+              <Link
                 href="http://192.168.40.130/"
                 label="Computer Science and Engineering Association"
-            />
-            <Link 
+              />
+              <Link
                 href="http://192.168.40.130/"
                 label="Secure Computing Laboratory"
-            />
-            <Link 
-                href="http://192.168.40.130/"
-                label="CSEA Wiki"
-            />
+              />
+              <Link href="http://192.168.40.130/" label="CSEA Wiki" />
             </div>
-
+          </div>
+          <div className=" w-full h-auto order-1 lg:col-span-4 row-start-1 row-span-7 lg:border border-white lg:order-3">
+            <div className="flex justify-end mt-0 lg: justify-end">
+              <img src="/FacilitiesPage/tab.svg" alt="tab" />
             </div>
-            <div className="col-span-4 row-start-1 row-span-7 border border-white">
-            <div className="flex justify-end mt-0">
-          <img
-            src="/FacilitiesPage/tab.svg"
-            alt="tab"
-          />
-        </div>
-            <div className="flex justify-center items-center p-[14px]">
-            <h1 className={`${alumniSans.className} font-bold text-7xl `}>
-              Servers
-            </h1>
+            <div className="flex justify-center mt-0 mb-[20px] lg:items-center p-[14px]">
+              <h1 className={`${alumniSans.className} font-bold text-7xl `}>
+                Servers
+              </h1>
             </div>
-            </div>
-            <div className="col-span-4 row-start-8 row-span-5 border border-dashed p-[14px]">
+          </div>
+          <div className="order-4 w-full h-auto border border-white p-[14px] lg:col-span-4 row-start-8 row-span-5 border border-dashed p-[14px]">
             <h1
               className={`${alumniSans.className} font-bold text-4xl text-[#3F56E9] ${styles.boxshadow}`}
             >
@@ -123,8 +110,8 @@ const Page = () => {
               student of department has a username and password with which they
               can login to the system. Itus uses LDAP for authentication.
             </p>
-            </div>
-            <div className="col-span-4 row-start-8 row-span-5 border border-white p-[14px]">
+          </div>
+          <div className="order-5 w-full h-auto border border-white p-[14px] lg:col-span-4 row-start-8 row-span-5 border border-white p-[14px]">
             <h1
               className={`${alumniSans.className} font-bold text-4xl text-[#3F56E9] ${styles.boxshadow}`}
             >
@@ -140,13 +127,10 @@ const Page = () => {
               open courses from many prominent institutions of world.
             </p>
             <div className="py-[20px] mt-[14px]">
-            <Link 
-                href="http://192.168.40.130/"
-                label="Media Server"
-            />
+              <Link href="http://192.168.40.130/" label="Media Server" />
             </div>
-            </div>
-            <div className="col-span-4 row-start-8 row-span-5 border border-dashed border-white p-[14px]">
+          </div>
+          <div className="order-6 w-full h-auto border border-white p-[14px] lg:col-span-4 row-start-8 row-span-5 border border-dashed border-white p-[14px]">
             <h1
               className={`${alumniSans.className} font-bold text-4xl text-[#3F56E9] ${styles.boxshadow}`}
             >
@@ -162,9 +146,7 @@ const Page = () => {
               institution. It contains the up to date repository of supported
               LTS version and recent short support versions
             </p>
-            </div>
-
-
+          </div>
         </div>
       </section>
       <section className="relative min-h-screen h-full">
