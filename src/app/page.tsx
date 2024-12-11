@@ -125,7 +125,7 @@ const Page = () => {
                 </div>
             </Section>
 
-            <Section id="about-us" className="py-24 2xl:py-48 h-full max-h-[1080px] flex justify-between" borderTop>
+            <Section id="about-us" className="py-24 2xl:py-48 h-full flex justify-between" borderTop>
                 <CloseIcon />
                 <div className="w-full lg:w-4/5 xl:w-3/5 h-inherit flex flex-col gap-8 items-start justify-center py-14">
                     <h2 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> About Us </h2>
@@ -181,7 +181,7 @@ const Page = () => {
                     STATUS: ACTIVE
                 </span>
             </Section>
-            <Section id="facilities" className="py-24 2xl:py-48 h-full max-h-[1080px] flex justify-between" borderTop>
+            <Section id="facilities" className="py-24 2xl:py-48 h-full flex justify-between" borderTop>
                 <CloseIcon />
                 <div className="w-7/12 hidden lg:block h-inherit flex flex-col gap-8 items-center justify-center p-14">
                     <div className="aspect-video w-full flex items-center justify-center">
@@ -200,7 +200,7 @@ const Page = () => {
                     </div>
                 </div>
             </Section>
-            <Section id="resources" className="py-24 2xl:py-48 h-full max-h-[1080px] flex justify-between" borderTop>
+            <Section id="resources" className="py-24 2xl:py-48 h-full flex justify-between" borderTop>
                 <CloseIcon />
                 <div className="w-full lg:w-5/12 h-inherit flex flex-col gap-8 items-start justify-center p-0 lg:p-14">
                     <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> CSED Resources </h3>
@@ -218,7 +218,7 @@ const Page = () => {
             </Section>
 
             {/* Desktop only */}
-            <Section className="hidden lg:flex py-24 2xl:py-48 h-full max-h-[1080px] justify-between" borderTop>
+            <Section className="hidden lg:flex py-24 2xl:py-48 h-full justify-between" borderTop>
                 <CloseIcon />
                 <div className="relative p-14 flex gap-8 flex-row w-full">
                     <div className="h-full w-1/3 flex flex-col items-start justify-center gap-8 relative">
@@ -252,7 +252,7 @@ const Page = () => {
 
 
             {/* mobile view only  */}
-            <Section className="flex lg:hidden py-24 h-full max-h-[1080px] justify-between">
+            <Section className="flex lg:hidden py-24 h-full justify-between">
                 <div className="h-full w-full lg:w-1/3 xl:w-5/12 flex flex-col items-start justify-center gap-8">
                     <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Course Review </h3>
                     <p>
@@ -264,7 +264,7 @@ const Page = () => {
                     </div>
                 </div>
             </Section>
-            <Section className="flex lg:hidden py-24 h-full max-h-[1080px] justify-between" borderTop>
+            <Section className="flex lg:hidden py-24 h-full justify-between" borderTop>
                 <div className="h-full w-full lg:w-1/3 flex flex-col items-start justify-center gap-8 relative">
                     <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Want to book SSL for events? </h3>
                     <p>
