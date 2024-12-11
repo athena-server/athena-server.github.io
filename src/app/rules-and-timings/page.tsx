@@ -37,7 +37,7 @@ const Page = () => {
             </Section>
             <Section id="timings" className="min-h-screen h-full py-24 2xl:py-48 flex flex-col items-center justify-center" borderTop>
                 { /* Timings section*/}
-                hello
+                make changes only here
             </Section>
         </Container>
     )
