@@ -48,7 +48,6 @@ const Navbar = () => {
 
     return (
         <motion.div className='fixed top-0 left-0 w-full flex items-center justify-center bg-black z-[1]' style={{
-            // backgroundColor: 'rgba(0,0,0,' + opacity.get() + ')',
             background: opacity
         }}>
             <nav className="w-full max-w-[1920px] h-20 lg:h-24 flex items-center justify-between">

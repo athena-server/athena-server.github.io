@@ -216,11 +216,10 @@ const Page = () => {
                     <img className="aspect-video w-full flex items-center justify-center" src="/Home/server-rack-section-3.svg" />
                 </div>
             </Section>
-            <Section id="more-links" className="py-24 2xl:py-48 h-full max-h-[1080px] flex justify-between" borderTop>
+            <Section className="hidden md:flex py-24 2xl:py-48 h-full max-h-[1080px] justify-between" borderTop>
                 <CloseIcon />
                 <div className="relative p-0 lg:p-14 flex gap-8 flex-col-reverse lg:flex-row w-full">
                     <div className="h-full w-full lg:w-1/3 flex flex-col items-start justify-center gap-8 relative">
-                        <SectionDivider className="block lg:hidden" />
                         <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Want to book SSL for events? </h3>
                         <p>
                             Download and fill the form given below and there are some more instructions. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -246,6 +245,30 @@ const Page = () => {
                             <Button onClick={() => routeTo('/course-reviews')}> Review Courses </Button>
                         </div>
                     </div>
+                </div>
+            </Section>
+            <Section className="flex md:hidden py-24 h-full max-h-[1080px] justify-between">
+                <div className="h-full w-full lg:w-1/3 xl:w-5/12 flex flex-col items-start justify-center gap-8">
+                    <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Course Review </h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin. Vestibulum pretium mi non dui venenatis maximus.
+                    </p>
+
+                    <div className="w-full text-center md:text-left">
+                        <Button onClick={() => routeTo('/course-reviews')}> Review Courses </Button>
+                    </div>
+                </div>
+            </Section>
+            <Section className="flex md:hidden py-24 h-full max-h-[1080px] justify-between" borderTop>
+                <div className="h-full w-full lg:w-1/3 flex flex-col items-start justify-center gap-8 relative">
+                    <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Want to book SSL for events? </h3>
+                    <p>
+                        Download and fill the form given below and there are some more instructions. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <div className="w-full text-center md:text-left">
+                        <Button onClick={() => routeTo('/book-ssl')} hideIcon> Download Form </Button>
+                    </div>
+
                 </div>
             </Section>
         </Container>
