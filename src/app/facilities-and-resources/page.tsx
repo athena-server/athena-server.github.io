@@ -54,10 +54,9 @@ const Page = () => {
               service.
             </span>
 
-            <div className="pt-16 pl-10 hidden aspect-video lg:block w-[665px] max-w-[90%]">
+            <div className="pt-16 hidden aspect-video lg:block w-[665px] max-w-[90%]">
               <Carousel
                 images={carouselData}
-                showPreview
                 controls
                 autoPlay
               />
