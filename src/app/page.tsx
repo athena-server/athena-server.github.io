@@ -160,7 +160,7 @@ const Page = () => {
                         >
                             <img src="/CloseIcon/tab-bar-group.svg" className="absolute top-0 right-0 " />
                             <span className="absolute top-0 left-0 h-full w-0 group-hover:w-full transition-width duration-200 bg-white z-[-2] " />
-                            <h3 className={`${alumniSans.className} text-4xl lg:text-5xl font-bold group-hover:text-black transition-color duration-200 pb-24`}> Meet Our Team </h3>
+                            <h3 className={`${alumniSans.className} text-4xl lg:text-5xl w-1/2 text-left font-bold group-hover:text-black transition-color duration-200 pb-24`}> Meet Our Team </h3>
                             <img
                                 src="/Home/arrow.svg"
                                 alt="arrow"
@@ -216,38 +216,43 @@ const Page = () => {
                     <img className="aspect-video w-full flex items-center justify-center" src="/Home/server-rack-section-3.svg" />
                 </div>
             </Section>
-            <Section className="hidden md:flex py-24 2xl:py-48 h-full max-h-[1080px] justify-between" borderTop>
+
+            {/* Desktop only */}
+            <Section className="hidden lg:flex py-24 2xl:py-48 h-full max-h-[1080px] justify-between" borderTop>
                 <CloseIcon />
-                <div className="relative p-0 lg:p-14 flex gap-8 flex-col-reverse lg:flex-row w-full">
-                    <div className="h-full w-full lg:w-1/3 flex flex-col items-start justify-center gap-8 relative">
-                        <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Want to book SSL for events? </h3>
+                <div className="relative p-14 flex gap-8 flex-row w-full">
+                    <div className="h-full w-1/3 flex flex-col items-start justify-center gap-8 relative">
+                        <h3 className={`${alumniSans.className} font-bold text-7xl`}> Want to book SSL for events? </h3>
                         <p>
                             Download and fill the form given below and there are some more instructions. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         </p>
                         <div className="w-full text-center md:text-left">
-                            <Button onClick={() => routeTo('/book-ssl')} hideIcon> Download Form </Button>
+                            <Button onClick={() => routeTo('/docs/SSL-Request.pdf')} className="!px-6" hideIcon> Download Form </Button>
                         </div>
 
                     </div>
-                    <div className="h-full hidden lg:flex w-1/3 xl:w-3/12 items-center justify-end relative">
+                    <div className="h-full flex w-1/3 xl:w-3/12 items-center justify-end relative">
                         <span className="absolute top-0 left-0 w-[1px] h-full bg-white" style={{
                             filter: 'drop-shadow(0 0 6px white) drop-shadow(0 0 8px white)',
                         }} />
-                        <img src="/Home/course-review-section-4.svg" alt="course-review" />
+                        <img src="/Home/course-review-section-4.svg" alt="course-review" className="w-11/12" />
                     </div>
-                    <div className="h-full w-full lg:w-1/3 xl:w-5/12 flex flex-col items-start justify-center gap-8">
-                        <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Course Review </h3>
+                    <div className="h-full w-1/3 xl:w-5/12 flex flex-col items-start justify-center gap-8">
+                        <h3 className={`${alumniSans.className} font-bold text-7xl`}> Course Review </h3>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin. Vestibulum pretium mi non dui venenatis maximus.
                         </p>
 
-                        <div className="w-full text-center md:text-left">
+                        <div className="w-full text-left">
                             <Button onClick={() => routeTo('/course-reviews')}> Review Courses </Button>
                         </div>
                     </div>
                 </div>
             </Section>
-            <Section className="flex md:hidden py-24 h-full max-h-[1080px] justify-between">
+
+
+            {/* mobile view only  */}
+            <Section className="flex lg:hidden py-24 h-full max-h-[1080px] justify-between">
                 <div className="h-full w-full lg:w-1/3 xl:w-5/12 flex flex-col items-start justify-center gap-8">
                     <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Course Review </h3>
                     <p>
@@ -259,14 +264,14 @@ const Page = () => {
                     </div>
                 </div>
             </Section>
-            <Section className="flex md:hidden py-24 h-full max-h-[1080px] justify-between" borderTop>
+            <Section className="flex lg:hidden py-24 h-full max-h-[1080px] justify-between" borderTop>
                 <div className="h-full w-full lg:w-1/3 flex flex-col items-start justify-center gap-8 relative">
                     <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Want to book SSL for events? </h3>
                     <p>
                         Download and fill the form given below and there are some more instructions. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </p>
                     <div className="w-full text-center md:text-left">
-                        <Button onClick={() => routeTo('/book-ssl')} hideIcon> Download Form </Button>
+                        <Button onClick={() => routeTo('/docs/SSL-Request.pdf')} className="!px-6" hideIcon> Download Form </Button>
                     </div>
 
                 </div>
