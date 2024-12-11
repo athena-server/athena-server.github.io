@@ -147,7 +147,7 @@ const Page = () => {
             </div>
           </div>
           <div className="w-full h-full order-1 col-start-9 col-span-4 row-start-1 row-span-7 lg:border border-white lg:order-3 relative flex items-center lg:justify-center">
-            <div className="hidden lg:block absolute top-0 right-0">
+            <div className="select-none hidden lg:block absolute top-0 right-0">
               <img src="/FacilitiesPage/tab.svg" alt="tab" />
             </div>
             <div className="flex justify-start lg:justify-center mt-0 mb-[20px] lg:items-center lg:p-[14px]">
