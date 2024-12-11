@@ -63,7 +63,7 @@ const Carousel = ({
 
     return (
         <div className='h-full w-full relative'>
-            <div className="h-full w-full overflow-hidden relative drop-shadow-lg">
+            <div className="h-full w-full overflow-hidden relative drop-shadow-xl">
                 <AnimatePresence>
                     <motion.img
                         src={images[currentImage]}
@@ -73,7 +73,7 @@ const Carousel = ({
                         animate={{ x: '0%', position: 'relative' }}
                         exit={{ x: '-100%', position: 'absolute' }}
                         transition={{ duration: 0.8, ease: [0.445, 0.05, 0.55, 0.95] }}
-                        className='object-cover w-full'
+                        className='object-cover w-full aspect-video'
                     />
                 </AnimatePresence >
             </div>
@@ -90,7 +90,8 @@ const Carousel = ({
                                     animate={{ x: '0%', position: 'relative' }}
                                     exit={{ x: '-100%', position: 'absolute' }}
                                     transition={{ duration: 0.8, ease: [0.445, 0.05, 0.55, 0.95] }}
-                                    className='object-cover w-full'
+                                    className='object-cover w-full aspect-video'
+
                                 />
                             </AnimatePresence>
                         </div>
@@ -104,7 +105,7 @@ const Carousel = ({
                                     animate={{ x: '0%', position: 'relative' }}
                                     exit={{ x: '-100%', position: 'absolute' }}
                                     transition={{ duration: 0.8, ease: [0.445, 0.05, 0.55, 0.95] }}
-                                    className='object-cover w-full'
+                                    className='object-cover w-full aspect-video'
                                 />
                             </AnimatePresence>
                         </div>
