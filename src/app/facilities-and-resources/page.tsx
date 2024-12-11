@@ -105,7 +105,7 @@ const Page = () => {
         <SectionDivider />
         <div className="flex flex-col flex-wrap gap-[11px] lg:grid grid-cols-12 grid-rows-12 py-16 2xl:px-16">
           <div className="order-2 w-full h-auto border border-white p-[14px] col-start-1 col-span-3 row-start-1 row-span-7 lg:order-1 ">
-            <h2 className={`${alumniSans.className} font-bold bg-transparent text-4xl text-[#3F56E9] ${styles.boxshadow}`}>
+            <h2 className={`${alumniSans.className} font-bold bg-transparent text-4xl text-darkBlue ${styles.boxshadow}`}>
               01
             </h2>
             <h3 className={`${alumniSans.className} font-bold text-5xl ${styles.textstroke}`}>
@@ -127,7 +127,7 @@ const Page = () => {
             </div>
           </div>
           <div className="order-3 w-full h-full border border-white p-[14px] col-start-4 col-span-5 row-start-1 row-span-7 border border-dashed border-white p-[14px]">
-            <h2 className={`${alumniSans.className} font-bold text-4xl text-[#3F56E9] ${styles.boxshadow}`}>
+            <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>
               02
             </h2>
             <h3 className={`${alumniSans.className} font-bold text-5xl ${styles.textstroke}`}>
@@ -157,7 +157,7 @@ const Page = () => {
             </div>
           </div>
           <div className="order-4 w-full h-auto border border-white p-[14px] lg:col-span-4 row-start-8 row-span-5 border border-dashed p-[14px]">
-            <h2 className={`${alumniSans.className} font-bold text-4xl text-[#3F56E9] ${styles.boxshadow}`}>
+            <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>
               03
             </h2>
             <h3 className={`${alumniSans.className} font-bold text-5xl ${styles.textstroke}`}>
@@ -170,7 +170,7 @@ const Page = () => {
             </p>
           </div>
           <div className="order-5 w-full h-auto border border-white p-[14px] lg:col-span-4 row-start-8 row-span-5 border border-white p-[14px]">
-            <h2 className={`${alumniSans.className} font-bold text-4xl text-[#3F56E9] ${styles.boxshadow}`}>
+            <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>
               04
             </h2>
             <h3 className={`${alumniSans.className} font-bold text-5xl ${styles.textstroke}`}>
@@ -185,7 +185,7 @@ const Page = () => {
             </div>
           </div>
           <div className="order-6 w-full h-auto border border-white p-[14px] lg:col-span-4 row-start-8 row-span-5 border border-dashed border-white p-[14px]">
-            <h2 className={`${alumniSans.className} font-bold text-4xl text-[#3F56E9] ${styles.boxshadow}`}>
+            <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>
               05
             </h2>
             <h3 className={`${alumniSans.className} font-bold text-5xl ${styles.textstroke}`}>
@@ -201,7 +201,7 @@ const Page = () => {
       </section>
       <section className="relative min-h-screen h-full flex flex-col py-24">
         <SectionDivider />
-        <h2 className={`${alumniSans.className} font-bold text-7xl`}> Terminal Systems </h2>
+        <h2 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Terminal Systems </h2>
         <img
           src="/FacilitiesPage/facilities.svg"
           alt="Technical Specifications"
