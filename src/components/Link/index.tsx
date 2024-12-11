@@ -19,18 +19,24 @@ const Link = ({
     return (
         <NextLink
             href={href}
-            target={openInNewTab ? "_blank" : "_self"} rel={openInNewTab ? "noopener noreferrer" : undefined}
-            className={`text-neonGreen flex w-fit gap-[11px] relative group ${className}`}
+            target={openInNewTab ? "_blank" : "_self"}
+            rel={openInNewTab ? "noopener noreferrer" : undefined}
+            className={`group relative text-neonGreen text-lg ${className}`}
         >
-            <img
-                src="/icons/linkicon.svg"
-                alt="link"
-                height={24}
-                width={24}
-            />
-            {label}
+            <div className="text-neonGreen w-fit flex flex-row gap-[11px]">
+                <img
+                    src="/icons/linkicon.svg"
+                    alt="link"
+                    height={24}
+                    width={24}
+                />
+                <span>
+                    {label}
+                </span>
+            </div>
 
             <span className='absolute bottom-0 left-0 w-[0%] group-hover:w-[100%] opacity-0 group-hover:opacity-100 h-px bg-neonGreen transition-width duration-300 ease-[cubic-bezier(0.445,0.05,0.55,0.95)]' />
+
         </NextLink>
     )
 }

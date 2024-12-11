@@ -6,6 +6,7 @@ import { alumniSans, geo } from "@/fonts";
 import Carousel from "@/components/Carousel";
 import styles from "./styles.module.css";
 import Link from "@/components/Link";
+import Section from "@/components/Section";
 
 const Page = () => {
   const carouselData = useMemo(() => [
@@ -36,8 +37,8 @@ const Page = () => {
 
   return (
     <Container>
-      <section className="relative min-h-screen h-full flex justify-center py-16 lg:py-24 px-0 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+      <Section className="flex flex-col justify-center min-h-screen items-center lg:items-start h-full pt-20 lg:pt-24">
+        <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex flex-col w-full lg:w-7/12">
             <h1 className={`${alumniSans.className} text-8xl font-bold `}>
               FACILITIES
@@ -53,7 +54,7 @@ const Page = () => {
               service.
             </span>
 
-            <div className="py-10 px-16 hidden aspect-video lg:block">
+            <div className="pt-16 pl-10 hidden aspect-video lg:block w-[665px] max-w-[90%]">
               <Carousel
                 images={carouselData}
                 showPreview
@@ -63,7 +64,7 @@ const Page = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-5/12 h-full flex justify-center lg:justify-end ">
+          <div className="w-full lg:w-5/12 h-inherit flex justify-center lg:justify-end">
             <div className="border-[1px] border-white p-8 w-full lg:w-fit h-full">
               <h2
                 className={`${alumniSans.className} text-neonGreen font-bold text-5xl ml-4`}
@@ -99,10 +100,9 @@ const Page = () => {
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
-      <section className="relative min-h-screen h-full flex items-center justify-center">
-        <SectionDivider />
+      <Section className="py-24 2xl:py-48 h-full flex items-center justify-center" borderTop>
         <div className="flex flex-col flex-wrap gap-[11px] lg:grid grid-cols-12 grid-rows-12 py-16 2xl:px-16">
           <div className="order-2 w-full h-auto border border-white p-[14px] col-start-1 col-span-3 row-start-1 row-span-7 lg:order-1 ">
             <h2 className={`${alumniSans.className} font-bold bg-transparent text-4xl text-darkBlue ${styles.boxshadow}`}>
@@ -198,9 +198,9 @@ const Page = () => {
             </p>
           </div>
         </div>
-      </section>
-      <section className="relative min-h-screen h-full flex flex-col py-24">
-        <SectionDivider />
+      </Section>
+
+      <Section className="py-24 2xl:py-48 h-full flex flex-col" borderTop>
         <h2 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Terminal Systems </h2>
         <img
           src="/FacilitiesPage/facilities.svg"
@@ -212,7 +212,7 @@ const Page = () => {
         }}>
           TECHNICAL SPECIFICATIONS
         </span>
-      </section>
+      </Section>
     </Container>
   );
 };
