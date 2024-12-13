@@ -14,8 +14,9 @@ const Page = () => {
         { id: "03", content: "Food items are not allowed in the lab. SSL is not a hangout place. Please keep the lab clean and maintain silence." },
         { id: "04", content: "Laptops are not allowed without permission. Mobile phones must be kept in silent mode." },
         { id: "05", content: "Please follow the proper dress code inside the lab." },
-        { id: "06", content: "Download the form for requesting SSL for events or other activities.", link: "https://athena.nitc.ac.in/how-to-athena/", displayText: "Download" }
+        { id: "06", content: "Download the form for requesting SSL for events or other activities.", link: "/docs/SSL-Request.pdf", displayText: "Download" }
     ], []);
+
     const schedule = useMemo(() => ({
         Monday: ["-", "-", "Aravind", "Shibin"],
         Tuesday: ["-", "-", "Shalin", "Aravind"],
@@ -30,7 +31,7 @@ const Page = () => {
 
     return (
         <Container>
-            <Section id="rules" className="min-h-screen h-full mb-16 pt-20 lg:pt-24">
+            <Section id="rules" className="min-h-screen h-full mb-16 pt-20 lg:pt-24 flex flex-col justify-center 2xl:p-20">
                 { /* Rules section*/}
                 <h2 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl my-4 `}> Rules</h2>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-3.5 auto-rows-fr" >
@@ -43,8 +44,8 @@ const Page = () => {
                                 <h2 className={`${alumniSans.className} font-bold bg-transparent text-6xl text-darkBlue ${styles.boxshadow} mb-2`}>{id}</h2>
                                 <p>{content}</p>
                                 {link && (
-                                    <div className="py-4">
-                                        <Link href={link} label={displayText} />
+                                    <div className="pt-4">
+                                        <Link href={link} label={displayText} openInNewTab/>
                                     </div>
                                 )}
                             </div>
