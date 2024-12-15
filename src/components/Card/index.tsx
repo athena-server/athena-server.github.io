@@ -25,7 +25,7 @@
 
 
 import { alumniSans, geo } from "@/fonts";
-
+import styles from "./styles.module.css";
 
 
 /**
@@ -47,12 +47,42 @@ const Card = ({
 }: CardProps): JSX.Element => {
     const { email, linkedin, github } = socials || {};
     return (
-        <div>
-            <h1>Card</h1>
+        <div className="flex flex-col gap-[5px] w-[250px]" >
+            <div className="relative flex items-center justify-center w-[250px] h-[250px] bg-neonGreen">
+                <img
+                    src={imageUrl}
+                    alt="Circular Image"
+                    className="w-full h-full rounded-full object-cover bg-black"
+                />
+  
+                <div className="absolute bottom-0 h-1/2 w-full bg-[radial-gradient(circle_at_bottom_left,_#3F56E9_0%,_transparent_35%)] pointer-events-none z-10"></div>
+            </div>
+
+            <div className="w-[250px] border-[1px] border-solid border-neonGreen px-[9px] py-[7px] flex flex-col items-start gap-[8px]">
+                <p className={`${alumniSans.className} w-full font-bold text-[32px] leading-[38px]`}>{name}</p>
+                {socials && 
+                    <div className="flex flex-row gap-[12px] items-center p-0">
+                        {socials.email && 
+                            <a href={`mailto:${socials.email}?`} >
+                                <img src="/Card/email.svg" alt={`icon-email`} className={`${styles.txtshadow}`}/>
+                            </a>
+                        }
+                        {socials.linkedin && 
+                            <a href={socials.linkedin} className="">
+                                <img src="/Card/linkedin.svg" alt={`icon-linkedin`} className={`${styles.txtshadow}`}/>
+                            </a>
+                        }
+                        {socials.github && 
+                            <a href={socials.github} className="">
+                                <img src="/Card/github.svg" alt={`icon-github`} className={`${styles.txtshadow}`}/>
+                            </a>
+                        }
+                    </div>
+                }
+            </div>
         </div>
     )
 }
-
 
 
 export default Card;
@@ -61,7 +91,7 @@ export interface CardProps {
     name: string,
     // designation: string, // job title
     socials?: {
-        email: string,
+        email?: string,
         linkedin?: string,
         github?: string,
     }
