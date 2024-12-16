@@ -11,6 +11,9 @@
 * you can make use of any existing components
 * 
 * clarify any doubts before acting on them
+* 
+* dummy data has been added for the pages
+* mock implementation has also been added
 
 */
 
@@ -21,6 +24,86 @@ import Section from "@/components/Section"
 import { alumniSans, geo } from "@/fonts"
 
 const Page = () => {
+
+    const data: {
+        staff: CardProps[];
+        facilities: CardProps[];
+        webteam: CardProps[];
+        admins: CardProps[];
+      } = {
+        staff: [
+          {
+            imageUrl: "/Card/mayank.jpg",
+            name: "Mayank Gupta",
+            socials: {
+              email: "hello@gmail.com",
+            },
+          },
+          {
+            imageUrl: "/Card/mayank.jpg",
+            name: "Mayank Gupta",
+          },
+        ],
+        facultiess: [
+          {
+            imageUrl: "/Card/mayank.jpg",
+            name: "Mayank Gupta",
+            socials: {
+              email: "hello@gmail.com",
+            },
+          },
+          {
+            imageUrl: "/Card/mayank.jpg",
+            name: "Mayank Gupta",
+            socials: {
+              email: "hello@gmail.com",
+             
+            },
+          },
+        ],
+        webteam: [
+          {
+            imageUrl: "/Card/mayank.jpg",
+            name: "Mayank Gupta",
+            socials: {
+              email: "hello@gmail.com",
+              linkedin: "https://www.linkedin.com/in/NailaFathima",
+              github: "https://github.com/th3bossc",
+            },
+          },
+          {
+            imageUrl: "/Card/mayank.jpg",
+            name: "Mayank Gupta",
+            socials: {
+              email: "hello@gmail.com",
+              linkedin: "https://www.linkedin.com/in/NailaFathima",
+              github: "https://github.com/th3bossc",
+            },
+          },
+        ],
+        admins: [
+          {
+            imageUrl: "/Card/mayank.jpg",
+            name: "Mayank Gupta",
+            socials: {
+              email: "hello@gmail.com",
+              linkedin: "https://www.linkedin.com/in/NailaFathima",
+              github: "https://github.com/th3bossc",
+            },
+          },
+          {
+            imageUrl: "/Card/mayank.jpg",
+            name: "Mayank Gupta",
+            socials: {
+              email: "hello@gmail.com",
+              linkedin: "https://www.linkedin.com/in/NailaFathima",
+              github: "https://github.com/th3bossc",
+            },
+          },
+        ],
+      };
+
+
     return (
         <Container>
             <Section className="min-h-screen h-full mb-16 pt-20 lg:pt-24">
