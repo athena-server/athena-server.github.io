@@ -3,7 +3,9 @@
 * these comments are for information only and should be deleted before merging
 * only edit this page, do not modify others
 * when pushing to github, ensure no other files are modified
-* use <Card /> component with specified props from src/components/Card, but utnil that page is created just the dummy layout i have created
+* use <Card /> component with specified props from src/components/Carded
+* default font is inter and no change is required to use the font
+* to use alumniSans or Geo, refer other pages where those fonts are used
 * 
 * don't create any components
 * you can make use of any existing components
@@ -13,25 +15,20 @@
 */
 
 
+import Card from "@/components/Card"
 import Container from "@/components/Container"
 import Section from "@/components/Section"
 import { alumniSans, geo } from "@/fonts"
-
-
-const DummyCard = () => {
-    return (
-        <div className="outline w-fit flex flex-col gap-[5px]">
-            <div className="h-[250px] w-[250px] outline" />
-            <span className={`${alumniSans.className} text-3xl font-bold text-center w-full px-[9px] py-[7px]`}> hello </span>
-        </div>
-    )
-}
 
 const Page = () => {
     return (
         <Container>
             <Section className="min-h-screen h-full mb-16 pt-20 lg:pt-24">
-                <DummyCard /> {/* use card like this wherever required for layout*/}
+                <Card
+                    imageUrl="/Card/mayank.jpg"
+                    name="Nandana Neo"
+                    socials={{ email: "hello@hello.com" }}
+                />
             </Section>
         </Container>
     )
