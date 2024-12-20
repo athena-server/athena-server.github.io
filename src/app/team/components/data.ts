@@ -4,7 +4,7 @@ import { s } from "framer-motion/client";
 
 export enum Teams {
     faculties = "Faculties",
-    staff = "Staff",
+    staff = "Staffs",
     admins = "Student Admins",
     webteam = "Web Team",
 }

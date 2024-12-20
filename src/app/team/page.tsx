@@ -4,7 +4,7 @@
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import { alumniSans } from "@/fonts";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { groups } from "./components/data";
 import Staff from "./components/Staff";
 import Faculties from "./components/Faculties";
@@ -17,9 +17,9 @@ import { AnimatePresence, motion } from "framer-motion";
 const Page = () => {
     const [selectedOption, setSelectedOption] = useState<number>(0);
 
-    const handleToggleChange = (option: number) => {
+    const handleToggleChange = useCallback((option: number) => {
         setSelectedOption(option);
-    };
+    }, []);
 
     const options = useMemo(() => [
         <Faculties key="faculties" />,
@@ -27,11 +27,6 @@ const Page = () => {
         <Admins key="admins" />,
         <WebTeam key="webteam" />
     ], []);
-
-    const handleOptionChange = () => {
-
-    }
-
 
     return (
         <Container>
