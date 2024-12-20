@@ -27,6 +27,10 @@ const Navbar = () => {
             name: 'Timings',
             route: '/rules-and-timings'
         },
+        {
+            name: "Team",
+            route: "/team"
+        }
     ], []);
 
     useEffect(() => {
@@ -47,11 +51,11 @@ const Navbar = () => {
     }, [router, setOpen]);
 
     return (
-        <motion.div className='fixed top-0 left-0 w-full flex items-center justify-center bg-black z-[1]' style={{
+        <motion.div className='fixed top-0 left-0 w-full flex items-center justify-center bg-black z-[100]' style={{
             background: opacity
         }}>
             <nav className="w-full max-w-[1920px] h-20 lg:h-24 flex items-center justify-between">
-                <div className='w-full lg:w-1/5 h-full flex items-center p-4 lg:px-8 lg:py-4 order-first z-[2]'>
+                <div className='w-full lg:w-1/5 h-full flex items-center p-4 lg:px-8 lg:py-4 order-first z-[200]'>
                     <img src="/Navbar/logo-temp.svg" width={75} height={75} alt="logo" />
                 </div>
                 <div className='w-full flex items-center justify-end lg:block lg:w-3/5 h-full p-2 lg:px-8 lg:py-4 order-last lg:order-1 z-[2]'>
@@ -86,7 +90,7 @@ const Navbar = () => {
                                 className='block lg:hidden fixed top-0 left-0 h-screen w-screen flex flex-col gap-2 items-center justify-center overscroll-contain'
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
-                                exit={{ opacity: 0, transition: { delay: 0.2 } }}
+                                exit={{ opacity: 0, transition: { delay: 0.5 } }}
                                 transition={{ duration: 0.4, ease: [0.445, 0.05, 0.55, 0.95] }}
 
                             >
