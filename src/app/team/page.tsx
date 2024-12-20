@@ -77,20 +77,22 @@ const Page = () => {
                     </div>
                 </div>
 
-                <AnimatePresence>
-                    <motion.div
-                        initial={{ scale: 1.2, opacity: 0, position: "absolute", y: 10, transformOrigin: "top" }}
-                        animate={{ scale: 1, opacity: 1, position: "relative", y: 0, transformOrigin: "top" }}
-                        exit={{ scale: 0.8, opacity: 0, position: "absolute", y: -10, transformOrigin: "top" }}
-                        transition={{ duration: 0.5, ease: [0.445, 0.05, 0.55, 0.95] }}
-                        key={selectedOption}
-                        className="w-full h-full flex items-center justify-center"
-                    >
-                        {
-                            options[selectedOption]
-                        }
-                    </motion.div>
-                </AnimatePresence>
+                <div className="relative">
+                    <AnimatePresence initial={false}>
+                        <motion.div
+                            initial={{ scale: 1.2, opacity: 0, position: "absolute", y: 10, transformOrigin: "top" }}
+                            animate={{ scale: 1, opacity: 1, position: "relative", y: 0, transformOrigin: "top" }}
+                            exit={{ scale: 0.8, opacity: 0, position: "absolute", y: -10, transformOrigin: "top" }}
+                            transition={{ duration: 0.5, ease: [0.445, 0.05, 0.55, 0.95] }}
+                            key={selectedOption}
+                            className="w-full h-full flex items-center justify-center"
+                        >
+                            {
+                                options[selectedOption]
+                            }
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
 
 
             </Section>

@@ -27,6 +27,10 @@ const Navbar = () => {
             name: 'Timings',
             route: '/rules-and-timings'
         },
+        {
+            name: "Team",
+            route: "/team"
+        }
     ], []);
 
     useEffect(() => {

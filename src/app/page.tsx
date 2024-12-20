@@ -160,7 +160,12 @@ const Page = () => {
                         >
                             <img src="/CloseIcon/tab-bar-group.svg" className="absolute top-0 right-0 " />
                             <span className="absolute top-0 left-0 h-full w-0 group-hover:w-full transition-width duration-200 bg-white z-[-2] " />
-                            <h3 className={`${alumniSans.className} text-4xl lg:text-5xl w-1/2 text-left font-bold group-hover:text-black transition-color duration-200 pb-24`}> Meet Our Team </h3>
+                            <button
+                                className={`${alumniSans.className} text-4xl lg:text-5xl w-1/2 text-left font-bold group-hover:text-black transition-color duration-200 pb-24`}
+                                onClick={() => routeTo('/team')}
+                            >
+                                Meet Our Team
+                            </button>
                             <img
                                 src="/Home/arrow.svg"
                                 alt="arrow"
