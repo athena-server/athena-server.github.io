@@ -1,18 +1,62 @@
 import Card, { CardProps } from "@/components/Card";
-import { dummyData } from "./data";
+import { dummyData, TeamsData } from "./data";
+import { alumniSans } from "@/fonts";
 
 const WebTeam = () => {
-    const webteam = (dummyData.webteam) as CardProps[];
+    const webteam = (dummyData.webteam) as TeamsData;
+    const seniorDevs = webteam.senior as CardProps[];
+    const juniorDevs = webteam.junior as CardProps[];
+    const designers = webteam.design as CardProps[];
+
+
     return (
         <div className="w-full h-full">
-            <div className="flex items-center justify-center flex-wrap gap-[10px] py-[24px] lg:p-[24px] ">
-                {
-                    webteam.map((details, index) => (
-                        <Card key={index} {...details} />
-                    ))
-                }
+            <h2 className={`text-[64px] font-bold w-full text-left lg:text-center ${alumniSans.className}`}> Senior Devs </h2>
+            <div className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
+                <div className="w-full flex gap-[10px] flex-wrap md:grid-cols-3 py-[24px] lg:p-[24px] items-center justify-center md:justify-start">
+                    {
+                        seniorDevs.map((details: CardProps, index: number) => (
+                            <div key={index}>
+                                <Card {...details} />
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
-        </div>
+            <div className="pt-20 lg:pt-24">
+                <h2 className={`text-[64px] font-bold w-full text-left lg:text-center ${alumniSans.className}`}> Junior Devs Admins </h2>
+                <div>
+                    <div className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
+                        <div className="w-full flex gap-[10px] flex-wrap md:grid-cols-3 py-[24px] lg:p-[24px] items-center justify-center md:justify-start">
+                            {
+                                juniorDevs.map((details: CardProps, index: number) => (
+                                    <div key={index}>
+                                        <Card {...details} />
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="pt-20 lg:pt-24">
+                <h2 className={`text-[64px] font-bold w-full text-left lg:text-center ${alumniSans.className}`}> Designers </h2>
+                <div>
+                    <div className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
+                        <div className="w-full flex gap-[10px] flex-wrap md:grid-cols-3 py-[24px] lg:p-[24px] items-center justify-center md:justify-start">
+                            {
+                                designers.map((details: CardProps, index: number) => (
+                                    <div key={index}>
+                                        <Card {...details} />
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div >
     )
 }
 

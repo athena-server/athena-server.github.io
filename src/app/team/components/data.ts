@@ -1,5 +1,6 @@
 import { CardProps } from "@/components/Card"
 import Faculties from "./Faculties";
+import { s } from "framer-motion/client";
 
 export enum Teams {
     faculties = "Faculties",
@@ -109,29 +110,78 @@ export const dummyData: TeamsData = {
             ]
         }
     },
-    webteam: [
-        {
-            name: "Mayank Gupta",
-            imageUrl: "/Card/mayank.jpg",
-            socials: { email: "hello@hello.com" }
-        },
-        {
-            name: "Mayank Gupta",
-            imageUrl: "/Card/mayank.jpg",
-            socials: { email: "hello@hello.com" }
-        },
+    webteam: {
+        senior: [
+            {
+                name: "Mayank Gupta",
+                imageUrl: "/Card/mayank.jpg",
+                socials: { email: "hello@hello.com" }
+            },
+            {
+                name: "Mayank Gupta",
+                imageUrl: "/Card/mayank.jpg",
+                socials: { email: "hello@hello.com" }
+            },
 
-        {
-            name: "Mayank Gupta",
-            imageUrl: "/Card/mayank.jpg",
-            socials: { email: "hello@hello.com" }
-        },
-        {
-            name: "Mayank Gupta",
-            imageUrl: "/Card/mayank.jpg",
-            socials: { email: "hello@hello.com" }
-        }
-    ]
+            {
+                name: "Mayank Gupta",
+                imageUrl: "/Card/mayank.jpg",
+                socials: { email: "hello@hello.com" }
+            },
+            {
+                name: "Mayank Gupta",
+                imageUrl: "/Card/mayank.jpg",
+                socials: { email: "hello@hello.com" }
+            }
+        ],
+        junior: [
+            {
+                name: "Mayank Gupta",
+                imageUrl: "/Card/mayank.jpg",
+                socials: { email: "hello@hello.com" }
+            },
+            {
+                name: "Mayank Gupta",
+                imageUrl: "/Card/mayank.jpg",
+                socials: { email: "hello@hello.com" }
+            },
+
+            {
+                name: "Mayank Gupta",
+                imageUrl: "/Card/mayank.jpg",
+                socials: { email: "hello@hello.com" }
+            },
+            {
+                name: "Mayank Gupta",
+                imageUrl: "/Card/mayank.jpg",
+                socials: { email: "hello@hello.com" }
+            }
+        ],
+        design: [
+            {
+                name: "Mayank Gupta",
+                imageUrl: "/Card/mayank.jpg",
+                socials: { email: "hello@hello.com" }
+            },
+            {
+                name: "Mayank Gupta",
+                imageUrl: "/Card/mayank.jpg",
+                socials: { email: "hello@hello.com" }
+            },
+
+            {
+                name: "Mayank Gupta",
+                imageUrl: "/Card/mayank.jpg",
+                socials: { email: "hello@hello.com" }
+            },
+            {
+                name: "Mayank Gupta",
+                imageUrl: "/Card/mayank.jpg",
+                socials: { email: "hello@hello.com" }
+            }
+        ],
+    },
+
 }
 
 

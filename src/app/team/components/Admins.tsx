@@ -2,12 +2,18 @@ import Card, { CardProps } from "@/components/Card";
 import { dummyData, TeamsData } from "./data";
 import { alumniSans } from "@/fonts";
 import Chip from "@/components/Chip";
+import Button from "@/components/Button";
+import { useCallback } from "react";
+import { useRouter } from "next/navigation";
 
 const Admins = () => {
     const currentAdmins = ((dummyData.admins as TeamsData).current as TeamsData);
     const prevAdmins = ((dummyData.admins as TeamsData).previous as TeamsData);
 
-
+    const router = useRouter();
+    const routeHandler = useCallback((url: string) => {
+        router.push(url)
+    }, []);
     return (
         <div className="w-full h-full">
             {
@@ -38,7 +44,13 @@ const Admins = () => {
                                     {
                                         (prevAdmins[year] as CardProps[]).map((admin: CardProps, idx: number) => (
                                             <div key={idx}>
-                                                <Chip text={admin.name} disableShadow />
+                                                <Button
+                                                    className=""
+                                                    onClick={() => routeHandler(admin.socials?.linkedin || "#")}
+                                                    hideIcon
+                                                >
+                                                    {admin.name}
+                                                </Button>
                                             </div>
                                         ))
                                     }
