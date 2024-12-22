@@ -35,10 +35,10 @@ const Page = () => {
         },
         {
             name: "Compiler",
-            link: "https://silnitc.github.io",
+            link: "https://silcnitc.github.io",
         },
         {
-            name: "Data Structures",
+            name: "DSA Lab",
         },
         {
             name: "Programming lab",
@@ -131,7 +131,7 @@ const Page = () => {
                     <h2 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> About Us </h2>
                     <div className="w-full h-full flex flex-col gap-4 lg:gap-0 items-start justify-center lg:grid grid-cols-12 grid-rows-12 text-lg">
                         <span className="w-full h-full row-start-1 row-span-5 col-start-1 col-span-7 flex items-center lg:p-3">
-                            The objective of this laboratory is to provide the infrastructure for conducting the regular labs and project works for the BTech and MCA Programs. The lab is equipped with state of the art servers, desktops and software
+                            The objective of this laboratory is to provide the infrastructure for conducting the regular labs and project works for the BTech Program. The lab is equipped with state of the art servers, desktops and software
                         </span>
 
                         <span className="w-full h-full row-start-1 row-span-5 col-start-8 col-span-5 border border-white border-[1px] lg:border-b-0 p-3 flex flex-col gap-2 justify-start">
@@ -160,12 +160,12 @@ const Page = () => {
                         >
                             <img src="/CloseIcon/tab-bar-group.svg" className="absolute top-0 right-0 " />
                             <span className="absolute top-0 left-0 h-full w-0 group-hover:w-full transition-width duration-200 bg-white z-[-2] " />
-                            <button
+                            <span
                                 className={`${alumniSans.className} text-4xl lg:text-5xl w-1/2 text-left font-bold group-hover:text-black transition-color duration-200 pb-24`}
                                 onClick={() => routeTo('/team')}
                             >
                                 Meet Our Team
-                            </button>
+                            </span>
                             <img
                                 src="/Home/arrow.svg"
                                 alt="arrow"
@@ -196,7 +196,7 @@ const Page = () => {
                 <div className="w-full lg:w-5/12 h-inherit flex flex-col gap-8 items-start justify-center p-0 lg:p-14">
                     <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Facilities </h3>
                     <p>
-                        The objective of this laboratory is to provide the infrastructure for conducting the regular labs and project works for the BTech and MCA Programs. The lab is equipped with state of the art servers, desktops and software. The objective of this laboratory is to provide the infrastructure for conducting the regular labs and project works for the BTech and MCA Programs. The lab is equipped with state of the art servers, desktops and software.
+                        The objective of this laboratory is to provide the infrastructure for conducting the regular labs and project works for the BTech Program. The lab is equipped with state of the art servers, desktops and software. 
                     </p>
                     <div className="w-full text-center md:text-left">
                         <Button onClick={() => routeTo('/facilities-and-resources')}>
@@ -212,7 +212,7 @@ const Page = () => {
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin. Vestibulum pretium mi non dui venenatis maximus.                        </p>
                     <div className="w-full text-center md:text-left">
-                        <Button onClick={() => routeTo('/study-resources')}>
+                        <Button onClick={() => routeToExternal('https://drive.google.com/drive/folders/1SEQD8DihaA-5nt1kjI79rbQ1PVunXsnj')}>
                             Start Grinding!
                         </Button>
                     </div>
