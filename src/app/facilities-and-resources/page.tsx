@@ -155,7 +155,7 @@ const Page = () => {
               </h2>
             </div>
           </div>
-          <div className="order-4 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5 border border-dashed flex flex-col gap-2.5">
+          <div className="order-4 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5  lg:border-dashed flex flex-col gap-2.5">
             <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>
               03
             </h2>
@@ -168,7 +168,7 @@ const Page = () => {
               can login to the system. Itus uses LDAP for authentication.
             </p>
           </div>
-          <div className="order-5 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5 border border-white flex flex-col gap-2.5">
+          <div className="order-5 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5  border-dashed lg:border-solid flex flex-col gap-2.5">
             <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>
               04
             </h2>
@@ -183,7 +183,7 @@ const Page = () => {
               <Link href="http://192.168.40.130/" label="Media Server" />
             </div>
           </div>
-          <div className="order-6 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5 border border-dashed border-white flex flex-col gap-2.5">
+          <div className="order-6 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5   lg:border-dashed  flex flex-col gap-2.5">
             <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>
               05
             </h2>
