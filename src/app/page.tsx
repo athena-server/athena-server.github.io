@@ -210,7 +210,7 @@ const Page = () => {
                 <div className="w-full lg:w-5/12 h-inherit flex flex-col gap-8 items-start justify-center p-0 lg:p-14">
                     <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> CSED Resources </h3>
                     <p>
-                        Find the link below to all the academic resources you'll need for your CSE course, compiled and put together by multiple batches since 2018. This is a one-stop set of curated notes, previous year question papers, slides, reference books, and other invaluable materials to help you with your studies.
+                        Find the link below to all the academic resources you&apos;ll need for your CSE course, compiled and put together by multiple batches since 2018. This is a one-stop set of curated notes, previous year question papers, slides, reference books, and other invaluable materials to help you with your studies.
                     </p>
                     <div className="w-full text-center md:text-left">
                         <Button onClick={() => routeToExternal('https://drive.google.com/drive/folders/1SEQD8DihaA-5nt1kjI79rbQ1PVunXsnj')}>
