@@ -210,7 +210,8 @@ const Page = () => {
                 <div className="w-full lg:w-5/12 h-inherit flex flex-col gap-8 items-start justify-center p-0 lg:p-14">
                     <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> CSED Resources </h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin. Vestibulum pretium mi non dui venenatis maximus.                        </p>
+                        Find the link below to all the academic resources you'll need for your CSE course, compiled and put together by multiple batches since 2018. This is a one-stop set of curated notes, previous year question papers, slides, reference books, and other invaluable materials to help you with your studies.
+                    </p>
                     <div className="w-full text-center md:text-left">
                         <Button onClick={() => routeToExternal('https://drive.google.com/drive/folders/1SEQD8DihaA-5nt1kjI79rbQ1PVunXsnj')}>
                             Start Grinding!
@@ -245,7 +246,7 @@ const Page = () => {
                     <div className="h-full w-1/3 xl:w-5/12 flex flex-col items-start justify-center gap-8">
                         <h3 className={`${alumniSans.className} font-bold text-7xl`}> Course Review </h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin. Vestibulum pretium mi non dui venenatis maximus.
+                            Feeling confused about which electives to choose or curious about the content and workload of various courses taught throughout your CSE journey? Click the link below to explore reviews from fellow students who have previously taken these courses.
                         </p>
 
                         <div className="w-full text-left">
@@ -261,7 +262,7 @@ const Page = () => {
                 <div className="h-full w-full lg:w-1/3 xl:w-5/12 flex flex-col items-start justify-center gap-8">
                     <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Course Review </h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin. Vestibulum pretium mi non dui venenatis maximus.
+                        Feeling confused about which electives to choose or curious about the content and workload of various courses taught throughout your CSE journey? Click the link below to explore reviews from fellow students who have previously taken these courses.
                     </p>
 
                     <div className="w-full text-center md:text-left">
