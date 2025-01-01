@@ -19,29 +19,29 @@ const Page = () => {
 
     const labsConducted = useMemo(() => [
         {
-            name: "Networks",
-        },
-        {
-            name: "DBMS",
+            name: "DBMS Lab",
             link: "https://nitcbase.github.io",
         },
         {
-            name: "Operating Systems",
+            name: "OS Lab",
             link: "https://exposnitc.github.io",
         },
         {
-            name: "Hardware",
+            name: "Hardware Lab",
             link: "https://hwlabnitc.github.io",
         },
         {
-            name: "Compiler",
+            name: "Compiler Lab",
             link: "https://silcnitc.github.io",
+        },
+        {
+            name: "Programming Lab",
         },
         {
             name: "DSA Lab",
         },
         {
-            name: "Programming lab",
+            name: "Networks Lab",
         },
     ], []);
 
