@@ -162,7 +162,6 @@ const Page = () => {
                             <span className="absolute top-0 left-0 h-full w-0 group-hover:w-full transition-width duration-200 bg-white z-[-2] " />
                             <span
                                 className={`${alumniSans.className} text-4xl lg:text-5xl w-1/2 text-left font-bold group-hover:text-black transition-color duration-200 pb-24`}
-                                onClick={() => routeTo('/team')}
                             >
                                 Meet Our Team
                             </span>
