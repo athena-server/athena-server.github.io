@@ -64,7 +64,7 @@ const Carousel = ({
     return (
         <div className='h-full w-full relative'>
             <div className="h-full w-full overflow-hidden relative drop-shadow-xl">
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                     <motion.img
                         src={images[currentImage]}
                         alt={`Image ${currentImage}`}
@@ -81,7 +81,7 @@ const Carousel = ({
                 showPreview && (
                     <>
                         <div className='w-[calc(100%-3rem)] h-[calc(100%-3rem)] z-[-2] absolute top-8 -left-8 overflow-hidden brightness-50'>
-                            <AnimatePresence>
+                            <AnimatePresence initial={false}>
                                 <motion.img
                                     src={images[prevImage]}
                                     alt={`Image ${prevImage}`}
@@ -96,7 +96,7 @@ const Carousel = ({
                             </AnimatePresence>
                         </div>
                         <div className='w-[calc(100%-3rem)] h-[calc(100%-3rem)] z-[-2] absolute top-8 -right-8 overflow-hidden brightness-50'>
-                            <AnimatePresence>
+                            <AnimatePresence initial={false}>
                                 <motion.img
                                     src={images[nextImage]}
                                     alt={`Image ${nextImage}`}
