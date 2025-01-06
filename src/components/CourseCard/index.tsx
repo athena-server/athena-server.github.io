@@ -15,9 +15,8 @@ const CourseCard = ({
     reviewCount,
 }: CardProps) : JSX.Element => {
     return (
-        <div className="flex flex-col w-[350px] h-[240px] p-[4px_11px_4px_11px] gap-[16px] border-b-[1px] border"> 
-        <div className="h-[120px]"></div>
-            <div className="w-[328px] h-[64px] border"> 
+        <div className={`flex flex-col w-[350px] h-[120px] p-[4px_11px_4px_11px] gap-[16px] border-b-[1px] ${styles.card}`}> 
+            <div className="w-[328px] h-[64px]"> 
                 <p className={`${alumniSans.className} text-[28px] font-[700] leading-[32px] text-white`}>
                     {courseTitle}
                 </p>
