@@ -24,12 +24,16 @@ const Navbar = () => {
             route: "/facilities-and-resources",
         },
         {
-            name: 'Timings',
+            name: 'Access',
             route: '/rules-and-timings'
         },
         {
             name: "Team",
             route: "/team"
+        },
+        {
+            name: "Resources",
+            route: "https://drive.google.com/drive/folders/1SEQD8DihaA-5nt1kjI79rbQ1PVunXsnj"
         }
     ], []);
 
@@ -56,7 +60,7 @@ const Navbar = () => {
         }}>
             <nav className="w-full max-w-[1920px] h-20 lg:h-24 flex items-center justify-between">
                 <div className='w-full lg:w-1/5 h-full flex items-center p-4 lg:px-8 lg:py-4 order-first z-[200]'>
-                    <img src="/Navbar/logo-temp.svg" width={75} height={75} alt="logo" />
+                    <img src="/Navbar/logo.png" width={100} height={88} alt="logo" />
                 </div>
                 <div className='w-full flex items-center justify-end lg:block lg:w-3/5 h-full p-2 lg:px-8 lg:py-4 order-last lg:order-1 z-[2]'>
                     <div className="hidden h-full lg:flex items-center relative justify-center gap-4">
