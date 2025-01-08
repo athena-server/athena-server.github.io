@@ -1,6 +1,4 @@
 import { CardProps } from "@/components/Card"
-import Faculties from "./Faculties";
-import { s } from "framer-motion/client";
 
 export enum Teams {
     faculties = "Faculties",
