@@ -6,16 +6,27 @@ import Chip from "@/components/Chip";
 import CloseIcon from "@/components/CloseIcon";
 import Container from "@/components/Container";
 import { alumniSans, geo } from "@/fonts";
-import SectionDivider from "@/components/SectionDivider";
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Section from "@/components/Section";
+import { getFacilities } from "@/lib/facilities";
 
 
 
 
 const Page = () => {
     const router = useRouter();
+    const [facilities, setFacilities] = useState<string[]>([]);
+
+
+    useEffect(() => {
+        const loadData = async () => {
+            const data = await getFacilities();
+            setFacilities(data);
+        }
+
+        void loadData();
+    }, []);
 
     const labsConducted = useMemo(() => [
         {
@@ -46,16 +57,6 @@ const Page = () => {
     ], []);
 
 
-    const carouselImages = useMemo(() => [
-        "/Carousel/temp-image.jpeg",
-        "/Carousel/temp-image.jpeg",
-        "/Carousel/temp-image.jpeg",
-        "/Carousel/temp-image.jpeg",
-        "/Carousel/temp-image.jpeg",
-        "/Carousel/temp-image.jpeg",
-        "/Carousel/temp-image.jpeg",
-    ], []);
-
     const routeTo = useCallback((route: string) => {
         router.push(route);
     }, [router]);
@@ -82,28 +83,28 @@ const Page = () => {
                     <ul className="grid grid-cols-2 gap-[12px] gap-x-[52px] lg:flex lg:flex-row lg:gap-[49px] top-[666px] left-[140px]">
 
                         <li className="flex flex-row p-[6px_3px_6px_3px] w-[148px] lg:w-[198px] gap-[8px] items-center">
-                            <img src="/hero/mail.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]"></img>
+                            <img src="/hero/mail.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]" alt="email" />
                             <span className="lg:text-[16px] lg:leading-[19.36px] text-[12px] leading-[14.52px] font-bold text-left">
                                 ssladmin@nitc.ac.in
                             </span>
                         </li>
 
                         <li className="flex flex-row p-[6px_3px_6px_3px] w-[121px] lg:w-[162px] gap-[8px] items-center">
-                            <img src="/hero/phone.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]"></img>
+                            <img src="/hero/phone.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]" alt="phone-no" />
                             <span className="lg:text-[16px] lg:leading-[19.36px] text-[12px] leading-[14.52px] font-bold text-left">
                                 0495 228 6864
                             </span>
                         </li>
 
                         <li className="flex flex-row p-[6px_3px_6px_3px] w-[148px] lg:w-[183px] gap-[8px] items-center">
-                            <img src="/hero/location.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]"></img>
+                            <img src="/hero/location.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]" alt="location" />
                             <span className="lg:text-[16px] lg:leading-[19.36px] text-[12px] leading-[14.52px] font-bold text-left">
                                 ITL302 - 2nd Floor
                             </span>
                         </li>
 
                         <li className="flex flex-row p-[6px_3px_6px_3px] w-[121px] lg:w-[135px] gap-[8px] items-center">
-                            <img src="/hero/clock.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]"></img>
+                            <img src="/hero/clock.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]" alt="timings" />
                             <span className="lg:text-[16px] lg:leading-[19.36px] text-[12px] leading-[14.52px] font-bold text-left">
                                 9AM - 12AM
                             </span>
@@ -158,7 +159,7 @@ const Page = () => {
                             className="w-full h-full row-start-6 row-span-7 col-start-8 col-span-5 border border-white border-[1px] p-3 flex flex-col gap-2 justify-start relative group z-1"
                             onClick={() => routeTo('/team')}
                         >
-                            <img src="/CloseIcon/tab-bar-group.svg" className="absolute top-0 right-0 " />
+                            <img src="/CloseIcon/tab-bar-group.svg" className="absolute top-0 right-0" alt="" />
                             <span className="absolute top-0 left-0 h-full w-0 group-hover:w-full transition-width duration-200 bg-white z-[-2] " />
                             <span
                                 className={`${alumniSans.className} text-4xl lg:text-5xl w-1/2 text-left font-bold group-hover:text-black transition-color duration-200 pb-24`}
@@ -189,13 +190,13 @@ const Page = () => {
                 <CloseIcon />
                 <div className="w-7/12 hidden lg:block h-inherit flex flex-col gap-8 items-center justify-center p-14">
                     <div className="aspect-video w-full flex items-center justify-center">
-                        <Carousel images={carouselImages} />
+                        <Carousel images={facilities} />
                     </div>
                 </div>
                 <div className="w-full lg:w-5/12 h-inherit flex flex-col gap-8 items-start justify-center p-0 lg:p-14">
                     <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Facilities </h3>
                     <p>
-                        The objective of this laboratory is to provide the infrastructure for conducting the regular labs and project works for the BTech Program. The lab is equipped with state of the art servers, desktops and software. 
+                        The objective of this laboratory is to provide the infrastructure for conducting the regular labs and project works for the BTech Program. The lab is equipped with state of the art servers, desktops and software.
                     </p>
                     <div className="w-full text-center md:text-left">
                         <Button onClick={() => routeTo('/facilities-and-resources')}>
@@ -218,7 +219,7 @@ const Page = () => {
                     </div>
                 </div>
                 <div className="w-7/12 hidden lg:block h-inherit flex flex-col gap-8 items-center justify-center p-14">
-                    <img className="aspect-video w-full flex items-center justify-center" src="/Home/server-rack-section-3.svg" />
+                    <img className="aspect-video w-full flex items-center justify-center" src="/Home/server-rack-section-3.svg" alt="" />
                 </div>
             </Section>
 

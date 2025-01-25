@@ -5,12 +5,12 @@ import Container from "@/components/Container";
 import Section from "@/components/Section";
 import { alumniSans } from "@/fonts";
 import { useCallback, useMemo, useState } from "react";
-import { groups } from "../../data/teamData";
 import Staff from "./components/Staff";
 import Faculties from "./components/Faculties";
 import WebTeam from "./components/WebTeam";
 import Admins from "./components/Admins";
 import { AnimatePresence, motion } from "framer-motion";
+import { groups } from "@/types/frontend";
 
 
 
@@ -30,7 +30,6 @@ const Page = () => {
 
     return (
         <Container>
-
             <Section className="min-h-screen h-full mb-16 pt-20 lg:pt-28">
                 <h1 className={`${alumniSans.className} text-left lg:text-center text-[64px] leading-[76.8px] font-bold mb-4`}>
                     MEET THE TEAM
@@ -82,9 +81,7 @@ const Page = () => {
                             key={selectedOption}
                             className="w-full h-full flex items-center justify-center"
                         >
-                            {
-                                options[selectedOption]
-                            }
+                            {options[selectedOption]}
                         </motion.div>
                     </AnimatePresence>
                 </div>

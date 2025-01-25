@@ -1,5 +1,5 @@
 "use client";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Container from "@/components/Container";
 import SectionDivider from "@/components/SectionDivider";
 import { alumniSans, geo } from "@/fonts";
@@ -7,15 +7,19 @@ import Carousel from "@/components/Carousel";
 import styles from "./styles.module.css";
 import Link from "@/components/Link";
 import Section from "@/components/Section";
+import { getFacilities } from "@/lib/facilities";
 
 const Page = () => {
-  const carouselData = useMemo(() => [
-    "FacilitiesPage/temp-image-1.jpg",
-    "FacilitiesPage/temp-image-2.jpg",
-    "FacilitiesPage/temp-image-1.jpg",
-    "FacilitiesPage/temp-image-2.jpg",
-  ], []);
+  const [facilities, setFacilities] = useState<string[]>([])
 
+  useEffect(() => {
+    const loadData = async () => {
+      const data = await getFacilities();
+      setFacilities(data);
+    }
+
+    void loadData();
+  }, []);
 
   const resources = useMemo(() => [
     { icon: "FacilitiesPage/server.png", text: "9 High Performing Servers" },
@@ -56,7 +60,7 @@ const Page = () => {
 
             <div className="pt-16 hidden aspect-video lg:block w-[665px] max-w-[90%]">
               <Carousel
-                images={carouselData}
+                images={facilities}
                 controls
                 autoPlay
               />

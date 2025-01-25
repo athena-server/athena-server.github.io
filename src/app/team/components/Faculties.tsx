@@ -1,17 +1,30 @@
-import Card, { CardProps } from "@/components/Card";
-import { dummyData, TeamsData } from "../../../data/teamData";
+import Card from "@/components/Card";
 import { alumniSans } from "@/fonts";
-import { getFacultyData } from "@/lib/teams";
-import NoData from "./NoData";
+import { useEffect, useState } from "react";
+import { FacultyData } from "@/types/frontend";
+import { getFaculties } from "@/lib/team/faculties";
 
 const Faculties = () => {
-    const { currentFaculty, prevFaculties } = getFacultyData();
+    const [faculty, setFaculty] = useState<FacultyData>({
+        previousFaculties: [],
+        currentFaculties: [],
+    });
+
+    useEffect(() => {
+        const loadData = async () => {
+            const data = await getFaculties();
+            setFaculty(data);
+        }
+
+        void loadData();
+    }, []);
+
+
     return (
         <div className="w-full h-full">
-            {!currentFaculty.length && !prevFaculties.length ? <NoData /> : <>
-                <div className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
+            <div className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
                 <div className="w-full flex gap-[10px] flex-wrap md:grid-cols-3 py-[24px] lg:p-[24px] items-center justify-center md:justify-start">
-                    <Card {...currentFaculty[0]} />
+                    <Card {...faculty.currentFaculties[0]} />
                 </div>
             </div>
             <div className="pt-20 lg:pt-24">
@@ -19,15 +32,13 @@ const Faculties = () => {
                 <div className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
                     <div className="w-full flex gap-[10px] flex-wrap md:grid-cols-3 py-[24px] lg:p-[24px] items-center justify-center md:justify-start">
                         {
-                            prevFaculties.map((fac, index) => (
+                            faculty.previousFaculties.map((fac, index) => (
                                 <Card {...fac} key={index} />
                             ))
                         }
                     </div>
                 </div>
-            </div></>
-            }
-            
+            </div>
         </div>
     )
 }
