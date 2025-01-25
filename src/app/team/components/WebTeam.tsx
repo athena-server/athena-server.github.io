@@ -1,12 +1,24 @@
-import Card, { CardProps } from "@/components/Card";
-import { dummyData, TeamsData } from "./data";
+import Card from "@/components/Card";
 import { alumniSans } from "@/fonts";
+import { useEffect, useState } from "react";
+import { WebTeamData } from "@/types/frontend";
+import { getWebTeam } from "@/lib/team/webteam";
 
 const WebTeam = () => {
-    const webteam = (dummyData.webteam) as TeamsData;
-    const seniorDevs = webteam.senior as CardProps[];
-    const juniorDevs = webteam.junior as CardProps[];
-    const designers = webteam.design as CardProps[];
+    const [webteam, setWebteam] = useState<WebTeamData>({
+        design: [],
+        juniors: [],
+        seniors: [],
+    })
+
+    useEffect(() => {
+        const loadData = async () => {
+            const data = await getWebTeam();
+            setWebteam(data);
+        }
+
+        void loadData();
+    }, []);
 
 
     return (
@@ -15,7 +27,7 @@ const WebTeam = () => {
             <div className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
                 <div className="w-full flex gap-[10px] flex-wrap md:grid-cols-3 py-[24px] lg:p-[24px] items-center justify-center md:justify-start">
                     {
-                        seniorDevs.map((details: CardProps, index: number) => (
+                        webteam.seniors.map((details, index) => (
                             <div key={index}>
                                 <Card {...details} />
                             </div>
@@ -29,7 +41,7 @@ const WebTeam = () => {
                     <div className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
                         <div className="w-full flex gap-[10px] flex-wrap md:grid-cols-3 py-[24px] lg:p-[24px] items-center justify-center md:justify-start">
                             {
-                                juniorDevs.map((details: CardProps, index: number) => (
+                                webteam.juniors.map((details, index) => (
                                     <div key={index}>
                                         <Card {...details} />
                                     </div>
@@ -46,7 +58,7 @@ const WebTeam = () => {
                     <div className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
                         <div className="w-full flex gap-[10px] flex-wrap md:grid-cols-3 py-[24px] lg:p-[24px] items-center justify-center md:justify-start">
                             {
-                                designers.map((details: CardProps, index: number) => (
+                                webteam.design.map((details, index) => (
                                     <div key={index}>
                                         <Card {...details} />
                                     </div>

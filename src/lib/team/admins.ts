@@ -1,0 +1,58 @@
+import { CardProps } from '@/components/Card'
+import { type Admin } from '@/types/backend'
+import { type AdminData, type BatchData } from '@/types/frontend'
+import axios from 'axios'
+
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
+
+const getAdmins = async (): Promise<AdminData> => {
+    const response = await axios.get<Admin>(`${backendUrl}/api/admin`)
+
+    const previousAdmins: BatchData[] = response.data.data.previous_admins.map((batch) => {
+        const { batchCode, admins } = batch;
+        const formattedAdminData: CardProps[] = admins.map(admin => ({
+            name: admin.name,
+            imageUrl: admin.image.url,
+            socials: {
+                email: admin.socials.email || undefined,
+                linkedin: admin.socials.linkedin || undefined,
+                github: admin.socials.github || undefined,
+            }
+        }));
+
+        return {
+            batch: batchCode,
+            admins: formattedAdminData,
+        }
+    });
+
+    const currentAdmins: BatchData[] = response.data.data.current_admins.map((batch) => {
+        const { batchCode, admins } = batch;
+        const formattedAdminData: CardProps[] = admins.map(admin => ({
+            name: admin.name,
+            imageUrl: admin.image.url,
+            socials: {
+                email: admin.socials.email || undefined,
+                linkedin: admin.socials.linkedin || undefined,
+                github: admin.socials.github || undefined,
+            }
+        }));
+
+        return {
+            batch: batchCode,
+            admins: formattedAdminData,
+        }
+    });
+
+    return {
+        currentAdmins,
+        previousAdmins,
+    }
+}
+
+
+
+
+export { getAdmins }
+
+

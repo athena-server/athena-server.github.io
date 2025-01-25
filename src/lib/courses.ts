@@ -16,7 +16,7 @@ const getCourses = async () => {
             }
         }[]
     }>(`${backendUrl}/api/course-reviews`);
-    console.log(response.data.data);
+
     const formattedData = response.data.data.map((review) => {
         const output: { courseId?: string, courseTitle?: string, reviewText: string, rating: number, semester?: string } = {
             courseId: review.courseId?.courseId,
