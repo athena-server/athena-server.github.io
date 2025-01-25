@@ -3,9 +3,9 @@ import styles from './styles.module.css';
 
 /**
 * Cards for the Course Review page
-* @param {string} - Course Title
-* @param {string} - Course ID
-* @param {number} - Review Count
+* @param {string} [props.courseTitle] - Course Title
+* @param {string} [props.courseId] - Course ID
+* @param {number} [props.reviewCount] - Review Count
 * 
 * @author Vaishnavi R Pai
 */
