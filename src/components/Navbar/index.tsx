@@ -125,7 +125,7 @@ const Navbar = () => {
                                             key={index}
                                             item={item}
                                             index={index}
-                                            onClick={() => routeToTarget(item.route)}
+                                            onClick={() => routeToTarget(item.route, item.newTab)}
                                         />
                                     ))
                                 }
