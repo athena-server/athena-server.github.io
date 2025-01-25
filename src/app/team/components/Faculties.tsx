@@ -22,8 +22,7 @@ const Faculties = () => {
 
     return (
         <div className="w-full h-full">
-            {!currentFaculty.length && !prevFaculties.length ? <NoData /> : <>
-                <div className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
+            <div className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
                 <div className="w-full flex gap-[10px] flex-wrap md:grid-cols-3 py-[24px] lg:p-[24px] items-center justify-center md:justify-start">
                     <Card {...faculty.currentFaculties[0]} />
                 </div>
@@ -39,9 +38,7 @@ const Faculties = () => {
                         }
                     </div>
                 </div>
-            </div></>
-            }
-            
+            </div>
         </div>
     )
 }

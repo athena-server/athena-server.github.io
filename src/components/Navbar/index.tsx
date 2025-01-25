@@ -14,26 +14,32 @@ const Navbar = () => {
         {
             name: 'Home',
             route: "/",
+            newTab: false
         },
         {
             name: 'About Us',
             route: "/#about-us",
+            newTab: false
         },
         {
             name: 'Facilities',
             route: "/facilities-and-resources",
+            newTab: false
         },
         {
             name: 'Access',
-            route: '/rules-and-timings'
+            route: '/rules-and-timings',
+            newTab: false
         },
         {
             name: "Team",
-            route: "/team"
+            route: "/team",
+            newTab: false
         },
         {
             name: "Resources",
-            route: "https://drive.google.com/drive/folders/1SEQD8DihaA-5nt1kjI79rbQ1PVunXsnj"
+            route: "https://drive.google.com/drive/folders/1SEQD8DihaA-5nt1kjI79rbQ1PVunXsnj",
+            newTab: true,
         }
     ], []);
 
@@ -49,9 +55,17 @@ const Navbar = () => {
     }, [setOpen]);
 
 
-    const routeToTarget = useCallback((route: string) => {
+    const routeToTarget = useCallback((route: string, newTab: boolean = false) => {
         setOpen(false);
-        router.push(route);
+        if (newTab) {
+            const a = document.createElement('a');
+            a.href = route;
+            a.target = '_blank';
+            a.click();
+        }
+        else {
+            router.push(route);
+        }
     }, [router, setOpen]);
 
     return (
@@ -72,7 +86,7 @@ const Navbar = () => {
                                     style={{ color: (item.route == pathname) ? 'var(--light-blue)' : 'rgba(255,255,255,1)' }}
                                     whileHover={{ color: 'var(--light-blue)' }}
                                     whileTap={{ color: 'var(--dark-blue)' }}
-                                    onClick={() => routeToTarget(item.route)}
+                                    onClick={() => routeToTarget(item.route, item.newTab)}
                                 >
                                     {item.name}
                                 </motion.button>

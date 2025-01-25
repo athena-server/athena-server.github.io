@@ -81,28 +81,28 @@ const Page = () => {
                     <ul className="grid grid-cols-2 gap-[12px] gap-x-[52px] lg:flex lg:flex-row lg:gap-[49px] top-[666px] left-[140px]">
 
                         <li className="flex flex-row p-[6px_3px_6px_3px] w-[148px] lg:w-[198px] gap-[8px] items-center">
-                            <img src="/hero/mail.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]"></img>
+                            <img src="/hero/mail.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]" alt="email" />
                             <span className="lg:text-[16px] lg:leading-[19.36px] text-[12px] leading-[14.52px] font-bold text-left">
                                 ssladmin@nitc.ac.in
                             </span>
                         </li>
 
                         <li className="flex flex-row p-[6px_3px_6px_3px] w-[121px] lg:w-[162px] gap-[8px] items-center">
-                            <img src="/hero/phone.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]"></img>
+                            <img src="/hero/phone.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]" alt="phone-no" />
                             <span className="lg:text-[16px] lg:leading-[19.36px] text-[12px] leading-[14.52px] font-bold text-left">
                                 0495 228 6864
                             </span>
                         </li>
 
                         <li className="flex flex-row p-[6px_3px_6px_3px] w-[148px] lg:w-[183px] gap-[8px] items-center">
-                            <img src="/hero/location.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]"></img>
+                            <img src="/hero/location.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]" alt="location" />
                             <span className="lg:text-[16px] lg:leading-[19.36px] text-[12px] leading-[14.52px] font-bold text-left">
                                 ITL302 - 2nd Floor
                             </span>
                         </li>
 
                         <li className="flex flex-row p-[6px_3px_6px_3px] w-[121px] lg:w-[135px] gap-[8px] items-center">
-                            <img src="/hero/clock.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]"></img>
+                            <img src="/hero/clock.png" className="w-[14px] h-[14px] lg:w-[24px] lg:h-[24px]" alt="timings" />
                             <span className="lg:text-[16px] lg:leading-[19.36px] text-[12px] leading-[14.52px] font-bold text-left">
                                 9AM - 12AM
                             </span>
@@ -157,7 +157,7 @@ const Page = () => {
                             className="w-full h-full row-start-6 row-span-7 col-start-8 col-span-5 border border-white border-[1px] p-3 flex flex-col gap-2 justify-start relative group z-1"
                             onClick={() => routeTo('/team')}
                         >
-                            <img src="/CloseIcon/tab-bar-group.svg" className="absolute top-0 right-0 " />
+                            <img src="/CloseIcon/tab-bar-group.svg" className="absolute top-0 right-0" alt="" />
                             <span className="absolute top-0 left-0 h-full w-0 group-hover:w-full transition-width duration-200 bg-white z-[-2] " />
                             <span
                                 className={`${alumniSans.className} text-4xl lg:text-5xl w-1/2 text-left font-bold group-hover:text-black transition-color duration-200 pb-24`}
@@ -217,7 +217,7 @@ const Page = () => {
                     </div>
                 </div>
                 <div className="w-7/12 hidden lg:block h-inherit flex flex-col gap-8 items-center justify-center p-14">
-                    <img className="aspect-video w-full flex items-center justify-center" src="/Home/server-rack-section-3.svg" />
+                    <img className="aspect-video w-full flex items-center justify-center" src="/Home/server-rack-section-3.svg" alt="" />
                 </div>
             </Section>
 

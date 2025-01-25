@@ -23,12 +23,9 @@ const Admins = () => {
     }, []);
 
     const router = useRouter();
-    const routeHandler = useCallback(
-        (url: string) => {
-            router.push(url);
-        },
-        [router]
-    );
+    const routeHandler = useCallback((url: string) => {
+        router.push(url)
+    }, [router]);
 
     return (
         <div className="w-full h-full">
@@ -75,13 +72,13 @@ const Admins = () => {
                                 <div className={`w-full lg:w-fit flex items-center lg:items-end justify-start lg:justify-end text-8xl ${alumniSans.className}`}>
                                     {batch.batch}&apos;s
                                 </div>
-                            ))}
-                        </div>
-                    </div>
-                </>
-            )}
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
         </div>
-    );
-};
+    )
+}
 
 export default Admins;
