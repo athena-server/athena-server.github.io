@@ -7,14 +7,26 @@ import CloseIcon from "@/components/CloseIcon";
 import Container from "@/components/Container";
 import { alumniSans, geo } from "@/fonts";
 import { useRouter } from "next/navigation";
-import { useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Section from "@/components/Section";
+import { getFacilities } from "@/lib/facilities";
 
 
 
 
 const Page = () => {
     const router = useRouter();
+    const [facilities, setFacilities] = useState<string[]>([]);
+
+
+    useEffect(() => {
+        const loadData = async () => {
+            const data = await getFacilities();
+            setFacilities(data);
+        }
+
+        void loadData();
+    }, []);
 
     const labsConducted = useMemo(() => [
         {
@@ -44,16 +56,6 @@ const Page = () => {
         },
     ], []);
 
-
-    const carouselImages = useMemo(() => [
-        "/Carousel/temp-image.jpeg",
-        "/Carousel/temp-image.jpeg",
-        "/Carousel/temp-image.jpeg",
-        "/Carousel/temp-image.jpeg",
-        "/Carousel/temp-image.jpeg",
-        "/Carousel/temp-image.jpeg",
-        "/Carousel/temp-image.jpeg",
-    ], []);
 
     const routeTo = useCallback((route: string) => {
         router.push(route);
@@ -188,7 +190,7 @@ const Page = () => {
                 <CloseIcon />
                 <div className="w-7/12 hidden lg:block h-inherit flex flex-col gap-8 items-center justify-center p-14">
                     <div className="aspect-video w-full flex items-center justify-center">
-                        <Carousel images={carouselImages} />
+                        <Carousel images={facilities} />
                     </div>
                 </div>
                 <div className="w-full lg:w-5/12 h-inherit flex flex-col gap-8 items-start justify-center p-0 lg:p-14">

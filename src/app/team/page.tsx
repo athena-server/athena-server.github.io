@@ -5,12 +5,12 @@ import Container from "@/components/Container";
 import Section from "@/components/Section";
 import { alumniSans } from "@/fonts";
 import { useCallback, useMemo, useState } from "react";
-import { groups } from "../../data/teamData";
 import Staff from "./components/Staff";
 import Faculties from "./components/Faculties";
 import WebTeam from "./components/WebTeam";
 import Admins from "./components/Admins";
 import { AnimatePresence, motion } from "framer-motion";
+import { groups } from "@/types/frontend";
 
 
 

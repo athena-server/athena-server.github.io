@@ -30,6 +30,13 @@ export interface Faculty {
     }
 }
 
+export interface Facility {
+    data: {
+        id: string,
+        data: Image[],
+    }
+}
+
 export interface Admin {
     data: {
         id: string,
