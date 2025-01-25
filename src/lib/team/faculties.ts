@@ -2,6 +2,7 @@ import { CardProps } from '@/components/Card';
 import { type Faculty } from '@/types/backend';
 import { type FacultyData } from '@/types/frontend';
 import axios from 'axios';
+import { getImageUrl, getSocials } from '../utils';
 
 const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
@@ -10,22 +11,14 @@ const getFaculties = async (): Promise<FacultyData> => {
 
     const currentFaculties: CardProps[] = response.data.data.current_faculties.map((faculty) => ({
         name: faculty.name,
-        imageUrl: faculty.image.url,
-        socials: {
-            email: faculty.socials.email ? faculty.socials.email : undefined,
-            github: faculty.socials.github ? faculty.socials.github : undefined,
-            linkedin: faculty.socials.linkedin ? faculty.socials.linkedin : undefined,
-        }
+        imageUrl: getImageUrl(faculty.image),
+        socials: getSocials(faculty.socials),
     }));
 
     const previousFaculties: CardProps[] = response.data.data.previous_faculties.map((faculty) => ({
         name: faculty.name,
-        imageUrl: faculty.image.url,
-        socials: {
-            email: faculty.socials.email ? faculty.socials.email : undefined,
-            github: faculty.socials.github ? faculty.socials.github : undefined,
-            linkedin: faculty.socials.linkedin ? faculty.socials.linkedin : undefined,
-        }
+        imageUrl: getImageUrl(faculty.image),
+        socials: getSocials(faculty.socials),
     }));
 
     return {

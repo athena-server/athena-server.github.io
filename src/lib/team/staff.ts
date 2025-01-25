@@ -2,6 +2,7 @@ import { CardProps } from '@/components/Card';
 import { type Staff } from '@/types/backend';
 import { type StaffData } from '@/types/frontend';
 import axios from 'axios';
+import { getImageUrl, getSocials } from '../utils';
 
 const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
@@ -13,13 +14,9 @@ const getStaff = async (): Promise<StaffData> => {
 
     const formattedData: CardProps[] = response.data.data.current_staffs.map((staff) => {
         const output: CardProps = {
-            imageUrl: `${backendUrl}${staff.image.url}`,
+            imageUrl: getImageUrl(staff.image),
             name: staff.name,
-            socials: {
-                email: staff.socials.email ? staff.socials.email : undefined,
-                github: staff.socials.github ? staff.socials.github : undefined,
-                linkedin: staff.socials.linkedin ? staff.socials.linkedin : undefined,
-            }
+            socials: getSocials(staff.socials),
         }
 
         return output;

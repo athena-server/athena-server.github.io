@@ -3,15 +3,8 @@ import { CardProps } from "../components/Card";
 export interface Information {
     id: string,
     name: string,
-    image: {
-        id: string,
-        url: string,
-    },
-    socials: {
-        email: string | null,
-        github: string | null,
-        linkedin: string | null,
-    },
+    image: Image,
+    socials: Socials,
 }
 
 export interface Batch {
@@ -50,4 +43,15 @@ export interface Staff {
         id: string,
         current_staffs: Information[],
     }
+}
+
+export type Socials = {
+    email: string | null,
+    github: string | null,
+    linkedin: string | null,
+} | null;
+
+export type Image = {
+    id: string,
+    url: string,
 }

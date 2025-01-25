@@ -2,6 +2,7 @@ import { CardProps } from '@/components/Card'
 import { type Admin } from '@/types/backend'
 import { type AdminData, type BatchData } from '@/types/frontend'
 import axios from 'axios'
+import { getImageUrl, getSocials } from '../utils'
 
 const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
@@ -12,12 +13,8 @@ const getAdmins = async (): Promise<AdminData> => {
         const { batchCode, admins } = batch;
         const formattedAdminData: CardProps[] = admins.map(admin => ({
             name: admin.name,
-            imageUrl: admin.image.url,
-            socials: {
-                email: admin.socials.email || undefined,
-                linkedin: admin.socials.linkedin || undefined,
-                github: admin.socials.github || undefined,
-            }
+            imageUrl: getImageUrl(admin.image),
+            socials: getSocials(admin.socials)
         }));
 
         return {
@@ -30,12 +27,8 @@ const getAdmins = async (): Promise<AdminData> => {
         const { batchCode, admins } = batch;
         const formattedAdminData: CardProps[] = admins.map(admin => ({
             name: admin.name,
-            imageUrl: admin.image.url,
-            socials: {
-                email: admin.socials.email || undefined,
-                linkedin: admin.socials.linkedin || undefined,
-                github: admin.socials.github || undefined,
-            }
+            imageUrl: getImageUrl(admin.image),
+            socials: getSocials(admin.socials),
         }));
 
         return {

@@ -15,10 +15,11 @@ const Admins = () => {
     useEffect(() => {
         const loadData = async () => {
             const data = await getAdmins();
+            console.log(data);
             setAdmins(data);
         }
 
-        loadData();
+        void loadData();
     }, []);
 
     const router = useRouter();
