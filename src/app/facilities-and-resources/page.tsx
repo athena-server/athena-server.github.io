@@ -1,5 +1,5 @@
 "use client";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Container from "@/components/Container";
 import SectionDivider from "@/components/SectionDivider";
 import { alumniSans, geo } from "@/fonts";
@@ -7,15 +7,19 @@ import Carousel from "@/components/Carousel";
 import styles from "./styles.module.css";
 import Link from "@/components/Link";
 import Section from "@/components/Section";
+import { getFacilities } from "@/lib/facilities";
 
 const Page = () => {
-  const carouselData = useMemo(() => [
-    "FacilitiesPage/temp-image-1.jpg",
-    "FacilitiesPage/temp-image-2.jpg",
-    "FacilitiesPage/temp-image-1.jpg",
-    "FacilitiesPage/temp-image-2.jpg",
-  ], []);
+  const [facilities, setFacilities] = useState<string[]>([])
 
+  useEffect(() => {
+    const loadData = async () => {
+      const data = await getFacilities();
+      setFacilities(data);
+    }
+
+    void loadData();
+  }, []);
 
   const resources = useMemo(() => [
     { icon: "FacilitiesPage/server.png", text: "9 High Performing Servers" },
@@ -56,7 +60,7 @@ const Page = () => {
 
             <div className="pt-16 hidden aspect-video lg:block w-[665px] max-w-[90%]">
               <Carousel
-                images={carouselData}
+                images={facilities}
                 controls
                 autoPlay
               />
@@ -155,7 +159,7 @@ const Page = () => {
               </h2>
             </div>
           </div>
-          <div className="order-4 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5 border border-dashed flex flex-col gap-2.5">
+          <div className="order-4 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5  lg:border-dashed flex flex-col gap-2.5">
             <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>
               03
             </h2>
@@ -168,7 +172,7 @@ const Page = () => {
               can login to the system. Itus uses LDAP for authentication.
             </p>
           </div>
-          <div className="order-5 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5 border border-white flex flex-col gap-2.5">
+          <div className="order-5 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5  border-dashed lg:border-solid flex flex-col gap-2.5">
             <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>
               04
             </h2>
@@ -183,7 +187,7 @@ const Page = () => {
               <Link href="http://192.168.40.130/" label="Media Server" />
             </div>
           </div>
-          <div className="order-6 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5 border border-dashed border-white flex flex-col gap-2.5">
+          <div className="order-6 w-full h-auto border border-white p-3.5 lg:col-span-4 row-start-8 row-span-5   lg:border-dashed  flex flex-col gap-2.5">
             <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>
               05
             </h2>

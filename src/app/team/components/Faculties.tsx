@@ -1,15 +1,30 @@
-import Card, { CardProps } from "@/components/Card";
-import { dummyData, TeamsData } from "./data";
+import Card from "@/components/Card";
 import { alumniSans } from "@/fonts";
+import { useEffect, useState } from "react";
+import { FacultyData } from "@/types/frontend";
+import { getFaculties } from "@/lib/team/faculties";
 
 const Faculties = () => {
-    const currentFaculty = (dummyData.faculties as TeamsData).current as CardProps[]
-    const prevFaculties = ((dummyData.faculties as TeamsData).previous as CardProps[]);
+    const [faculty, setFaculty] = useState<FacultyData>({
+        previousFaculties: [],
+        currentFaculties: [],
+    });
+
+    useEffect(() => {
+        const loadData = async () => {
+            const data = await getFaculties();
+            setFaculty(data);
+        }
+
+        void loadData();
+    }, []);
+
+
     return (
         <div className="w-full h-full">
             <div className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
                 <div className="w-full flex gap-[10px] flex-wrap md:grid-cols-3 py-[24px] lg:p-[24px] items-center justify-center md:justify-start">
-                    <Card {...currentFaculty[0]} />
+                    <Card {...faculty.currentFaculties[0]} />
                 </div>
             </div>
             <div className="pt-20 lg:pt-24">
@@ -17,7 +32,7 @@ const Faculties = () => {
                 <div className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
                     <div className="w-full flex gap-[10px] flex-wrap md:grid-cols-3 py-[24px] lg:p-[24px] items-center justify-center md:justify-start">
                         {
-                            prevFaculties.map((fac, index) => (
+                            faculty.previousFaculties.map((fac, index) => (
                                 <Card {...fac} key={index} />
                             ))
                         }

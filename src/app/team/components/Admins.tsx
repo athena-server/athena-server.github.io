@@ -1,13 +1,26 @@
-import Card, { CardProps } from "@/components/Card";
-import { dummyData, TeamsData } from "./data";
+import Card from "@/components/Card";
 import { alumniSans } from "@/fonts";
 import Button from "@/components/Button";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { getAdmins } from "@/lib/team/admins";
+import { AdminData } from "@/types/frontend";
 
 const Admins = () => {
-    const currentAdmins = ((dummyData.admins as TeamsData).current as TeamsData);
-    const prevAdmins = ((dummyData.admins as TeamsData).previous as TeamsData);
+    const [admins, setAdmins] = useState<AdminData>({
+        currentAdmins: [],
+        previousAdmins: [],
+    });
+
+    useEffect(() => {
+        const loadData = async () => {
+            const data = await getAdmins();
+            console.log(data);
+            setAdmins(data);
+        }
+
+        void loadData();
+    }, []);
 
     const router = useRouter();
     const routeHandler = useCallback((url: string) => {
@@ -17,11 +30,11 @@ const Admins = () => {
     return (
         <div className="w-full h-full">
             {
-                Object.keys(currentAdmins).map((year, index) => (
+                admins.currentAdmins.map((batch, index) => (
                     <div key={index} className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
                         <div className="w-full flex gap-[10px] flex-wrap md:grid-cols-3 py-[24px] lg:p-[24px] items-center justify-center md:justify-start">
                             {
-                                (currentAdmins[year] as CardProps[]).map((admin: CardProps, idx: number) => (
+                                (batch.admins).map((admin, idx) => (
                                     <div key={idx}>
                                         <Card {...admin} />
                                     </div>
@@ -29,7 +42,7 @@ const Admins = () => {
                             }
                         </div>
                         <div className={`w-full lg:w-fit flex items-center lg:items-end justify-start lg:justify-end text-9xl ${alumniSans.className}`}>
-                            {year}&apos;s
+                            {batch.batch}&apos;s
                         </div>
                     </div>
                 ))
@@ -38,11 +51,11 @@ const Admins = () => {
                 <h2 className={`text-[64px] font-bold w-full text-left lg:text-center ${alumniSans.className}`}> Previous Student Admins </h2>
                 <div>
                     {
-                        Object.keys(prevAdmins).map((year, index) => (
+                        admins.previousAdmins.map((batch, index) => (
                             <div key={index} className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
                                 <div className="w-full flex gap-[10px] flex-wrap md:grid-cols-3 py-[24px] lg:p-[24px] items-center justify-center md:justify-start">
                                     {
-                                        (prevAdmins[year] as CardProps[]).map((admin: CardProps, idx: number) => (
+                                        batch.admins.map((admin, idx) => (
                                             <div key={idx}>
                                                 <Button
                                                     className="!px-[42px] !py-[16px]"
@@ -57,7 +70,7 @@ const Admins = () => {
                                 </div>
 
                                 <div className={`w-full lg:w-fit flex items-center lg:items-end justify-start lg:justify-end text-8xl ${alumniSans.className}`}>
-                                    {year}&apos;s
+                                    {batch.batch}&apos;s
                                 </div>
                             </div>
                         ))
