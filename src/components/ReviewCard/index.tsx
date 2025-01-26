@@ -2,11 +2,13 @@ import { inter } from "@/fonts";
 
 /**
  * Cards for the Course Review page
- * @param {string} - Course Title
- * @param {string} - Course ID
- * @param {number} - Review Count
+ * @param {string} [props.semester] - Semester
+ * @param {number} [props.index] - index of the review
+ * @param {number} [props.totalReviews] - Count of all the Reviews
+ * @param {string} [props.review] - Review
+ * @param {number} [props.rating] - Rating out of 5
  *
- * @author Vaishnavi R Pai
+ * @author Naila Fathima
  */
 
 const ReviewCard = ({
