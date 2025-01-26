@@ -1,65 +1,66 @@
 import { inter } from "@/fonts";
 
 /**
-* Cards for the Course Review page
-* @param {string} - Course Title
-* @param {string} - Course ID
-* @param {number} - Review Count
-* 
-* @author Vaishnavi R Pai
-*/
+ * Cards for the Course Review page
+ * @param {string} - Course Title
+ * @param {string} - Course ID
+ * @param {number} - Review Count
+ *
+ * @author Vaishnavi R Pai
+ */
 
-const ReviewCard = ({ 
+const ReviewCard = ({
     semester,
-    reviewNumber,
+    index,
+    totalReviews,
+    review,
     rating,
-}: CardProps) : JSX.Element => {
+}: CardProps): JSX.Element => {
     return (
-        <div className="flex content-center w-[307px] h-[500px] top-[21px] left-[357px] p-[14px_11px_56px_17px] rounded-[12px] bg-[#E5E5E5]"> 
-            <div className="h-[200px]"></div>
+        <div className="content-center w-full p-[14px_11px_56px_17px] rounded-[12px] bg-[#E5E5E5]">
             <div className="flex flex-row justify-between items-center top-[14px] left-[17px] right-[17px]">
-                <div className="w-[150px] h-[19px] top-[14px] left-[17px] opacity-75">
-                    <p className={`${inter.className} text-[16px] font-bold leading-[19.36px] text-[#000000] opacity-90`}>
+                <div className="top-[14px] left-[17px] opacity-75">
+                    <h2
+                        className={`${inter.className} text-[20px] font-bold text-[#000000] opacity-90 leading-[19.36px]`}
+                    >
                         {semester}
-                    </p>
+                    </h2>
                 </div>
 
-                <div className="w-[16px] h-[12px] top-[14px]">
-                    <p className="text-[10px] font-bold text-[#000000] opacity-45">
-                        {reviewNumber}
+                <div className="w-[16px] top-[14px]">
+                    <p className="text-[12px] font-bold text-[#000000] opacity-45">
+                        {index}/{totalReviews}
                     </p>
                 </div>
             </div>
 
-                <div className="flex flex-row w-[60px] h-[12px] top-[36px] left-[17px] gap-0">
+            <div className="flex flex-row w-[60px] top-[36px] left-[17px] pt-1 gap-0">
+                {Array.from({ length: rating }, (_, index) => (
                     <img
-                        src="./star.png"
+                        key={index}
+                        src="/ReviewCard/star.png"
                         alt="star"
                         className="w-[12px] h-[12px]"
                     />
-                    <img
-                        src="./star.png"
-                        alt="star"
-                        className="w-[12px] h-[12px]"
-                    />
-                    <img
-                        src="./star.png"
-                        alt="star"
-                        className="w-[12px] h-[12px]"
-                    />
-                    <img
-                        src="./star.png"
-                        alt="star"
-                        className="w-[12px] h-[12px]"
-                    />
-                </div>
+                ))}
             </div>
-    )
+
+            <div className="pt-4">
+                <p
+                    className={`${inter.className} text-base font-medium text-[#000000] opacity-90`}
+                >
+                    {review}
+                </p>
+            </div>
+        </div>
+    );
 };
 
 export default ReviewCard;
 export interface CardProps {
-    semester: string,
-    reviewNumber: string,
-    rating: number,
+    semester: string;
+    index: number;
+    totalReviews: number;
+    review: string;
+    rating: number;
 }
