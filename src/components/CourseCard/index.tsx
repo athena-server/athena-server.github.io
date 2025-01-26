@@ -23,16 +23,24 @@ const CourseCard = ({
             </div>
 
             <div className="flex flex-row w-[328px] h-[32px] gap-0 justify-between">
-                <div className="w-[64px] h-[32px] gap-0">
+                <div className="w-[64px]h-[32px]">
                     <p className={`${alumniSans.className} text-[24px] font-bold leading-[32px] text-white`}>
                         {courseId}
                     </p>
                 </div>
 
-                <div className="w-[78px] h-[32px] gap-0">
-                    <p className={`${alumniSans.className} text-[24px] font-bold leading-[32px] text-white`}>
-                        {reviewCount}
-                    </p>
+                <div className = "flex flex-row gap-[5px] w-[78px] h-[32px]">
+                    <div className="w-[10px]">
+                        <p className={`${alumniSans.className} text-[24px] font-bold leading-[32px] text-white`}>
+                            {reviewCount}
+                        </p>
+                    </div>
+
+                    <div className="w-[65px]">
+                        <p className={`${alumniSans.className} text-[24px] font-bold leading-[32px] text-white`}>
+                            Reviews
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
