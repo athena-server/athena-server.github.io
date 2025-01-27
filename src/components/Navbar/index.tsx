@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import SslStatus from './SslStatus';
 import MobileNavItem from './MobileNavItem';
 import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const Navbar = () => {
     const router = useRouter();
@@ -55,10 +56,10 @@ const Navbar = () => {
             background: opacity
         }}>
             <nav className="w-full max-w-[1920px] h-20 lg:h-24 flex items-center justify-between">
-            <div className='w-full lg:w-1/5 h-full flex items-center p-4 lg:px-8 lg:py-4 order-first z-[200]'>
-                    <a href="/" onClick={(e) => { e.preventDefault(); router.push('/'); }}>
+                <div className='w-full lg:w-1/5 h-full flex items-center p-4 lg:px-8 lg:py-4 order-first z-[200]'>
+                    <Link href="/" >
                         <img src="/Navbar/logo.png" width={100} height={88} alt="logo" />
-                    </a>
+                    </Link>
                 </div>
 
                 <div className='w-full flex items-center justify-end lg:block lg:w-3/5 h-full p-2 lg:px-8 lg:py-4 order-last lg:order-1 z-[2]'>
