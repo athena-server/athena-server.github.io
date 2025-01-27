@@ -9,7 +9,7 @@ import CourseCard from "@/components/CourseCard";
 import Pagination from "./Pagination";
 
 const Page = () => {
-    const [currentPage, setCurrentPage] = useState(2);
+    const [currentPage, setCurrentPage] = useState(1);
     const [perPage, setPerPage] = useState(9);
 
     const courseData = [

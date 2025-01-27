@@ -12,18 +12,11 @@ const Pagination = ({
     pages.push(i)
   }
   return (
-    <div style={{ display: "flex", gap: "8px", justifyContent: "center", marginTop: "20px" }}>
+    <div className="flex justify-center">
       {pages.map((page, index) => (
         <button
           key={index}
-          style={{
-            padding: "8px 12px",
-            backgroundColor: currentPage === page ? "white" : "black",
-            color: currentPage === page ? "black" : "white",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
+          className={`w-[36px] h-[36px] border ${currentPage === page ? "bg-white text-black" : "bg-black text-white"}`}
           onClick={() => setCurrentPage(page)}
         >
           {page}
