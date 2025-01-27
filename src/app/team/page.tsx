@@ -22,10 +22,10 @@ const Page = () => {
     }, []);
 
     const options = useMemo(() => [
-        <Faculties key="faculties" />,
+        <Faculties key="faculty" />,
         <Staff key="staff" />,
         <Admins key="admins" />,
-        <WebTeam key="webteam" />
+        // <WebTeam key="webteam" />
     ], []);
 
     return (

@@ -24,7 +24,11 @@ const Faculties = () => {
         <div className="w-full h-full">
             <div className="flex flex-col-reverse lg:flex-row border-b border-b-[2px] border-white">
                 <div className="w-full flex gap-[10px] flex-wrap md:grid-cols-3 py-[24px] lg:p-[24px] items-center justify-center md:justify-start">
-                    <Card {...faculty.currentFaculties[0]} />
+                    {
+                        faculty.currentFaculties.map((fac, index) => (
+                            <Card {...fac} key={index} />
+                        ))
+                    }
                 </div>
             </div>
             <div className="pt-20 lg:pt-24">

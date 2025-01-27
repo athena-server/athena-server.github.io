@@ -25,7 +25,7 @@ const CourseCard = ({
             className="flex flex-col w-full xs:w-[350px] h-[120px] py-[4px] px-[11px] gap-4 border-b border-b-px"
             initial={{
                 color: "rgba(255, 255, 255, 1)",
-                backgroundColor: "rgba(0, 0, 0, 1)",
+                backgroundColor: "var(--secondary)",
                 scale: 1,
             }}
             whileHover={{
