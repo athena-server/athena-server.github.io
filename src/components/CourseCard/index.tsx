@@ -13,20 +13,19 @@ import { MouseEventHandler } from "react";
 *  
 * @author Vaishnavi R Pai
 */
-const CourseCard = ({ 
+const CourseCard = ({
     courseTitle,
     courseId,
     reviewCount,
     onClick = undefined,
-}: CardProps) : JSX.Element => {
-
+}: CardProps): JSX.Element => {
     return (
         <motion.button
             layoutId={`${courseId}`}
             className="flex flex-col w-full xs:w-[350px] h-[120px] py-[4px] px-[11px] gap-4 border-b border-b-px"
             initial={{
                 color: "rgba(255, 255, 255, 1)",
-                backgroundColor: "rgba(0, 0, 0, 1)",
+                backgroundColor: "var(--secondary)",
                 scale: 1,
             }}
             whileHover={{
@@ -44,8 +43,8 @@ const CourseCard = ({
                 ease: easeInOut,
             }}
             onClick={onClick}
-        > 
-            <div className="w-[328px] h-[64px]"> 
+        >
+            <div className="w-[328px] h-[64px]">
                 <h4 className={`${alumniSans.className} w-11/12 text-[28px] font-bold leading-[32px] text-left text-inherit`}>
                     {courseTitle}
                 </h4>

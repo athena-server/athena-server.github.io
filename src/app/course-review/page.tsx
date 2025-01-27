@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 import Input from "@/components/Input";
 import { alumniSans } from "@/fonts";
 import CourseCard from "@/components/CourseCard";
-import Pagination from "./pagination";
+import Pagination from "./Pagination";
 import { motion } from 'framer-motion';
 
 
@@ -22,9 +22,9 @@ const Page = () => {
     [ifSelected])
 
     const courseData = [
-        { courseTitle: 'Number Theory and Cryptography', courseId: 'CS4021D', reviewCount: 4 },
+        { courseTitle: 'Number Theory and Cryptography', courseId: 'CS4021D', reviewCount: 2 },
         { courseTitle: 'Principles of Programming Languages', courseId: 'CS4022D', reviewCount: 6 },
-        { courseTitle: 'Information Theory', courseId: 'CS4024D', reviewCount: 4 },
+        { courseTitle: 'Information Theory', courseId: 'CS4024D', reviewCount: 2 },
         { courseTitle: 'Randomized Algorithms', courseId: 'CS4025D', reviewCount: 6 },
         { courseTitle: 'Combinatorial Algorithms', courseId: 'CS4026D', reviewCount: 2 },
         { courseTitle: 'Topics in Algorithms', courseId: 'CS4027D', reviewCount: 6 },
@@ -46,18 +46,18 @@ const Page = () => {
 
     const lastPostInd = currentPage * perPage;
     const firstPostInd = lastPostInd - perPage;
-    const currentPosts = courseData.slice (firstPostInd, lastPostInd);
+    const currentPosts = courseData.slice(firstPostInd, lastPostInd);
 
     // console.log(ifSelected);
 
     return (
         <Container>
             <Section className="pt-20 lg:pt-24 h-full">
-                <div className = "w-full flex flex-row justify-between left-1/2 justify-center align-items items-center border-b-[1px] border-solid border-white ">
+                <div className="w-full flex flex-row justify-between left-1/2 justify-center align-items items-center border-b-[1px] border-solid border-white ">
                     <h1 className={`${alumniSans.className} text-7xl font-bold`}>
                         COURSE REVIEW
                     </h1>
-                    <Input onClick = {() => 0} />
+                    <Input onClick={() => 0} />
                 </div>
                 <div className = "w-full h-full gap-[50px] place-items-center px-[18px] py-[35px] grid grid-cols-3 grid-rows-3">
                     {currentPosts.map((item) => (
