@@ -1,16 +1,21 @@
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 
-const Pagination = ({totalPosts, perPage, currentPage, setCurrentPage}) => {
-  let pages = [];
+const Pagination = ({
+  totalPosts,
+  perPage,
+  currentPage,
+  setCurrentPage
+}: PaginationProps) => {
+  const pages = [];
 
-  for (let i = 1; i <= Math.ceil(totalPosts/perPage); i++) {
-    pages.push (i)
+  for (let i = 1; i <= Math.ceil(totalPosts / perPage); i++) {
+    pages.push(i)
   }
   return (
     <div style={{ display: "flex", gap: "8px", justifyContent: "center", marginTop: "20px" }}>
       {pages.map((page, index) => (
         <button
-          key = {index}
+          key={index}
           style={{
             padding: "8px 12px",
             backgroundColor: currentPage === page ? "white" : "black",
@@ -27,5 +32,12 @@ const Pagination = ({totalPosts, perPage, currentPage, setCurrentPage}) => {
     </div>
   );
 };
+
+export interface PaginationProps {
+  totalPosts: number,
+  perPage: number,
+  currentPage: number,
+  setCurrentPage: Dispatch<SetStateAction<number>>,
+}
 
 export default Pagination;
