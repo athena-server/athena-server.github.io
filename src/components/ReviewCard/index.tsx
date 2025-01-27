@@ -1,4 +1,5 @@
 import { inter } from "@/fonts";
+import Image from "next/image";
 
 /**
  * Cards for the Course Review page
@@ -31,8 +32,8 @@ const ReviewCard = ({
                     </h2>
                 </div>
 
-                <div className="w-[16px] top-[14px]">
-                    <p className="text-[12px] font-bold text-[#000000] opacity-45">
+                <div className="top-[14px]">
+                    <p className="text-[12px] font-bold text-black opacity-45">
                         {index}/{totalReviews}
                     </p>
                 </div>
@@ -40,18 +41,20 @@ const ReviewCard = ({
 
             <div className="flex flex-row w-[60px] top-[36px] left-[17px] pt-1 gap-0">
                 {Array.from({ length: rating }, (_, index) => (
-                    <img
+                    <Image
                         key={index}
                         src="/ReviewCard/star.png"
                         alt="star"
                         className="w-[12px] h-[12px]"
+                        width={25}
+                        height={25}
                     />
                 ))}
             </div>
 
             <div className="pt-4">
                 <p
-                    className={`${inter.className} text-base font-medium text-[#000000] opacity-90`}
+                    className="text-base font-medium text-[#000000] opacity-90"
                 >
                     {review}
                 </p>
