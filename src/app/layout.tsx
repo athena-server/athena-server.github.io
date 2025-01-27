@@ -4,7 +4,6 @@ import "./globals.css"
 import PageWrapper from "@/components/Container";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getSslOpenStatus } from "@/lib/sslopen";
 
 
 export const metadata: Metadata = {
@@ -12,17 +11,16 @@ export const metadata: Metadata = {
   description: "CSED | NITC",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isSslOpen = await getSslOpenStatus();
   return (
     <html lang="en"
       style={{ scrollBehavior: "smooth" }}>
       <body className={`${inter.className} antialiased`}>
-        <Navbar sslOpenStatus={isSslOpen} />
+        <Navbar />
         {children}
         <Footer />
       </body>

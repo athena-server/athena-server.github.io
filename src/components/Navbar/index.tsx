@@ -5,10 +5,9 @@ import SslStatus from './SslStatus';
 import MobileNavItem from './MobileNavItem';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { getSslOpenStatus } from '@/lib/sslopen';
 
-const Navbar = ({
-    sslOpenStatus = false,
-}: NavbarProps) => {
+const Navbar = () => {
     const router = useRouter();
     const pathname = usePathname();
     const { scrollYProgress } = useScroll();
@@ -47,6 +46,16 @@ const Navbar = ({
     ], []);
 
     const [open, setOpen] = useState(false);
+    const [sslOpenStatus, setSslOpenStatus] = useState(false);
+
+    useEffect(() => {
+        const loadData = async () => {
+            const status = await getSslOpenStatus();
+            setSslOpenStatus(status);
+        }
+
+        void loadData();
+    }, []);
 
     const toggleMenu = useCallback(() => {
         setOpen(prev => (!prev));
@@ -137,7 +146,3 @@ const Navbar = ({
 }
 
 export default Navbar;
-
-export interface NavbarProps {
-    sslOpenStatus?: boolean,
-}
