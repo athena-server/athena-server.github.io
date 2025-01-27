@@ -11,7 +11,6 @@ import { motion } from 'framer-motion';
 
 const Page = () => {
     const [currentPage, setCurrentPage] = useState(1);
-    const [perPage, setPerPage] = useState(9);
 
     const [ifSelected, setIfSelected] = useState(false);
     
@@ -44,8 +43,8 @@ const Page = () => {
         { courseTitle: 'Network Analysis in Bioinformatics', courseId: 'CS4071D', reviewCount: 2 }
     ];
 
-    const lastPostInd = currentPage * perPage;
-    const firstPostInd = lastPostInd - perPage;
+    const lastPostInd = currentPage * 9;
+    const firstPostInd = lastPostInd - 9;
     const currentPosts = courseData.slice(firstPostInd, lastPostInd);
 
     // console.log(ifSelected);
@@ -64,12 +63,12 @@ const Page = () => {
                         <motion.div 
                             key = {item.courseId}
                             className = {collapse}
+                            onClick = {() => setIfSelected(prev => !prev)}
                         >
                             <CourseCard
                                 courseTitle = {item.courseTitle}
                                 courseId = {item.courseId}
                                 reviewCount = {item.reviewCount}
-                                onClick = {() => setIfSelected(prev => !prev)}
                             />
                         </motion.div>
                     ))}                   
@@ -77,7 +76,7 @@ const Page = () => {
 
                 <Pagination 
                     totalPosts = {courseData.length}
-                    perPage = {perPage}
+                    perPage = {9}
                     currentPage = {currentPage}
                     setCurrentPage = {setCurrentPage}
                 />
