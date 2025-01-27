@@ -56,7 +56,7 @@ export interface InputProps {
     placeholder? : string,
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void,
     onClick: ()=>void,
-    value: string,
+    value?: string,
     id?: string,
     name?: string,
 }
