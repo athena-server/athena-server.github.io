@@ -1,7 +1,6 @@
 "use client";
 
 import { alumniSans } from "@/fonts";
-import styles from './styles.module.css';
 import { easeInOut, motion } from 'framer-motion'
 import { MouseEventHandler } from "react";
 
@@ -14,12 +13,12 @@ import { MouseEventHandler } from "react";
 *  
 * @author Vaishnavi R Pai
 */
-const CourseCard = ({ 
+const CourseCard = ({
     courseTitle,
     courseId,
     reviewCount,
     onClick = undefined,
-}: CardProps) : JSX.Element => {
+}: CardProps): JSX.Element => {
     return (
         <motion.button
             layoutId={`${courseId}`}
@@ -44,8 +43,8 @@ const CourseCard = ({
                 ease: easeInOut,
             }}
             onClick={onClick}
-        > 
-            <div className="w-[328px] h-[64px]"> 
+        >
+            <div className="w-[328px] h-[64px]">
                 <h4 className={`${alumniSans.className} w-11/12 text-[28px] font-bold leading-[32px] text-left text-inherit`}>
                     {courseTitle}
                 </h4>
@@ -58,7 +57,7 @@ const CourseCard = ({
                     </h5>
                 </div>
 
-                <div className = "flex flex-row gap-[5px] w-full h-[32px] justify-end">
+                <div className="flex flex-row gap-[5px] w-full h-[32px] justify-end">
                     <span className={`${alumniSans.className} text-[24px] font-bold leading-[32px] text-inherit`}>
                         {reviewCount}
                     </span>
