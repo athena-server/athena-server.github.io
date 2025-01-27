@@ -6,7 +6,9 @@ import MobileNavItem from './MobileNavItem';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-const Navbar = () => {
+const Navbar = ({
+    sslOpenStatus = false,
+}: NavbarProps) => {
     const router = useRouter();
     const pathname = usePathname();
     const { scrollYProgress } = useScroll();
@@ -43,11 +45,6 @@ const Navbar = () => {
             newTab: true,
         }
     ], []);
-
-    useEffect(() => {
-        console.log(pathname)
-    }, [pathname]);
-
 
     const [open, setOpen] = useState(false);
 
@@ -100,7 +97,7 @@ const Navbar = () => {
                     </button>
                 </div>
                 <div className='w-full lg:w-1/5 h-full flex items-center justify-center lg:justify-end py-4 px-8 order-1 lg:order-last z-[2]'>
-                    <SslStatus />
+                    <SslStatus open={sslOpenStatus} />
                 </div>
                 <AnimatePresence>
                     {
@@ -140,3 +137,7 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
+export interface NavbarProps {
+    sslOpenStatus?: boolean,
+}

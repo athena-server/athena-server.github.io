@@ -24,8 +24,8 @@ export type WebTeamData = {
 export type StaffData = CardProps[]
 
 export enum Teams {
-    faculties = "Faculties",
-    staff = "Staffs",
+    faculties = "Faculty",
+    staff = "Staff",
     admins = "Student Admins",
     webteam = "Web Team",
 }
@@ -34,5 +34,5 @@ export const groups = [
     Teams.faculties,
     Teams.staff,
     Teams.admins,
-    Teams.webteam
+    // Teams.webteam
 ]
