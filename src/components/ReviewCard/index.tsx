@@ -12,8 +12,6 @@ import Image from "next/image";
  * @author Naila Fathima
  */
 
-
-
 const ReviewCard = ({
     semester,
     index,
@@ -21,41 +19,34 @@ const ReviewCard = ({
     review,
     rating,
 }: CardProps): JSX.Element => {
+
     return (
-        <div className="content-center w-full p-[14px_11px_56px_17px] rounded-[12px] bg-[#E5E5E5]">
-            <div className="flex flex-row justify-between items-center top-[14px] left-[17px] right-[17px]">
-                <div className="top-[14px] left-[17px] opacity-75">
-                    <h2
-                        className={`${inter.className} text-[20px] font-bold text-[#000000] opacity-90 leading-[19.36px]`}
-                    >
-                        {semester}
-                    </h2>
-                </div>
+        <div className="content-center w-full py-[24px] px-[14px] rounded-[12px] bg-[#E5E5E5]">
+            <div className="flex flex-row justify-between items-center">
+                <h2 className={`${inter.className} text-[20px] font-bold text-black opacity-90 leading-[19.36px]`}>
+                    {semester}
+                </h2>
 
-                <div className="top-[14px]">
-                    <p className="text-[12px] font-bold text-black opacity-45">
-                        {index}/{totalReviews}
-                    </p>
-                </div>
+                <p className="text-[12px] font-bold text-black opacity-45">
+                    {index}/{totalReviews}
+                </p>
             </div>
-
-            <div className="flex flex-row w-[60px] top-[36px] left-[17px] pt-1 gap-0">
+            <div className="flex flex-row pt-1 gap-0">
                 {Array.from({ length: rating }, (_, index) => (
                     <Image
                         key={index}
-                        src="/ReviewCard/star.png"
+                        src="/ReviewCard/star.svg"
                         alt="star"
                         className="w-[12px] h-[12px]"
-                        width={25}
-                        height={25}
+                        width={250}
+                        height={250}
                     />
                 ))}
             </div>
 
+
             <div className="pt-4">
-                <p
-                    className="text-base font-medium text-[#000000] opacity-90"
-                >
+                <p className="text-base font-medium text-[#0E0E10] opacity-75">
                     {review}
                 </p>
             </div>
