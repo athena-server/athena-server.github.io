@@ -1,4 +1,6 @@
 import { CardProps } from "@/components/Card"
+import { CourseCardProps } from "@/components/CourseCard"
+import { ReviewCardProps } from "@/components/ReviewCard"
 
 export type BatchData = {
     batch: string,
@@ -22,6 +24,10 @@ export type WebTeamData = {
 }
 
 export type StaffData = CardProps[]
+
+export type CoursesData = CourseCardProps[]
+
+export type ReviewsData = ReviewCardProps[]
 
 export enum Teams {
     faculties = "Faculties",

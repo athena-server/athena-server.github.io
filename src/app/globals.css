@@ -7,6 +7,8 @@
   --light-blue: rgba(58, 203, 241, 1);
   --neon-green: rgba(44, 255, 5, 1);
   --neon-red: rgba(255, 5, 5, 1);
+
+  --secondary: rgba(14, 14, 16, 1);
 }
 
 * {

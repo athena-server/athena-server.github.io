@@ -52,6 +52,38 @@ export interface Staff {
     }
 }
 
+export interface Course {
+    data: {
+        id: string,
+        courseId: string,
+        courseTitle: string,
+        reviewCount: number,
+        course_reviews?: {
+            id: string,
+            reviewText: string,
+            rating: number,
+            reviewed_in_sem: {
+                semesterName: string,
+            }
+        }[],
+    }[];
+}
+
+export interface Review {
+    data: {
+        id: string,
+        reviewText: string,
+        rating: number,
+        courseId?: {
+            courseId: string,
+            courseTitle: string,
+        },
+        reviewed_in_sem: {
+            semesterName: string,
+        }
+    }[]
+}
+
 export type Socials = {
     email: string | null,
     github: string | null,
