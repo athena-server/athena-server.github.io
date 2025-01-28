@@ -9,20 +9,22 @@ import { getCourses, getReviews } from "@/lib/courses";
 import ReviewCard, { ReviewCardProps } from "@/components/ReviewCard";
 import styles from './styles.module.css';
 import { motion, AnimatePresence, easeInOut } from "framer-motion";
-
+import Image from "next/image";
 
 const Page = () => {
     const [currentPage, setCurrentPage] = useState(1);
-    const [selected, setSelected] = useState<number>(-1);
+    const [selected, setSelected] = useState<CourseCardProps | null>(null);
+    const [prevValue, setPrevValue] = useState<CourseCardProps | null>(null);
+    const [showReviewSection, setShowReviewSection] = useState<boolean>(false);
     const [courses, setCourses] = useState<CourseCardProps[]>([]);
     const [reviews, setReviews] = useState<{ firstHalf: ReviewCardProps[], secondHalf: ReviewCardProps[] }>({ firstHalf: [], secondHalf: [] });
     const [loading, setLoading] = useState<boolean>(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
     const collapseGridClassName = useMemo(() =>
-        (selected !== -1)
-            ? "flex flex-col w-1/2 h-full overflow-y-scroll gap-[50px] place-items-center px-[18px] py-[35px] border-e border-e-px"
-            : "w-full h-full gap-[50px] place-items-center px-[18px] py-[35px] grid grid-cols-3 grid-rows-3",
+        (selected !== null)
+            ? "flex flex-col w-full lg:w-1/2 h-full overflow-y-scroll gap-[50px] place-items-center px-[18px] py-[35px]"
+            : "w-full h-auto gap-[50px] place-items-center px-[18px] py-[35px] grid md:grid-cols-2 xl:grid-cols-3",
         [selected])
 
     useEffect(() => {
@@ -36,10 +38,10 @@ const Page = () => {
 
     useEffect(() => {
         const loadData = async () => {
-            if (selected == -1)
+            if (selected == null)
                 return;
             setLoading(true);
-            const reviews = await getReviews(courses[selected].courseId);
+            const reviews = await getReviews(selected.courseId);
             const middleIndex = Math.ceil(reviews.length / 2);
             setReviews({
                 firstHalf: reviews.slice(0, middleIndex),
@@ -60,15 +62,28 @@ const Page = () => {
     }, [courses, currentPage]);
 
 
-    const handleSelectCourse = useCallback((index: number) => {
-        if (selected == -1) {
+    const handleSelectCourse = useCallback((course: CourseCardProps | null) => {
+        setPrevValue(selected);
+        setSelected(course);
+        if (course !== null)
+            setShowReviewSection(true);
+    }, [selected]);
+
+    const handleHideReviewSection = useCallback(() => {
+        setShowReviewSection(false);
+    }, []);
+
+    useEffect(() => {
+        if (prevValue == null && selected != null) {
             containerRef.current?.scrollIntoView({
                 behavior: 'smooth',
-                block: 'center'
-            });
+                block: 'center',
+                inline: 'center',
+            })
         }
-        setSelected(index)
     }, [selected]);
+
+
 
     return (
         <Container>
@@ -82,15 +97,22 @@ const Page = () => {
 
                 <div className="w-full h-full flex flex-col gap-4 my-24" ref={containerRef}>
                     {
-                        (selected !== -1) && (
+                        (selected !== null) && (
                             <div className="w-full flex justify-end">
-                                <h4 className={`w-1/2 text-lg ${alumniSans.className}`}>
-                                    {courses[selected].courseId} | {courses[selected].courseTitle}
-                                </h4>
+                                <div className="w-full lg:w-1/2 flex items-center justify-between">
+                                    <h4 className={`text-lg ${alumniSans.className}`}>
+                                        {selected.courseId} | {selected.courseTitle}
+                                    </h4>
+                                    <button className="w-[36px] h-[36px] flex items-center justify-center" onClick={handleHideReviewSection}>
+                                        <Image src="/icons/rarr.svg" alt="close-review-section" height={25} width={25} className="w-[20px] rotate-45" style={{
+                                            filter: 'drop-shadow(0 0 7px white)',
+                                        }} />
+                                    </button>
+                                </div>
                             </div>
                         )
                     }
-                    <div className="h-[75dvh] w-full flex relative">
+                    <motion.div className={`${selected ? 'h-[75dvh]' : 'min-h-[75dvh] h-full'} w-full flex relative `}>
                         <motion.div
                             className={`${collapseGridClassName} ${loading ? styles.disabledDiv : ''}`}
                             layoutId='courses-container'
@@ -106,32 +128,36 @@ const Page = () => {
                                         courseTitle={item.courseTitle}
                                         courseId={item.courseId}
                                         reviewCount={item.reviewCount}
-                                        onClick={() => handleSelectCourse(index)}
-                                        selected={index === selected}
+                                        onClick={() => handleSelectCourse(item)}
+                                        selected={item.courseId === selected?.courseId}
                                     />
                                 ))
                             }
                         </motion.div>
 
-                        <AnimatePresence>
+                        <AnimatePresence mode="wait" initial={false} onExitComplete={() => handleSelectCourse(null)}>
                             {
-                                (selected != -1) && (
+                                showReviewSection && (
                                     <motion.div
-                                        className="w-1/2 overflow-y-scroll flex items-center justify-center py-[27px] px-[21px]"
+                                        className="bg-secondary absolute top-0 left-0 h-full w-full lg:relative lg:w-1/2 h-full overflow-y-scroll flex items-center justify-center py-[27px] px-[21px] lg:border-s lg:border-s-px"
                                         initial={{
+                                            right: 0,
                                             x: '100%',
                                             opacity: 0,
-                                            position: 'absolute',
                                         }}
                                         animate={{
                                             x: '0%',
                                             opacity: 1,
-                                            position: 'relative',
+
                                         }}
                                         exit={{
+                                            right: 0,
                                             x: '100%',
                                             opacity: 0,
-                                            position: 'absolute',
+                                            transition: {
+                                                duration: 0.3,
+                                                ease: easeInOut,
+                                            },
                                         }}
                                         transition={{
                                             duration: 0.5,
@@ -139,13 +165,13 @@ const Page = () => {
                                         }}
                                     >
                                         {
-                                            courses[selected].reviewCount == 0 ? (
+                                            selected?.reviewCount == 0 ? (
                                                 <div className="w-full h-full flex items-center justify-center">
                                                     No Reviews For This Course Yet
                                                 </div>
                                             ) : (
-                                                <>
-                                                    <div className="w-1/2 h-full">
+                                                <div className="flex gap-[24px] flex-col lg:flex-row">
+                                                    <div className="w-full pt-48 lg:pt-0 lg:w-1/2 h-full flex flex-col gap-[24px]">
                                                         {
                                                             reviews.firstHalf.map((review, index) => (
                                                                 <ReviewCard
@@ -155,7 +181,7 @@ const Page = () => {
                                                             ))
                                                         }
                                                     </div>
-                                                    <div className="w-1/2 h-full">
+                                                    <div className="w-full lg:w-1/2 h-full flex flex-col gap-[24px]">
                                                         {
                                                             reviews.secondHalf.map((review, index) => (
                                                                 <ReviewCard
@@ -166,7 +192,7 @@ const Page = () => {
                                                         }
 
                                                     </div>
-                                                </>
+                                                </div>
                                             )
                                         }
                                     </motion.div>
@@ -174,7 +200,7 @@ const Page = () => {
                             }
                         </AnimatePresence>
 
-                    </div>
+                    </motion.div>
                 </div>
 
                 <div className="flex justify-center w-full">

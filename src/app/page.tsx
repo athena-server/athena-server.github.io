@@ -230,7 +230,7 @@ const Page = () => {
                     <div className="h-full w-1/3 flex flex-col items-start justify-center gap-8 relative">
                         <h3 className={`${alumniSans.className} font-bold text-7xl`}> Want to book SSL for events? </h3>
                         <p>
-                            Download and fill the form given below and there are some more instructions. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Download and fill the form given below and there are some more instructions.
                         </p>
                         <div className="w-full text-center md:text-left">
                             <Button onClick={() => routeTo('/docs/SSL-Request.pdf')} className="!px-6" hideIcon> Download Form </Button>

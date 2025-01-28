@@ -27,10 +27,6 @@ const CourseCard = ({
         ...(selected
             ? {
                 transition: {
-                    duration: 0.2,
-                    ease: easeInOut,
-                },
-                layoutTransition: {
                     duration: 0.5,
                     ease: easeInOut,
                 },
@@ -57,11 +53,7 @@ const CourseCard = ({
             }
             : {
                 transition: {
-                    duration: 0.2,
-                    ease: easeInOut,
-                },
-                layoutTransition: {
-                    duration: 1,
+                    duration: 0.5,
                     ease: easeInOut,
                 },
                 initial: {
@@ -77,19 +69,25 @@ const CourseCard = ({
                 whileHover: {
                     color: 'var(--secondary)',
                     backgroundColor: 'rgba(255, 255, 255, 1)',
-                    scale: 1.01,
+                    scale: 1.01, transition: {
+                        duration: 0.2,
+                        ease: easeInOut,
+                    },
                 },
                 whileTap: {
                     color: "var(--secondary)",
                     backgroundColor: "rgba(255, 255, 255, 1)",
-                    scale: 0.99,
+                    scale: 0.99, transition: {
+                        duration: 0.2,
+                        ease: easeInOut,
+                    },
                 },
             })
     }), [selected, onClick, courseId]);
 
     return (
         <motion.button {...buttonProps}>
-            <div className="w-[328px] h-[64px]">
+            <div className="w-full max-w-[328px] xs:w-[328px] h-[64px]">
                 <h4 className={`${alumniSans.className} w-11/12 text-[28px] font-bold leading-[32px] text-left text-inherit`}>
                     {courseTitle}
                 </h4>
