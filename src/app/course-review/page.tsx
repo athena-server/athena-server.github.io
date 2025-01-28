@@ -10,6 +10,7 @@ import ReviewCard, { ReviewCardProps } from "@/components/ReviewCard";
 import styles from './styles.module.css';
 import { motion, AnimatePresence, easeInOut } from "framer-motion";
 import Image from "next/image";
+import InputWrapper from "./components/InputWrapper";
 
 const Page = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -17,6 +18,7 @@ const Page = () => {
     const [prevValue, setPrevValue] = useState<CourseCardProps | null>(null);
     const [showReviewSection, setShowReviewSection] = useState<boolean>(false);
     const [courses, setCourses] = useState<CourseCardProps[]>([]);
+    const [filteredCourses, setFilteredCourses] = useState<CourseCardProps[]>([]);
     const [reviews, setReviews] = useState<{ firstHalf: ReviewCardProps[], secondHalf: ReviewCardProps[] }>({ firstHalf: [], secondHalf: [] });
     const [loading, setLoading] = useState<boolean>(false);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -24,13 +26,14 @@ const Page = () => {
     const collapseGridClassName = useMemo(() =>
         (selected !== null)
             ? "flex flex-col w-full lg:w-1/2 h-full overflow-y-scroll gap-[50px] place-items-center px-[18px] py-[35px]"
-            : "w-full h-auto gap-[50px] place-items-center px-[18px] py-[35px] grid md:grid-cols-2 xl:grid-cols-3",
+            : "w-full h-auto gap-[50px] place-items-center px-[18px] py-[35px] grid md:grid-cols-2 lg:grid-cols-3",
         [selected])
 
     useEffect(() => {
         const loadData = async () => {
             const courses = await getCourses();
             setCourses(courses);
+            setFilteredCourses(courses);
         }
 
         void loadData();
@@ -54,12 +57,12 @@ const Page = () => {
     }, [selected, courses]);
 
 
-    const currentPosts = useMemo(() => {
+    const coursesChunk = useMemo(() => {
         const lastPostInd = currentPage * 9;
         const firstPostInd = lastPostInd - 9;
 
-        return courses.slice(firstPostInd, lastPostInd);
-    }, [courses, currentPage]);
+        return filteredCourses.slice(firstPostInd, lastPostInd);
+    }, [filteredCourses, currentPage]);
 
 
     const handleSelectCourse = useCallback((course: CourseCardProps | null) => {
@@ -92,10 +95,13 @@ const Page = () => {
                     <h1 className={`${alumniSans.className} text-7xl font-bold`}>
                         COURSE REVIEW
                     </h1>
-                    <Input onSubmit={(e) => e.preventDefault()} />
+                    <InputWrapper
+                        allCourses={courses}
+                        setFilteredCourses={setFilteredCourses}
+                    />
                 </div>
 
-                <div className="w-full h-full flex flex-col gap-4 my-24" ref={containerRef}>
+                <div className="w-full h-full flex flex-col gap-4 py-24" ref={containerRef}>
                     {
                         (selected !== null) && (
                             <div className="w-full flex justify-end">
@@ -127,7 +133,7 @@ const Page = () => {
                                 }}
                             >
                                 {
-                                    currentPosts.map((item, index) => (
+                                    coursesChunk.map((item, index) => (
                                         <CourseCard
                                             key={index}
                                             courseTitle={item.courseTitle}
@@ -210,7 +216,7 @@ const Page = () => {
 
                 <div className="flex justify-center w-full">
                     {
-                        Array.from({ length: Math.ceil(courses.length / 9) }).map((_, index) => (
+                        Array.from({ length: Math.ceil(filteredCourses.length / 9) }).map((_, index) => (
                             <button
                                 key={index + 1}
                                 className="w-[36px] h-[36px] border bg-secondary text-black relative z-0"
