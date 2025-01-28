@@ -112,29 +112,34 @@ const Page = () => {
                             </div>
                         )
                     }
-                    <motion.div className={`${selected ? 'h-[75dvh]' : 'min-h-[75dvh] h-full'} w-full flex relative `}>
-                        <motion.div
-                            className={`${collapseGridClassName} ${loading ? styles.disabledDiv : ''}`}
-                            layoutId='courses-container'
-                            transition={{
-                                duration: 0.5,
-                                ease: easeInOut,
-                            }}
-                        >
-                            {
-                                currentPosts.map((item, index) => (
-                                    <CourseCard
-                                        key={index}
-                                        courseTitle={item.courseTitle}
-                                        courseId={item.courseId}
-                                        reviewCount={item.reviewCount}
-                                        onClick={() => handleSelectCourse(item)}
-                                        selected={item.courseId === selected?.courseId}
-                                    />
-                                ))
-                            }
-                        </motion.div>
-
+                    <motion.div className={`${selected ? 'h-[75dvh]' : 'min-h-[75dvh] h-full'} w-full flex relative overflow-y-hidden`}>
+                        <AnimatePresence initial={false}>
+                            <motion.div
+                                key={currentPage}
+                                className={`${collapseGridClassName} ${loading ? styles.disabledDiv : ''}`}
+                                layoutId={`courses-container-${currentPage}`}
+                                initial={{ y: 300, position: 'absolute', opacity: 0 }}
+                                animate={{ y: 0, position: 'relative', opacity: 1 }}
+                                exit={{ y: -300, position: 'absolute', opacity: 0 }}
+                                transition={{
+                                    duration: 0.5,
+                                    ease: easeInOut,
+                                }}
+                            >
+                                {
+                                    currentPosts.map((item, index) => (
+                                        <CourseCard
+                                            key={index}
+                                            courseTitle={item.courseTitle}
+                                            courseId={item.courseId}
+                                            reviewCount={item.reviewCount}
+                                            onClick={() => handleSelectCourse(item)}
+                                            selected={item.courseId === selected?.courseId}
+                                        />
+                                    ))
+                                }
+                            </motion.div>
+                        </AnimatePresence>
                         <AnimatePresence mode="wait" initial={false} onExitComplete={() => handleSelectCourse(null)}>
                             {
                                 showReviewSection && (
@@ -170,7 +175,7 @@ const Page = () => {
                                                     No Reviews For This Course Yet
                                                 </div>
                                             ) : (
-                                                <div className="flex gap-[24px] flex-col lg:flex-row">
+                                                <div className="flex gap-[24px] flex-col lg:flex-row h-full">
                                                     <div className="w-full pt-48 lg:pt-0 lg:w-1/2 h-full flex flex-col gap-[24px]">
                                                         {
                                                             reviews.firstHalf.map((review, index) => (
@@ -208,10 +213,23 @@ const Page = () => {
                         Array.from({ length: Math.ceil(courses.length / 9) }).map((_, index) => (
                             <button
                                 key={index + 1}
-                                className={`w-[36px] h-[36px] border ${currentPage === (index + 1) ? "bg-white text-black" : "bg-secondary text-white"}`}
+                                className="w-[36px] h-[36px] border bg-secondary text-black relative z-0"
                                 onClick={() => setCurrentPage(index + 1)}
                             >
-                                {index + 1}
+                                <motion.span
+                                    initial={{ color: 'rgba(255, 255, 255, 1)', }}
+                                    animate={{ color: (currentPage == index + 1) ? "var(--secondary)" : "rgba(255, 255, 255, 1)", }}
+                                >
+                                    {index + 1}
+                                </motion.span>
+                                {
+                                    (currentPage == index + 1) && (
+                                        <motion.span
+                                            className="absolute top-0 left-0 w-full h-full bg-white z-[-1]"
+                                            layoutId="active-item"
+                                        />
+                                    )
+                                }
                             </button>
                         ))
                     }
