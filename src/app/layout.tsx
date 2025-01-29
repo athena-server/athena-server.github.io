@@ -1,27 +1,28 @@
 import type { Metadata } from "next";
 import { inter } from "@/fonts";
 import "./globals.css"
-import PageWrapper from "@/components/Container";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getSslOpenStatus } from "@/lib/sslopen";
 
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Software Systems Labaratory",
   description: "CSED | NITC",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isSslOpen = await getSslOpenStatus();
   return (
     <html lang="en"
       style={{ scrollBehavior: "smooth" }}>
       <body className={`${inter.className} antialiased`}>
-        <Navbar />
+        <Navbar sslOpenStatus={isSslOpen} />
         {children}
         <Footer />
       </body>

@@ -84,7 +84,7 @@ const Page = () => {
                 inline: 'center',
             })
         }
-    }, [selected]);
+    }, [selected, prevValue]);
 
 
 

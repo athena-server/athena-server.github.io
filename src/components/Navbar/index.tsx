@@ -5,10 +5,10 @@ import SslStatus from './SslStatus';
 import MobileNavItem from './MobileNavItem';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { getSslOpenStatus } from '@/lib/sslopen';
 
-const Navbar = () => {
-    const [isSslOpen, setIsSslOpen] = useState(false);
+const Navbar = ({
+    sslOpenStatus = false,
+}: NavbarProps) => {
     const router = useRouter();
     const pathname = usePathname();
     const { scrollYProgress } = useScroll();
@@ -51,15 +51,6 @@ const Navbar = () => {
     const toggleMenu = useCallback(() => {
         setOpen(prev => (!prev));
     }, [setOpen]);
-
-    useEffect(() => {
-        const loadData = async () => {
-            const status = await getSslOpenStatus();
-            setIsSslOpen(status);
-        }
-
-        void loadData();
-    }, []);
 
 
     const routeToTarget = useCallback((route: string, newTab: boolean = false) => {
@@ -106,7 +97,7 @@ const Navbar = () => {
                     </button>
                 </div>
                 <div className='w-full lg:w-1/5 h-full flex items-center justify-center lg:justify-end py-4 px-8 order-1 lg:order-last z-[2]'>
-                    <SslStatus open={isSslOpen} />
+                    <SslStatus open={sslOpenStatus} />
                 </div>
                 <AnimatePresence>
                     {
@@ -146,3 +137,7 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
+export interface NavbarProps {
+    sslOpenStatus?: boolean,
+}

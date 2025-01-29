@@ -29,7 +29,7 @@ const InputWrapper = ({
             const results = fuseRef.search(inputValue);
             setFilteredCourses(results.map(res => res.item))
         }
-    }, [fuseRef, allCourses]);
+    }, [fuseRef, allCourses, setFilteredCourses]);
 
     const submitHandler: FormEventHandler = useCallback((e) => {
         e.preventDefault();
