@@ -91,7 +91,7 @@ const Page = () => {
     return (
         <Container>
             <Section className="flex flex-col justify-center min-h-screen items-center lg:items-start h-full mb-16 pt-20 lg:pt-24">
-                <div className="w-full flex flex-row justify-between justify-center align-items items-center border-b-[1px] border-solid border-white ">
+                <div className="w-full flex flex-col lg:flex-row justify-between gap-4 lg:gap-0 justify-center items-start lg:items-center border-b-[1px] border-solid border-white p-4 lg:p-0">
                     <h1 className={`${alumniSans.className} text-7xl font-bold`}>
                         COURSE REVIEW
                     </h1>

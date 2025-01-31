@@ -85,7 +85,7 @@ const Navbar = ({
                             navBarItems.map((item, index) => (
                                 <motion.button
                                     key={index}
-                                    className='mx-4'
+                                    className='mx-4 text-nowrap'
                                     style={{ color: (item.route == pathname) ? 'var(--light-blue)' : 'rgba(255,255,255,1)' }}
                                     whileHover={{ color: 'var(--light-blue)' }}
                                     whileTap={{ color: 'var(--dark-blue)' }}
@@ -109,18 +109,22 @@ const Navbar = ({
                         open && (
                             <motion.div
                                 className='block lg:hidden fixed top-0 left-0 h-screen w-screen flex flex-col gap-2 items-center justify-center overscroll-contain'
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0, transition: { delay: 0.5 } }}
-                                transition={{ duration: 0.4, ease: [0.445, 0.05, 0.55, 0.95] }}
+                            // initial={{ opacity: 0 }}
+                            // animate={{ opacity: 1 }}
+                            // exit={{ opacity: 0, transition: { delay: 0.5 } }}
+                            // transition={{ duration: 0.4, ease: [0.445, 0.05, 0.55, 0.95] }}
 
                             >
                                 <motion.div
                                     className='absolute top-0 left-0 w-full bg-[rgba(0,0,0,0.2)] shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] overscroll-contain'
-                                    initial={{ height: '0dvh', backdropFilter: 'blur(0px)' }}
-                                    animate={{ height: '100dvh', backdropFilter: 'blur(20px)' }}
-                                    exit={{ height: '0dvh', backdropFilter: 'blur(0px)' }}
-                                    transition={{ delay: 0.1, duration: 0.4, ease: [0.445, 0.05, 0.55, 0.95] }}
+                                    initial={{ height: '0dvh', backdropFilter: 'blur(0px)', opacity: 0 }}
+                                    animate={{ height: '100dvh', backdropFilter: 'blur(20px)', opacity: 1 }}
+                                    exit={{
+                                        height: '0dvh', backdropFilter: 'blur(0px)', opacity: 0, transition: {
+                                            delay: 0.8,
+                                        }
+                                    }}
+                                    transition={{ duration: 0.4, ease: [0.445, 0.05, 0.55, 0.95] }}
                                 />
                                 {
                                     navBarItems.map((item, index) => (
