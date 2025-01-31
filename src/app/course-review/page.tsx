@@ -219,12 +219,16 @@ const Page = () => {
                         Array.from({ length: Math.ceil(filteredCourses.length / 9) }).map((_, index) => (
                             <button
                                 key={index + 1}
-                                className="w-[36px] h-[36px] border bg-secondary text-black relative z-0"
+                                className="w-[36px] h-[36px] border bg-transparent text-black relative z-0"
                                 onClick={() => setCurrentPage(index + 1)}
                             >
                                 <motion.span
+                                    className="z-[5]"
                                     initial={{ color: 'rgba(255, 255, 255, 1)', }}
                                     animate={{ color: (currentPage == index + 1) ? "var(--secondary)" : "rgba(255, 255, 255, 1)", }}
+                                    transition={{
+                                        duration: 0.3, ease: [0.445, 0.05, 0.55, 0.95]
+                                    }}
                                 >
                                     {index + 1}
                                 </motion.span>
@@ -232,6 +236,9 @@ const Page = () => {
                                     (currentPage == index + 1) && (
                                         <motion.span
                                             className="absolute top-0 left-0 w-full h-full bg-white z-[-1]"
+                                            transition={{
+                                                duration: 0.3, ease: [0.445, 0.05, 0.55, 0.95]
+                                            }}
                                             layoutId="active-item"
                                         />
                                     )

@@ -250,7 +250,7 @@ const Page = () => {
                         </p>
 
                         <div className="w-full text-left">
-                            <Button onClick={() => routeTo('/course-reviews')}> Review Courses </Button>
+                            <Button onClick={() => routeTo('/course-review')}> Review Courses </Button>
                         </div>
                     </div>
                 </div>
@@ -266,7 +266,7 @@ const Page = () => {
                     </p>
 
                     <div className="w-full text-center md:text-left">
-                        <Button onClick={() => routeTo('/course-reviews')}> Review Courses </Button>
+                        <Button onClick={() => routeTo('/course-review')}> Review Courses </Button>
                     </div>
                 </div>
             </Section>

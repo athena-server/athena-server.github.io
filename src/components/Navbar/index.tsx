@@ -40,6 +40,11 @@ const Navbar = ({
             newTab: false
         },
         {
+            name: 'Course Reviews',
+            route: 'course-review',
+            newTab: false,
+        },
+        {
             name: "Resources",
             route: "https://drive.google.com/drive/folders/1SEQD8DihaA-5nt1kjI79rbQ1PVunXsnj",
             newTab: true,
