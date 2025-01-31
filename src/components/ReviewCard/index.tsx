@@ -18,7 +18,7 @@ const ReviewCard = ({
     totalReviews,
     review,
     rating,
-}: CardProps): JSX.Element => {
+}: ReviewCardProps): JSX.Element => {
 
     return (
         <div className="content-center w-full py-[24px] px-[14px] rounded-[12px] bg-[#E5E5E5]">
@@ -55,7 +55,7 @@ const ReviewCard = ({
 };
 
 export default ReviewCard;
-export interface CardProps {
+export interface ReviewCardProps {
     semester: string;
     index: number;
     totalReviews: number;

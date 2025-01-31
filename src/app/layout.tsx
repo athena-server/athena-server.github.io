@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { inter } from "@/fonts";
 import "./globals.css"
-import PageWrapper from "@/components/Container";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getSslOpenStatus } from "@/lib/sslopen";
 
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Software Systems Labaratory",

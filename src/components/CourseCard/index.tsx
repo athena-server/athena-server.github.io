@@ -1,8 +1,8 @@
 "use client";
 
 import { alumniSans } from "@/fonts";
-import { easeInOut, motion } from 'framer-motion'
-import { MouseEventHandler } from "react";
+import { easeInOut, HTMLMotionProps, motion } from 'framer-motion'
+import { MouseEventHandler, useMemo } from "react";
 
 /**
 * Cards for the Course Review page
@@ -18,33 +18,76 @@ const CourseCard = ({
     courseId,
     reviewCount,
     onClick = undefined,
-}: CardProps): JSX.Element => {
+    selected = false,
+}: CourseCardProps): JSX.Element => {
+    const buttonProps: HTMLMotionProps<'button'> = useMemo(() => ({
+        layoutId: courseId,
+        className: 'flex flex-col w-full xs:w-[350px] h-[120px] py-[4px] px-[11px] gap-4 border-b border-b-px',
+        onClick: onClick,
+        ...(selected
+            ? {
+                transition: {
+                    duration: 0.5,
+                    ease: easeInOut,
+                },
+                initial: {
+                    color: 'var(--secondary)',
+                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                    scale: 1,
+                },
+                animate: {
+                    color: 'var(--secondary)',
+                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                    scale: 1,
+                },
+                whileHover: {
+                    color: 'var(--secondary)',
+                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                    scale: 1.01,
+                },
+                whileTap: {
+                    color: "var(--secondary)",
+                    backgroundColor: "rgba(255, 255, 255, 1)",
+                    scale: 0.99,
+                },
+            }
+            : {
+                transition: {
+                    duration: 0.5,
+                    ease: easeInOut,
+                },
+                initial: {
+                    color: 'rgba(255, 255, 255, 1)',
+                    backgroundColor: 'var(--secondary)',
+                    scale: 1,
+                },
+                animate: {
+                    color: 'rgba(255, 255, 255, 1)',
+                    backgroundColor: 'var(--secondary)',
+                    scale: 1,
+                },
+                whileHover: {
+                    color: 'var(--secondary)',
+                    backgroundColor: 'rgba(255, 255, 255, 1)',
+                    scale: 1.01, transition: {
+                        duration: 0.2,
+                        ease: easeInOut,
+                    },
+                },
+                whileTap: {
+                    color: "var(--secondary)",
+                    backgroundColor: "rgba(255, 255, 255, 1)",
+                    scale: 0.99, transition: {
+                        duration: 0.2,
+                        ease: easeInOut,
+                    },
+                },
+            })
+    }), [selected, onClick, courseId]);
+
     return (
-        <motion.button
-            layoutId={`${courseId}`}
-            className="flex flex-col w-full xs:w-[350px] h-[120px] py-[4px] px-[11px] gap-4 border-b border-b-px"
-            initial={{
-                color: "rgba(255, 255, 255, 1)",
-                backgroundColor: "var(--secondary)",
-                scale: 1,
-            }}
-            whileHover={{
-                color: "rgba(0, 0, 0, 1)",
-                backgroundColor: "rgba(255, 255, 255, 1)",
-                scale: 1.01,
-            }}
-            whileTap={{
-                color: "rgba(0, 0, 0, 1)",
-                backgroundColor: "rgba(255, 255, 255, 1)",
-                scale: 0.99,
-            }}
-            transition={{
-                duration: 0.2,
-                ease: easeInOut,
-            }}
-            onClick={onClick}
-        >
-            <div className="w-[328px] h-[64px]">
+        <motion.button {...buttonProps}>
+            <div className="w-full max-w-[328px] xs:w-[328px] h-[64px]">
                 <h4 className={`${alumniSans.className} w-11/12 text-[28px] font-bold leading-[32px] text-left text-inherit`}>
                     {courseTitle}
                 </h4>
@@ -66,14 +109,15 @@ const CourseCard = ({
                     </span>
                 </div>
             </div>
-        </motion.button>
+        </motion.button >
     )
 };
 
 export default CourseCard;
-export interface CardProps {
+export interface CourseCardProps {
     courseTitle: string,
     courseId: string,
     reviewCount: number,
     onClick?: MouseEventHandler<HTMLButtonElement>
+    selected?: boolean,
 }

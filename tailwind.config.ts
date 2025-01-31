@@ -15,6 +15,7 @@ export default {
         neonGreen: "var(--neon-green)",
         darkBlue: "var(--dark-blue)",
         neonRed: "var(--neon-red)",
+        secondary: "var(--secondary)",
       },
     },
     screens: {
