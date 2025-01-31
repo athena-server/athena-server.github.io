@@ -59,8 +59,13 @@ const Admins = () => {
                                             <div key={idx}>
                                                 <Button
                                                     className="!px-[42px] !py-[16px]"
-                                                    onClick={() => routeHandler(admin.socials?.linkedin || "#")}
+                                                    {
+                                                    ...(admin.socials?.linkedin && ({
+                                                        onClick: () => routeHandler(admin.socials?.linkedin || '#')
+                                                    }))
+                                                    }
                                                     hideIcon
+                                                    disabled
                                                 >
                                                     {admin.name}
                                                 </Button>

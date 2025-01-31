@@ -35,7 +35,7 @@ const Footer = (): JSX.Element => {
                     {/* Copyright Section */}
                     <div className="flex justify-center items-center mt-8 mb-6 lg:mt-0 lg:mb-0">
                         <p className="text-center flex flex-wrap justify-center items-center">
-                            Copyright Ⓒ {new Date().getFullYear()} CSED,&nbsp;
+                            Copyright Ⓒ 2025 CSED,&nbsp;
                             <span className="block lg:hidden">NIT Calicut</span>
                             <span className="hidden lg:block">National Institute of Technology Calicut</span>
                         </p>

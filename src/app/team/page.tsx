@@ -32,7 +32,7 @@ const Page = () => {
         <Container>
             <Section className="min-h-screen h-full mb-16 pt-20 lg:pt-28">
                 <h1 className={`${alumniSans.className} text-left lg:text-center text-[64px] leading-[76.8px] font-bold mb-4`}>
-                    MEET THE TEAM
+                    Meet The Team
                 </h1>
 
                 <div className="flex justify-center mb-8">

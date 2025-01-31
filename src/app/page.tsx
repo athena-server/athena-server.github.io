@@ -131,7 +131,7 @@ const Page = () => {
                 <div className="w-full lg:w-4/5 xl:w-3/5 h-inherit flex flex-col gap-8 items-start justify-center py-14">
                     <h2 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> About Us </h2>
                     <div className="w-full h-full flex flex-col gap-4 lg:gap-0 items-start justify-center lg:grid grid-cols-12 grid-rows-12 text-lg">
-                        <span className="w-full h-full row-start-1 row-span-5 col-start-1 col-span-7 flex items-center lg:p-3">
+                        <span className="w-full h-full row-start-1 row-span-5 col-start-1 col-span-7 flex items-start lg:py-3 lg:pe-5">
                             The objective of this laboratory is to provide the infrastructure for conducting the regular labs and project works for the BTech Program. The lab is equipped with state of the art servers, desktops and software
                         </span>
 
@@ -230,7 +230,7 @@ const Page = () => {
                     <div className="h-full w-1/3 flex flex-col items-start justify-center gap-8 relative">
                         <h3 className={`${alumniSans.className} font-bold text-7xl`}> Want to book SSL for events? </h3>
                         <p>
-                            Download and fill the form given below and there are some more instructions.
+                            Download the form below and submit the filled form at the CSED office to request SSL/NSL access.
                         </p>
                         <div className="w-full text-center md:text-left">
                             <Button onClick={() => routeTo('/docs/SSL-Request.pdf')} className="!px-6" hideIcon> Download Form </Button>
@@ -274,7 +274,7 @@ const Page = () => {
                 <div className="h-full w-full lg:w-1/3 flex flex-col items-start justify-center gap-8 relative">
                     <h3 className={`${alumniSans.className} font-bold text-5xl lg:text-7xl`}> Want to book SSL for events? </h3>
                     <p>
-                        Download and fill the form given below and there are some more instructions. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Download the form below and submit the filled form at the CSED office to request SSL/NSL access.
                     </p>
                     <div className="w-full text-center md:text-left">
                         <Button onClick={() => routeTo('/docs/SSL-Request.pdf')} className="!px-6" hideIcon> Download Form </Button>

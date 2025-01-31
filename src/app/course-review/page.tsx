@@ -2,7 +2,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Container from "@/components/Container"
 import Section from "@/components/Section";
-import Input from "@/components/Input";
 import { alumniSans } from "@/fonts";
 import CourseCard, { CourseCardProps } from "@/components/CourseCard";
 import { getCourses, getReviews } from "@/lib/courses";
@@ -90,11 +89,11 @@ const Page = () => {
 
     return (
         <Container>
-            <Section className="flex flex-col justify-center min-h-screen items-center lg:items-start h-full mb-16 pt-20 lg:pt-24">
+            <Section className="flex flex-col justify-center min-h-screen items-center lg:items-start h-full mb-16 pt-20 lg:pt-32">
                 <div className="w-full flex flex-col lg:flex-row justify-between gap-4 lg:gap-0 justify-center items-start lg:items-center border-b-[1px] border-solid border-white p-4 lg:p-0">
-                    <h1 className={`${alumniSans.className} text-7xl font-bold`}>
-                        COURSE REVIEW
-                    </h1>
+                    <h3 className={`${alumniSans.className} text-7xl font-bold`}>
+                        Course Review
+                    </h3>
                     <InputWrapper
                         allCourses={courses}
                         setFilteredCourses={setFilteredCourses}
@@ -106,7 +105,7 @@ const Page = () => {
                         (selected !== null) && (
                             <div className="w-full flex justify-end">
                                 <div className="w-full lg:w-1/2 flex items-center justify-between">
-                                    <h4 className={`text-lg ${alumniSans.className}`}>
+                                    <h4 className={`text-2xl ${alumniSans.className}`}>
                                         {selected.courseId} | {selected.courseTitle}
                                     </h4>
                                     <button className="w-[36px] h-[36px] flex items-center justify-center" onClick={handleHideReviewSection}>
@@ -118,7 +117,7 @@ const Page = () => {
                             </div>
                         )
                     }
-                    <motion.div className={`${selected ? 'h-[75dvh]' : 'min-h-[75dvh] h-full'} w-full flex relative overflow-y-hidden`}>
+                    <div className={`${selected ? 'h-[75dvh]' : 'min-h-[75dvh] h-full'} w-full flex relative overflow-y-hidden`}>
                         <AnimatePresence initial={false}>
                             <motion.div
                                 key={currentPage}
@@ -182,7 +181,7 @@ const Page = () => {
                                                 </div>
                                             ) : (
                                                 <div className="flex gap-[24px] flex-col lg:flex-row h-full">
-                                                    <div className="w-full pt-48 lg:pt-0 lg:w-1/2 h-full flex flex-col gap-[24px]">
+                                                    <div className="w-full lg:w-1/2 h-full flex flex-col gap-[24px]">
                                                         {
                                                             reviews.firstHalf.map((review, index) => (
                                                                 <ReviewCard
@@ -211,7 +210,7 @@ const Page = () => {
                             }
                         </AnimatePresence>
 
-                    </motion.div>
+                    </div>
                 </div>
 
                 <div className="flex justify-center w-full">

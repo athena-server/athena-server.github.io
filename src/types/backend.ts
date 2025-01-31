@@ -61,7 +61,7 @@ export interface Course {
         course_reviews?: {
             id: string,
             reviewText: string,
-            rating: number,
+            courseRating: number,
             reviewed_in_sem: {
                 semesterName: string,
             }
@@ -73,7 +73,7 @@ export interface Review {
     data: {
         id: string,
         reviewText: string,
-        rating: number,
+        courseRating: number,
         courseId?: {
             courseId: string,
             courseTitle: string,

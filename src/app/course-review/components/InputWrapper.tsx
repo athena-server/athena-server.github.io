@@ -10,7 +10,7 @@ const InputWrapper = ({
     const [input, setInput] = useState<string>("");
     const fuseOptions = useMemo(() => ({
         keys: ['courseId', 'courseTitle'],
-        threshold: 0.7,
+        threshold: 0.3,
     }), []);
 
     const fuseRef = useMemo(() =>
@@ -21,11 +21,9 @@ const InputWrapper = ({
         const inputValue = e.target.value;
         setInput(inputValue);
         if (inputValue.trim() === "") {
-            console.log("hi1");
             setFilteredCourses(allCourses)
         }
         else {
-            console.log("hi2");
             const results = fuseRef.search(inputValue);
             setFilteredCourses(results.map(res => res.item))
         }

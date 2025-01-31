@@ -30,7 +30,7 @@ const getReviews = async (courseId?: string): Promise<ReviewsData> => {
             index: index + 1,
             totalReviews: courseReviews.length,
             review: review.reviewText,
-            rating: review.rating,
+            rating: review.courseRating,
         }));
 
         return formattedData;
@@ -42,7 +42,7 @@ const getReviews = async (courseId?: string): Promise<ReviewsData> => {
             index: -1,
             totalReviews: -1,
             review: review.reviewText,
-            rating: review.rating,
+            rating: review.courseRating,
         }));
 
         return formattedData;

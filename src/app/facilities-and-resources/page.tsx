@@ -45,7 +45,7 @@ const Page = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="flex flex-col w-full lg:w-7/12">
             <h1 className={`${alumniSans.className} text-8xl font-bold`}>
-              FACILITIES
+              Facilities
             </h1>
             <span
               className="text-white font-normal text-xl mt-10 mx-auto"
@@ -122,12 +122,12 @@ const Page = () => {
               assigned a fixed amount of disk quota. The users can also host
               their personal website.
             </p>
-            <div className="py-[14px]">
+            {/* <div className="py-[14px]">
               <Link
                 href="https://athena.nitc.ac.in/how-to-athena/"
                 label="How to use Athena"
               />
-            </div>
+            </div> */}
           </div>
           <div className="order-3 w-full h-full border border-white p-3.5 col-start-4 col-span-5 row-start-1 row-span-7 border border-dashed border-white flex flex-col gap-2.5">
             <h2 className={`${alumniSans.className} font-bold text-4xl text-darkBlue ${styles.boxshadow}`}>

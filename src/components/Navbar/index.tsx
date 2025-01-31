@@ -5,10 +5,9 @@ import SslStatus from './SslStatus';
 import MobileNavItem from './MobileNavItem';
 import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { getSslOpenStatus } from '@/lib/sslopen';
 
-const Navbar = ({
-    sslOpenStatus = false,
-}: NavbarProps) => {
+const Navbar = () => {
     const router = useRouter();
     const pathname = usePathname();
     const { scrollYProgress } = useScroll();
@@ -71,11 +70,24 @@ const Navbar = ({
         }
     }, [router, setOpen]);
 
+
+    const [sslOpenStatus, setSslOpenStatus] = useState<boolean>();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const status = await getSslOpenStatus();
+            setSslOpenStatus(status);
+        }
+
+        void fetchData();
+    }, []);
+
+
     return (
         <motion.div className='fixed top-0 left-0 w-full flex items-center justify-center bg-black z-[100]' style={{
             background: opacity
         }}>
-            <nav className="w-full max-w-[1920px] h-20 lg:h-24 flex items-center justify-between">
+            <nav className="w-full max-w-[1920px] h-16 lg:h-20 flex items-center justify-between">
                 <Link href="/" className='w-full lg:w-1/5 h-full flex items-center p-4 lg:px-8 lg:py-4 order-first z-[200]'>
                     <img src="/Navbar/logo.png" width={100} height={88} alt="logo" />
                 </Link>
@@ -107,14 +119,7 @@ const Navbar = ({
                 <AnimatePresence>
                     {
                         open && (
-                            <motion.div
-                                className='block lg:hidden fixed top-0 left-0 h-screen w-screen flex flex-col gap-2 items-center justify-center overscroll-contain'
-                            // initial={{ opacity: 0 }}
-                            // animate={{ opacity: 1 }}
-                            // exit={{ opacity: 0, transition: { delay: 0.5 } }}
-                            // transition={{ duration: 0.4, ease: [0.445, 0.05, 0.55, 0.95] }}
-
-                            >
+                            <div className='block lg:hidden fixed top-0 left-0 h-screen w-screen flex flex-col gap-2 items-center justify-center overscroll-contain'>
                                 <motion.div
                                     className='absolute top-0 left-0 w-full bg-[rgba(0,0,0,0.2)] shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] overscroll-contain'
                                     initial={{ height: '0dvh', backdropFilter: 'blur(0px)', opacity: 0 }}
@@ -136,7 +141,7 @@ const Navbar = ({
                                         />
                                     ))
                                 }
-                            </motion.div>
+                            </div>
                         )
                     }
                 </AnimatePresence>
@@ -146,7 +151,3 @@ const Navbar = ({
 }
 
 export default Navbar;
-
-export interface NavbarProps {
-    sslOpenStatus?: boolean,
-}
