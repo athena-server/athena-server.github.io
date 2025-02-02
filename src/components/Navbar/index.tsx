@@ -40,7 +40,7 @@ const Navbar = () => {
         },
         {
             name: 'Course Reviews',
-            route: 'course-review',
+            route: '/course-review',
             newTab: false,
         },
         {
