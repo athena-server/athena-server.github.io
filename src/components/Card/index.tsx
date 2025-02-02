@@ -108,7 +108,7 @@ const Card = ({
 
 export default Card;
 export interface CardProps {
-    imageUrl: string;
+    imageUrl?: string;
     name: string;
     socials?: {
         email?: string;

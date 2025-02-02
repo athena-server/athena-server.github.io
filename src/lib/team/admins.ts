@@ -13,7 +13,6 @@ const getAdmins = async (): Promise<AdminData> => {
         const { batchCode, admins } = batch;
         const formattedAdminData: CardProps[] = admins.map(admin => ({
             name: admin.name,
-            imageUrl: getImageUrl(admin.image),
             socials: getSocials(admin.socials)
         }));
 
